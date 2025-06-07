@@ -104,12 +104,16 @@
                             <a class="nav-link {% if site == 'contact' %}active{% endif %}" href="/{{current_locale}}/contact">{{ 'home-page.contact'| trans }}</a>
                         </li>
                     </ul>
-                    <a href="{{ path('home_index', {'_locale': 'pl'}) }}/{{site}}" class="btn btn-light btn-sm ms-3 btn-language">
-                    <img style="padding:0;" src="img/pl.png" alt=""></a>
+
+                    <a href="{{ path('home_index', {'_locale': 'pl'}) }}/{{site}}"  class="btn btn-light btn-sm ms-3 btn-language">
+                        <img style="width:20px; padding:0; border-radius:0;" src="img/pl.png" alt="Polish flag" width="20" >
+                        <span style="position: relative; top: 2px;">PL</span>
+                    </a>
                     <a href="{{ path('home_index', {'_locale': 'en'}) }}/{{site}}" class="btn btn-light btn-sm ms-3 btn-language">
-                    <img style="padding:0;" src="img/gb.png"></a>
+                        <img style="width:20px; padding:0; border-radius:0;" src="img/gb.png" alt="English flag" width="20" > 
+                        <span style="position: relative; top: 2px;">EN</span>
+                    </a>
                 </div>
-        
             </nav>
 
             <br><br>
