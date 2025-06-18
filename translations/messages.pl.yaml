@@ -353,17 +353,31 @@ quiz-page:
   start-coding: Projekt rozpoczęty w 2025r.
 
   description-01: | 
-    Szkoła Jazdy to projekt wykonany w ramach nauki Laravel i podstaw Vue dla znajomego który prowadzi szkołę jazdy w Holandi w języku Polskim.
+    Szkoła Jazdy to projekt wykonany w ramach nauki Laravel i podstaw Vue dla znajomego który prowadzi szkołę jazdy w Holandii w języku Polskim.
     Ogólnie podobne narzędzie do nauki teorii już istnieje na holenderskim rynku ale posiada liczne błędy w tłumaczeniach w polskiej wersji językowej. 
     Celem stworzenia platformy do nauki jest posiadanie pełnej kontroli nad tłumaczeniami, czyli strona jest w trzech językach ale wszystkie
     wersje językowe pytań i odpowiedzi w quizach są wprowadzane przez właściciela platformy. 
 
   description-02: | 
-    Do łatwego zarządzania quizami stworzyłem panel administracyjny w którym można zarządzać kontami uzytkownikow po przez nadawanie ról takich jak user, premium, admin.
-    
+    Do łatwego zarządzania quizami stworzyłem panel administracyjny w którym można zarządzać kontami użytkowników po przez nadawanie ról takich jak user, premium, admin oraz 
+    można zarządzać quizami. W panelu zarządzania można dodawać, usuwać i edytować kategorie oraz quizy w danej kategorii. Wszystkie treści nazwy kategorii, 
+    quizy (pytania i odpowiedzi) wprowadza się osobno dla każdej wersji językowej korzystając z listy rozwijanej do wyboru języka.
+
+  description-03: |
+    Są trzy typy kategorii demo, zwykła i egzamin, Jeśli chcemy by dana kategoria była dostępna dla każdego użytkowniak typu "user" wystarczy w nazwie kategori 
+    dodać słowo kluczowe (Demo) pozostałe typy kategorii są dostępne tylko dla użytkowników "premium". Jeśli chcemy utworzyć kategorię egzamin nadajemy
+    poprostu nazwę kategori "Egzamin" skrypt rozpoznaje słowa kluczowe i w odpowiedni sposób traktóje dzną kategorię. Nauka polega na rozwiązywaniu quizów wybierając
+    daną kategorię po czym jest losowane z puli danej kategorii 10 pytań. 
+
+  description-04: |
+    Pytania wyświetlane są asynchronicznie w okienku modal z obiektu który jest tworzony podczas wyboru kategorii na backendzie. Pytania można przewijać dowoli w przód i w stecz 
+    natomiast w ostatnim 10 pytaniu (o ile w puli putań jest wystarczająca ilość pytań)ukaże się przycisk "Podsumowanie". Po przejściu do podsumowania ukaże się wynik naszego quizu
+    który zostaje zapisany w bazie danych nadal można powracać do poprzednich pytań w celu analizy ale udzielanie odpowiedzi jest już zablokowane.
 
   quiz-association-1: Widok strony domowej po zalogowaniu 
-
+  quiz-association-2: Zarządzanie użytkownikami 
+  quiz-association-3: Dodawanie kategori 
+  quiz-association-4: Rozwiązywanie zadania
 
 repo: Link do repozytorium
 not-redy: Niebawem opis projektu będzie dostępny.
