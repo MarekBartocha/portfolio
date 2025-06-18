@@ -347,6 +347,23 @@ qrz-page:
   qrz-association-3: Dodawanie zdjęcia do wizytówki
   qrz-association-4: Wizytówka w wyszukiwarce
 
+quiz-page:
+  title: Szkoła Jazdy
+  title-nav: Szkoła Jazdy
+  start-coding: Projekt rozpoczęty w 2025r.
+
+  description-01: | 
+    Szkoła Jazdy to projekt wykonany w ramach nauki Laravel i podstaw Vue dla znajomego który prowadzi szkołę jazdy w Holandi w języku Polskim.
+    Ogólnie podobne narzędzie do nauki teorii już istnieje na holenderskim rynku ale posiada liczne błędy w tłumaczeniach w polskiej wersji językowej. 
+    Celem stworzenia platformy do nauki jest posiadanie pełnej kontroli nad tłumaczeniami, czyli strona jest w trzech językach ale wszystkie
+    wersje językowe pytań i odpowiedzi w quizach są wprowadzane przez właściciela platformy. 
+
+  description-02: | 
+    Do łatwego zarządzania quizami stworzyłem panel administracyjny w którym można zarządzać kontami uzytkownikow po przez nadawanie ról takich jak user, premium, admin.
+    
+
+  quiz-association-1: Widok strony domowej po zalogowaniu 
+
 
 repo: Link do repozytorium
 not-redy: Niebawem opis projektu będzie dostępny.
