@@ -8,12 +8,26 @@
     <p>{{'home-page.intro'|trans}}</p>
 </div>
     <div class="row">
+        <div class="col-12   text-center ">
+            <a href="{{ path('quiz_index')}}">
+                <img src="{{ asset('img/quiz/2.png') }}" class="img-fluid rounded-lg home-img" alt="Obrazek">
+            </a>
+            <p class="text-gray-700 font-bold py-0 text-center">
+                <span class="title"><b>🔥 {{'quiz-page.title' |trans}}</b></span><br>
+                {{'home-page.technologies' |trans}}<br>
+                Laravel · Blade · Vue · Bootstrap <br>Laravel Auth · MySQL · Eloquent ORM<br>
+                {{'quiz-page.start-coding' |trans}}
+            </p>  
+            <a href="{{ path('quiz_index')}}">🔗 {{'home-page.project'|trans}}</a><br><br>
+        </div>
+        
+
         <div class="col-12 col-lg-6  text-center ">
             <a href="{{ path('qrz_oscarsierra_index')}}">
                 <img src="{{ asset('img/qrz-oscarsierra/1.png') }}" class="img-fluid rounded-lg home-img" alt="Obrazek">
             </a>
             <p class="text-gray-700 font-bold py-0 text-center">
-                <span class="title"><b>🔥 {{'qrz-page.title' |trans}}</b></span><br>
+                <span class="title"><b>⭐ {{'qrz-page.title' |trans}}</b></span><br>
                 {{'home-page.technologies' |trans}}<br>
                 Symfony · Doctrine ORM · Twig  <br>Symfony Security · Bootstrap · MySQL<br>
                 {{'qrz-page.start-coding' |trans}}
