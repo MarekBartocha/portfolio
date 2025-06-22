@@ -355,11 +355,11 @@ quiz-page:
   description-01: | 
     Szkoła Jazdy to projekt wykonany w ramach nauki Laravel i podstaw Vue dla znajomego który prowadzi szkołę jazdy w Holandii w języku Polskim.
     Ogólnie podobne narzędzie do nauki teorii już istnieje na holenderskim rynku ale posiada liczne błędy w tłumaczeniach w polskiej wersji językowej. 
-    Celem stworzenia platformy do nauki jest posiadanie pełnej kontroli nad tłumaczeniami, czyli strona jest w trzech językach ale wszystkie
-    wersje językowe pytań i odpowiedzi w quizach są wprowadzane przez właściciela platformy. 
+    Celem stworzenia platformy do nauki jest posiadanie pełnej kontroli nad tłumaczeniami, wszystkie wersje językowe pytań i odpowiedzi w quizach są 
+    wprowadzane przez właściciela platformy. 
 
   description-02: | 
-    Do łatwego zarządzania quizami stworzyłem panel administracyjny w którym można zarządzać kontami użytkowników po przez nadawanie ról takich jak user, premium, admin oraz 
+    Do łatwego zarządzania stworzyłem panel administracyjny w którym można zarządzać kontami użytkowników po przez nadawanie ról takich jak user, premium, admin oraz 
     można zarządzać quizami. W panelu zarządzania można dodawać, usuwać i edytować kategorie oraz quizy w danej kategorii. Wszystkie treści nazwy kategorii, 
     quizy (pytania i odpowiedzi) wprowadza się osobno dla każdej wersji językowej korzystając z listy rozwijanej do wyboru języka.
 
@@ -371,13 +371,39 @@ quiz-page:
 
   description-04: |
     Pytania wyświetlane są asynchronicznie w okienku modal z obiektu który jest tworzony podczas wyboru kategorii na backendzie. Pytania można przewijać dowoli w przód i w stecz 
-    natomiast w ostatnim 10 pytaniu (o ile w puli putań jest wystarczająca ilość pytań)ukaże się przycisk "Podsumowanie". Po przejściu do podsumowania ukaże się wynik naszego quizu
-    który zostaje zapisany w bazie danych nadal można powracać do poprzednich pytań w celu analizy ale udzielanie odpowiedzi jest już zablokowane.
+    natomiast w ostatnim 10 pytaniu ukaże się przycisk "Podsumowanie". Po przejściu do podsumowania ukaże się wynik naszego quizu
+    który zostaje zapisany w bazie danych. System pozwala na kilka poprawnych odpowiedzi w jednym pytaniu. Podczas nauki wybranie 1 błędnej odbowiedzi blokóje możliwość udzielania
+    odpowiedzi w danym pytaniu, jest wyświetlane pouczenie na czerwonym tle dlaczego dana odpowiedź jest błędna, zadanie nie jest zaliczone. 
+
+  description-05: |  
+    W prziypadku zaznaczenia poprawnej odpowiedzi, jeśli to była jedyna poprawna odpowiedź wtedy udzielanie dalszych odpowiedzi jest blokowane oraz
+    wyświetla sie na zielonym tle wyjaśnienie dlaczego właśnie to poprawna odpowiedź. W przypadku wielu poprawnych odpowiedz blokada i ukazanie sie objaśnienia następuje 
+    gdy wybrane zostaną wszystkie poprawne odpowiedzi.
+
+  description-06: |
+    Uruchamiając egzamin jest losowane 50 pytań z wszystkich kategorii pobierając z każdej kategorii równą ilość losowo wybranych pytań.
+    Podobnie jak przy nauce na egzaminie możemy przechodzić do kolejnych pytań i powracać z tą różnicą że nie ma blolad po wybraniu poprawnij lub 
+    błędnej odpowiedz analogicznie tagże nie ma pouczeń. Poprostu możemy zaznaczać odznaczać zaznaczenia a jak dojdzieby do ostatniego pytania 
+    pojawi się przycisk "Podsumowanie" którym możemy zakończyć symulację egzaminu. 
+
+  description-07: |
+    W przypadku gdiy nie zdążymy odpowiedzieć na wszystkie pytania i mija czas trwania egzaminu który wynośi 35 mniut przeniesie nas automatycznie
+    do podsumowania. Podsumowanie kończy egzamin zapisuje wynik w bazie danych ale nadal mamy możliwość powrucenia do poprzednich pytań ale już z 
+    włączoną blokadą i wyświetlonymi pouczeniami tak jak to wyglądało podczas nouki. Postęp nauki jak i egzaminów użytkownik może wyświetlić w "Statystykach".
+    
+
+  description-08: |
+    Dla ćwiczeń i egzaminów są oddzielne wykresy sporządzane na podstawie wyników zapisanych w bazie nadych.
 
   quiz-association-1: Widok strony domowej po zalogowaniu 
   quiz-association-2: Zarządzanie użytkownikami 
-  quiz-association-3: Dodawanie kategori 
-  quiz-association-4: Rozwiązywanie zadania
+  quiz-association-3: Zarządzanie kategoriami
+  quiz-association-4: Edycja / dodawanie wersji językowej
+  quiz-association-5: Rozwiązywanie zadania
+  quiz-association-6: Egzamin
+  quiz-association-7: Podgląd pytań z danej kategorii
+  quiz-association-8: Statystyki nauki
+  quiz-association-9: Statystyki egzaminów
 
 repo: Link do repozytorium
 not-redy: Niebawem opis projektu będzie dostępny.
