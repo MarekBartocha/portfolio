@@ -39,7 +39,8 @@ about-page:
     I wrote a bell-switch-based application that records the watchman's presence at a given place and time, with reports available remotely in a browser.
   
   description-05: |
-
+    I mainly focus on backend technologies (PHP, Symfony, Laravel, SQL), but I am also comfortable working with frontend (HTML, CSS, Bootstrap, JavaScript, jQuery). I work in Linux and Windows environments and use SSH bash.
+    I am eager to take my first job as a Junior Developer to further develop and gain experience in teamwork.
 
 
   links: Links
@@ -330,6 +331,40 @@ qrz-page:
   qrz-association-2: Editing a business card
   qrz-association-3: Adding a photo to a business card
   qrz-association-4: Search business card
+
+
+quiz-page:
+  title: Driving School
+  title-nav: Driving School
+  start-coding: The project started in 2025.
+
+  description-01: | 
+    Driving School is a project made learning Laravel and Vue basics for a friend who runs a driving school in the Netherlands in Polish.
+    A generally similar tool for learning theory already exists on the Dutch market but has numerous translation errors in the Polish version. 
+    The purpose of creating a learning platform is to have full control over the translations, that is, the site is in three languages but all
+    language versions of questions and answers in quizzes are entered by the platform owner.
+
+  description-02: | 
+    For easy management of quizzes, I have created an admin panel in which you can manage user accounts after by assigning roles such as user, premium, admin and 
+    you can manage quizzes. In the management panel you can add, delete and edit categories and quizzes in a category. All the contents of the category name, 
+    quizzes (questions and answers) are entered separately for each language version using the drop-down list for language selection.
+
+  description-03: |
+    There are three types of categories: demo, regular and exam. If you want a category to be available for every "user" it is enough to add a keyword in the category name 
+    (Demo). The other types of categories are available only for "premium" users. If you want to create a category exam we give
+    simply the name of the category "Exam" the script recognizes the keywords and treats the category accordingly. Learning is based on solving quizzes by selecting
+    a given category, after which 10 questions are drawn from the pool of the category. 
+
+  description-04: |
+    The questions are displayed asynchronously in a modal window from the object that is created when selecting a category on the backend. The questions can be scrolled back and forth in any way 
+    and in the last 10 questions (if there are enough questions in the puta pool) there will be a "Summary" button. After going to the summary you will see the result of our quiz
+    , which is saved in the database. You can still go back to previous questions for analysis, but giving answers is no longer possible.
+
+  quiz-association-1: View of the home page after logging in 
+  quiz-association-2: User management
+  quiz-association-3: Adding categories 
+  quiz-association-4: Solving the task
+
 
 repo: Link to repository
 not-redy: A description of the project will be available soon.
