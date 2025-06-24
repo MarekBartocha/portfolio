@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class VolunteerAssociationController extends AbstractController
 {
-    #[Route('/{_locale}/volunteer-association', name: 'volunteer-association_index', requirements: ['_locale' => 'en|pl'])]
+    #[Route('/{_locale}/volunteer-association', name: 'volunteer-association_index')]
     public function index(string $_locale): Response
     {
         return $this->render('volunteer-association/index.html.twig', [

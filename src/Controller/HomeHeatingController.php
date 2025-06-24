@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class HomeHeatingController extends AbstractController
 {
-    #[Route('/{_locale}/home-heating', name: 'home-heating_index', requirements: ['_locale' => 'en|pl'])]
+    #[Route('/{_locale}/home-heating', name: 'home-heating_index')]
     public function index(string $_locale): Response
     {
         return $this->render('home-heating/index.html.twig', [

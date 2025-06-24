@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class ContactController extends AbstractController
 {
-    #[Route('/{_locale}/contact', name: 'contact_index', requirements: ['_locale' => 'en|pl'])]
+    #[Route('/{_locale}/contact', name: 'contact_index')]
     public function index(string $_locale): Response
     {
         return $this->render('contact/index.html.twig', [

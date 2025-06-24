@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class HomeController extends AbstractController
 {
-    #[Route('/{_locale}', name: 'home_index', requirements: ['_locale' => 'en|pl'])]
+    #[Route('/{_locale}', name: 'home_index')]
     public function index(TranslatorInterface $translator, Request $request, string $_locale): Response
     {
         $request->getSession()->set('_locale', $_locale);
