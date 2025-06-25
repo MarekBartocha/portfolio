@@ -5,8 +5,11 @@ home-page:
   projects: Projects
   contact: Contact
   intro: |
-    I would like to grow in the IT industry. I am interested in the position of Junior Programmer. On this page you will find my projects that I have created while learning programming.
-    I invite you to familiarize yourself with them.
+    I would like to develop my career in the IT industry. I am interested in the position of Junior Programmer, with a focus on developing secure web applications.
+    On this page you will find my projects that I created as part of my programming education - many of them incorporate good security practices,
+    such as data validation, access control, authorization (JWT), SQL Injection and XSS protection.
+    I invite you to take a look at my projects - they provide a solid technical foundation for further development in the area of cyber security.
+
   licenses-title: licenses and sources
   more: Read more
   less: Read less
@@ -39,8 +42,10 @@ about-page:
     I wrote a bell-switch-based application that records the watchman's presence at a given place and time, with reports available remotely in a browser.
   
   description-05: |
-    I mainly focus on backend technologies (PHP, Symfony, Laravel, SQL), but I am also comfortable working with frontend (HTML, CSS, Bootstrap, JavaScript, jQuery). I work in Linux and Windows environments and use SSH bash.
-    I am eager to take my first job as a Junior Developer to further develop and gain experience in teamwork.
+    I mainly focus on backend technologies (PHP, Symfony, Laravel, SQL), but I am also comfortable working with frontend (HTML, CSS, Bootstrap, JavaScript, jQuery).
+    I work in Linux and Windows environments and use SSH and bash.
+    I am also interested in the topic of web application security - I take care of proper data validation, access control and basic security against
+    attacks such as SQL Injection and XSS. I am eager to take my first job as a Junior Developer to further develop my skills and gain experience in teamwork.
 
 
   links: Links

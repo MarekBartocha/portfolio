@@ -5,8 +5,11 @@ home-page:
   projects: Projekty
   contact: Kontakt
   intro: |
-    Chciałbym się rozwijać w branży IT. Interesuje mnie stanowisko Młodszego Programisty. Na tej stronie znajdziesz moje projekty, które stworzyłem w ramach nauki programowania.
-    Zapraszam do zapoznania się z nimi.
+    Chciałbym rozwijać swoją karierę w branży IT. Interesuje mnie stanowisko Młodszego Programisty, z naciskiem na tworzenie bezpiecznych aplikacji webowych.
+    Na tej stronie znajdziesz moje projekty, które stworzyłem w ramach nauki programowania – wiele z nich uwzględnia dobre praktyki bezpieczeństwa,
+    takie jak walidacja danych, kontrola dostępu, autoryzacja (JWT), ochrona przed SQL Injection i XSS.
+    Zapraszam do zapoznania się z moimi projektami – stanowią one solidną podstawę techniczną do dalszego rozwoju w obszarze cyberbezpieczeństwa.
+
   licenses-title: Licencje i źródła
   more: Czytaj więcej
   less: Czytaj mniej
@@ -38,8 +41,10 @@ about-page:
     Napisałem aplikację opartą na przełączniku dzwonkowym, która zapisuje obecność stróża w danym miejscu i czasie, a raporty są dostępne zdalnie w przeglądarce.
   
   description-05: |
-    Skupiam się głównie na technologiach backendowych (PHP, Symfony, Laravel, SQL), ale dobrze czuję się też w pracy z frontendem (HTML, CSS, Bootstrap, JavaScript, jQuery). Pracuję w środowisku Linux i Windows oraz korzystam z SSH bash.
-    Chętnie podejmę pierwszą pracę jako Junior Developer, by móc dalej się rozwijać i zdobywać doświadczenie w pracy zespołowej.
+    Skupiam się głównie na technologiach backendowych (PHP, Symfony, Laravel, SQL), ale dobrze czuję się też w pracy z frontendem (HTML, CSS, Bootstrap, JavaScript, jQuery).
+    Pracuję w środowisku Linux i Windows oraz korzystam z SSH i bash.
+    Interesuję się również tematyką bezpieczeństwa aplikacji webowych – dbam o prawidłową walidację danych, kontrolę dostępu i podstawowe zabezpieczenia przed atakami
+    takimi jak SQL Injection czy XSS. Chętnie podejmę pierwszą pracę jako Junior Developer, by dalej rozwijać swoje umiejętności i zdobywać doświadczenie w pracy zespołowej.
 
   links: Linki
   hobby: Moje Hobby

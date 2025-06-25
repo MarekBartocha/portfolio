@@ -5,8 +5,11 @@ home-page:
   projects: Projekte
   contact: Kontakt
   intro: |
-    Ich möchte mich im IT-Sektor weiterentwickeln. Ich interessiere mich für die Stelle eines Junior-Programmierers. Auf dieser Seite finden Sie meine Projekte, die ich während meiner Programmierausbildung erstellt habe.
-    Ich lade Sie ein, einen Blick auf sie zu werfen.
+    Ich möchte meine Karriere im IT-Bereich ausbauen. Ich interessiere mich für eine Stelle als Junior-Entwickler mit dem Schwerpunkt auf der Erstellung sicherer Webanwendungen.
+    Auf dieser Seite finden Sie meine Projekte, die ich im Rahmen meiner Programmierausbildung erstellt habe - viele von ihnen beinhalten gute Sicherheitspraktiken,
+    wie Datenvalidierung, Zugriffskontrolle, Authentifizierung (JWT), SQL Injection und XSS-Schutz.
+    Ich lade Sie ein, einen Blick auf meine Projekte zu werfen - sie bieten eine solide technische Grundlage für die weitere Entwicklung im Bereich der Cybersicherheit.
+
   licenses-title: Lizenzen und Quellen
   more: Czytaj więcej
   less: Weniger lesen
@@ -38,8 +41,10 @@ about-page:
     Ich habe eine auf einem Klingelschalter basierende Anwendung geschrieben, die die Anwesenheit des Wachmanns an einem bestimmten Ort und zu einer bestimmten Zeit aufzeichnet, wobei die Berichte über einen Browser aus der Ferne abrufbar sind.
   
   description-05: |
-    Ich konzentriere mich hauptsächlich auf Backend-Technologien (PHP, Symfony, Laravel, SQL), aber ich arbeite auch gerne mit dem Frontend (HTML, CSS, Bootstrap, JavaScript, jQuery). Ich arbeite in Linux- und Windows-Umgebungen und benutze SSH bash.
-    Ich möchte meine erste Stelle als Junior-Entwickler antreten, um mich weiterzuentwickeln und Erfahrungen in einer Teamumgebung zu sammeln.
+    Ich konzentriere mich hauptsächlich auf Backend-Technologien (PHP, Symfony, Laravel, SQL), aber ich arbeite auch gerne mit dem Frontend (HTML, CSS, Bootstrap, JavaScript, jQuery).
+    Ich arbeite in Linux- und Windows-Umgebungen und benutze SSH und bash.
+    Ich interessiere mich auch für das Thema Sicherheit von Webanwendungen - ich kümmere mich um die richtige Datenvalidierung, Zugriffskontrolle und grundlegende Sicherheit gegen
+    Angriffe wie SQL Injection oder XSS. Ich möchte meine erste Stelle als Junior-Entwickler antreten, um meine Fähigkeiten weiterzuentwickeln und Erfahrungen in der Arbeit in einem Team zu sammeln.
 
   links: Links
   hobby: Mein Hobby
