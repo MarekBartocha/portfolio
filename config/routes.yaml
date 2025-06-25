@@ -8,5 +8,5 @@ homepage:
     path: /{_locale}/home
     controller: App\Controller\HomeController::index
     requirements:
-        _locale: 'en|pl'
+        _locale: 'en|pl|de'
 

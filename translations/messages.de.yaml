@@ -98,313 +98,313 @@ licenses-page:
   licenses-sources: Quellen
 
 organizer-of-the-work-page:
-  title: Organizator pracy na potrzeby własne.
-  title-nav: Organizator pracy
-  start-coding: Projekt rozpoczęty w 2016r.
+  title: Ein Organisator der Subsistenzarbeit.
+  title-nav: Organisator der Arbeit
+  start-coding: Das Projekt wurde 2016 gestartet.
   
   description-01: | 
-    Pisząc tą aplikację w 2016r niewiele wiedziałem o obiektowym programowaniu.Dlatego aplikacja została napisana jeszcze strukturalnie. 
-    Z końcem 2024 zaprzestałem używania tej aplikacji wraz z końcem kariery kierowcy.
-    W brew pozorom była dosyć rozbudowana. Miała wiele kart i funkcjonalności. 
-    Istotą sprawy było to by aplikacja spełniała swoją rolę. Kwestie frontendowe 
-    nie były najważniejsze, ponieważ aplikacja była tylko na potrzeby własne. 
-   
+    Als ich diese App im Jahr 2016 schrieb, wusste ich wenig über objektorientierte Programmierung, daher war die App noch strukturell geschrieben. 
+    Ich habe diese App Ende 2024 mit dem Ende meiner Fahrerkarriere eingestellt.
+    Trotz des äußeren Anscheins war sie recht umfangreich. Sie hatte viele Registerkarten und Funktionalitäten. 
+    Im Wesentlichen ging es darum, dass die App ihren Zweck erfüllte. Die Frontend-Fragen 
+    waren nicht das Wichtigste, da die App nur für den persönlichen Gebrauch bestimmt war.
+
   description-02: | 
-    Głównym celem projektu było zbudowanie inteligentnego ala notatnika. 
-    Aby w ciągu dnia wprowadzać kolejno istotne adnotacje, które później będą automatycznie przetwarzane i wprowadzane do odpowiednich raportów.
-    Na obrazku "Widok rozpoczęcia pracy" widzimy prosty widok wprowadzania daty rozpoczęcia. W widoku chciałem mieć duże przyciski ponieważ planowałem 
-    używać aplikację w tablecie 7 cali. I w taki prosty sposób wprowadzałem podstawowe dane do mini systemu. 
+    Das Hauptziel des Projekts war es, ein intelligentes ala Notizbuch zu bauen. 
+    So konnten wir im Laufe des Tages nach und nach relevante Anmerkungen eingeben, die dann automatisch verarbeitet und in die entsprechenden Berichte eingetragen wurden.
+    In der Abbildung „Startansicht“ sehen Sie eine einfache Ansicht für die Eingabe des Startdatums. In der Ansicht wollte ich große Schaltflächen haben, da ich geplant hatte, die App auf einem 7-Zoll-Tablet zu verwenden ( 
+    ). Und auf diese einfache Weise habe ich die Grunddaten in das Mini-System eingegeben. 
 
   description-03: | 
-    Po rozpoczęciu dnia na głównym widoku program pokazywał do której godziny mogę w danym
-    dniu pracować. Uwzględniał on wykorzystane przerwy w danym tygodniu co widać na obrazku "Widok główny aplikacji", Pauzy 9h (2). To oznacza, że mam do 
-    wykorzystania dwie przerwy o długości 9 godzin, a to oznaczało że mogę pracować 15h. Ponieważ czas pracy i odpoczynku dziennego (nocleg) musiał
-    się zmieścić w 24h.
-    
+    Zu Beginn des Tages zeigte die Hauptansicht der Anwendung an, bis zu welcher Uhrzeit ich an einem bestimmten
+    Tag arbeiten konnte. Dabei wurden die Pausen für die Woche berücksichtigt, wie Sie auf dem Bild "Hauptansicht der Anwendung", Pausen 9h (2), sehen können. Das bedeutet, dass ich zwei Pausen von 9 Stunden auf 
+    nutzen kann, und das bedeutet, dass ich 15 Stunden arbeiten könnte. Da die Arbeit und die Ruhezeit am Tag (über Nacht) auf
+    in 24 Stunden passen mussten.
+        
   description-04: | 
-    Jeśli licznik wskazywał by 0 w takim przypadku musiałem zastosować przerwę po pracy nie 9 a 11 godzin. Co zarazem skracało możliwość pracy do 13h.
-    To tylko 1 z najprostszych zagadnień jak pilnowanie ile razy już skróciłem czas pracy. Sprawy komplikowały się znacznie gdy musiałem skrócić 
-    odpoczynek tygodniowy (weekend). Pełny wynosił nie mniej niż 45 godzin (często zwłaszcza za granicą weekendy były skracane do minimum 24 godzin).
+    Wenn der Zähler in einem solchen Fall 0 anzeigte, musste ich eine Pause einlegen, nachdem ich nicht 9, sondern 11 Stunden gearbeitet hatte. Das reduzierte gleichzeitig die Möglichkeit, bis zu 13 Stunden zu arbeiten.
+    Dies ist nur eines der einfachsten Probleme, wie z. B. die Übersicht darüber, wie oft ich meine Arbeitszeit bereits reduziert habe. Viel komplizierter wurde es, als ich die 
+    wöchentliche Ruhezeit (Wochenende) verkürzen musste. Die volle Ruhezeit betrug nicht weniger als 45 Stunden (oft wurden vor allem die Wochenenden im Ausland auf ein Minimum von 24 Stunden verkürzt).
 
   description-05: | 
-    W takim przypadku różnicę pomiędzy pełnym a skróconym odpoczynkiem tygodniowym należało oddać nie później niż do końca trzeciego tygodnia
-    od skróconego odpoczynku tygodniowego. O tych terminach i ilościach godzin do oddania z odpowiednim uprzedzeniem aplikacja sumienne mi przypominała. 
-    Jak widać na obrazku "Informacje o weekendach do oddania i finansach" odkrywają się kolejne funkcjonalności. Choćby takie jak finanse.
+    In diesem Fall musste die Differenz zwischen der vollen und der reduzierten wöchentlichen Ruhezeit spätestens bis zum Ende der dritten Woche
+    der reduzierten wöchentlichen Ruhezeit eingereicht werden. Die App erinnerte mich fleißig an diese Fristen und die Anzahl der abzugebenden Stunden rechtzeitig. 
+    Wie Sie auf dem Bild "Informationen über abzugebende Wochenenden und Finanzen" sehen können, werden weitere Funktionalitäten offengelegt. Wie zum Beispiel die Finanzen.
     
   description-06: |   
-    Chodzi tu o stany zaliczek służbowych w trzech walutach oraz poglądowe wyliczenie wynagrodzenia.
-    Na omawianym obrazku można zauważyć wyszukiwarkę do wyszukiwania w notatkach i "BackUp" czyli kopia zapasowa, która umożliwiała przywracanie bazy danych
-    po awarii urządzenia. Każdego dnia po zakończeniu pracy i dokonaniu ostatnich adnotacji obraz "Zakończenie dnia" tworzyła się automatyczna kopia zapasowa.
+    Es handelt sich um die Salden der Geschäftsvorschüsse in drei Währungen und eine Übersichtsberechnung der Gehälter.
+    In diesem Bild sehen Sie die Suchmaschine für die Suche in den Notizen und das "BackUp" oder Backup, das es ermöglichte, die Datenbank
+    nach einem Geräteausfall wiederherzustellen. Jeden Tag wurde ein automatisches Backup erstellt, wenn die Arbeit beendet war und die letzten Anmerkungen des „End of day“-Bildes gemacht wurden.
 
   description-07: |
-    Zachowane były 4 ostatnie sztuki kopii zapasowych a wcześniejsze automatycznie skrypt usuwał z pamięci. Pora na małą wycieczkę po aplikacji zaczynając 
-    od "Widok główny aplikacji" / 'Zrób notatkę' / przeniesie nas do karty "Wprowadzanie notatek" Tutaj widzimy tylko trzy pola do wprowadzania danych ale
-    tutaj jedno pole ma więcej niż jedno zastosowanie. Np. W polu 'Czas' gdy znajdował się czas wtedy miały zastosowanie odpowiednie procedury. 
+    Die letzten 4 Sicherungen wurden beibehalten und die früheren wurden automatisch vom Skript gelöscht. Es ist Zeit für einen kleinen Rundgang durch die Anwendung. 
+    mit "Hauptansicht der Anwendung" / "Notizen machen" / führt uns zur Registerkarte "Notizen eingeben" Hier sehen wir nur drei Felder für die Dateneingabe, aber
+    hier hat ein Feld mehr als eine Verwendung. Wenn z.B. im Feld „Zeit“ die Uhrzeit gefunden wird, dann werden die entsprechenden Verfahren angewendet. 
 
   description-08: |
-    Czyli 'Miejscowość' była wykorzystywana w zakładce "Wymiana palet" gdzie dokonano wymiany oraz jako zwykła notatka.
-    Jeżeli w polu 'Czas' wprowadziłem słowo klucz "Agregat" wtedy w pole 'Miejscowość' wpisywałem litry zatankowanego paliwa do agregatu chłodniczego.
-    A w pole 'Notatki' stan licznika motogodzin. Dane te wędrowały do bazy danych i później z tych danych powstawał raport.
-    W Karcie "Wymiana palet" można zauważyć 'Miejscowość' wczytaną z pamięci. 
+    Das heißt, „Ort“ wurde auf der Registerkarte „Palettentausch“ verwendet, wo der Austausch vorgenommen wurde, und als einfache Notiz.
+    Wenn ich im Feld „Zeit“ das Schlüsselwort ‚Kältemaschine‘ eintrage, gebe ich im Feld „Ort“ die für die Kältemaschine getankten Liter Kraftstoff an.
+    Und in das Feld „Notizen“ den Stand des Motorstundenzählers. Diese Daten wurden in die Datenbank übertragen, und später wurde ein Bericht aus diesen Daten erstellt.
+    Auf der Registerkarte „Palettentausch“ sehen Sie den aus dem Speicher geladenen „Standort“.
 
   description-09: |
-    W pole 'Uwagi' wprowadzałem nazwę firmy, w której dokonano wymiany palet. Informacje te wędrowały do osobnej tabeli w bazie i później z tych danych
-    powstawał raport o wymianie palet. W karcie tej widać moduł do wysyłania raportu oraz podglądu wcześniejszych raportów. Moduł ten wysyłał do pracodawcy 
-    informacje o wymianie palet oraz rozliczenie wydatków służbowych. Podgląd raportów widzimy na obrazku "Podgląd raportów wymiany palet".
+    In das Feld „Bemerkungen“ habe ich den Namen des Unternehmens eingegeben, in dem der Palettentausch stattgefunden hat. Diese Information wanderte in eine separate Tabelle in der Datenbank und später wurde aus diesen Daten ein Palettentauschbericht erstellt
+    . Die Registerkarte enthält ein Modul zum Senden des Berichts und zum Anzeigen früherer Berichte. Dieses Modul sendet Informationen über den Palettentausch und die Abrechnung der Geschäftskosten an den Arbeitgeber 
+    . Eine Vorschau der Berichte sehen Sie in der Abbildung "Palettentauschbericht-Vorschau".
   
   description-10: |
-    Po powrocie z karty "Wymiana palet" do "Głównego widoku aplikacji". Przechodzimy do 'informacje wpisy' karta "Informacje o weekendach do oddania i finansach".
-    Z tej karty przechodzimy do 'Poprzednie wpisy' do karty "Podgląd notatek". Z poziomu tej karty wysyłałem raporty takie jak zestawienie notatek na mój adres mailowy
-    'Wyślij raport na mejla'. 
+    Wenn Sie von der Registerkarte „Palettentausch“ zur „Hauptansicht der Anwendung“ zurückkehren. Wir navigieren zur Registerkarte ‚Informationseinträge‘ 'Informationen über zu spendende Wochenenden und Finanzen'.
+    Gehen Sie von dieser Registerkarte zu ‚Frühere Einträge‘ auf die Registerkarte ‚Notizvorschau‘. Von dieser Registerkarte aus habe ich Berichte wie z. B. eine Zusammenfassung der Notizen an meine E-Mail-Adresse
+    „Bericht an E-Mail senden“ gesendet.
 
   description-11: |
-    Wysyłałem także rejestry przekraczania granic państw (regulacje unijne), oraz informacje o tankowaniu agregatu chłodniczego. W karcie "Widok główny aplikacji"
-    widzimy przycisk z informacją ile dni pozostało do terminu 'Termin za 5 dni'.
-    Przycisk przeniesie nas do karty "Podgląd terminów" gdzie zastosowałem klasycznego "CRUD" (Create, Read, Update, Delete) czyli dodawanie nowego terminu, 
-    odczyt terminów, aktualizacja (edycja) terminu, oraz usuwanie terminu.
+    Ich habe auch Aufzeichnungen über nationale Grenzübertritte (EU-Vorschriften) und Informationen über das Betanken des Kühlgeräts übermittelt. Auf der Registerkarte "Hauptansicht der Anwendung"
+    sehen wir eine Schaltfläche mit der Information, wie viele Tage bis zur Frist "Frist in 5 Tagen" verbleiben.
+    Über die Schaltfläche gelangen wir zur Registerkarte „Begriffsansicht“, wo ich das klassische „CRUD“ (Create, Read, Update, Delete) angewendet habe, d. h. Hinzufügen eines neuen Begriffs, 
+    Lesen von Begriffen, Aktualisieren (Bearbeiten) eines Begriffs und Löschen eines Begriffs.
 
   description-12: |
-    Wracając do karty "Podgląd raportów wymiany palet" w tabeli 'Informacja o wymianie palet' widnieje rubryka 'Podpis'. Linki te pozwalały na podpisanie przekazania 
-    lub pobrania palet od innego kierowcy z tej samej firmy. Do podpisu wykorzystałem bibliotekę "Canvas" co można zobaczyć na obrazkach "Podpisywanie wymiany palet"
-    oraz "Podpis w tabeli wymiany palet".
+    Wenn man zur Registerkarte „Palettentauschbericht-Ansicht“ zurückkehrt, zeigt die Tabelle ‚Palettentauschinformationen‘ ein Feld „Unterschrift“. Mit diesen Links können Sie die Übertragung von 
+    oder die Abholung von Paletten von einem anderen Fahrer desselben Unternehmens unterschreiben. Für die Unterschrift habe ich die „Canvas“-Bibliothek verwendet, wie in den Bildern „Unterzeichnung des Palettentauschs“
+    und „Unterschrift in der Palettentauschtabelle“ zu sehen ist.
 
   description-13: |
-    W karcie "Widok główny aplikacji" pozostał ostatni szczegół do opisania 'Pauza 3h', co wynika z przepisów, które można było wykorzystać w pracy.
-    W wciągu dnia gdy miałem przerwę nie planowaną (dłuższą niż 3h) 
-    mogłem zastosować po pracy pełny łączony odpoczynek dzienny 3h + 9h, co było traktowane jako pełny 11 godzinny odpoczynek dzienny.
+    Auf der Registerkarte „Hauptanwendungsansicht“ blieb noch ein letztes Detail zur Beschreibung der „Pause 3h“ übrig, das auf die Regelungen zurückzuführen war, die bei der Arbeit angewendet werden konnten.
+    Wenn ich tagsüber eine außerplanmäßige Pause (länger als 3 Stunden) hatte 
+    , konnte ich eine volle kombinierte tägliche Ruhezeit von 3 Stunden + 9 Stunden nach der Arbeit anwenden, die als volle 11 Stunden tägliche Ruhezeit behandelt wurde.
 
   description-14: |
-    To już wszystko co chciałem opisać w tej aplikacji. Przedstawiłem tutaj najistotniejsze zagadnienia z mojego punktu widzenia.
+    Das ist alles, was ich in diesem Antrag beschreiben wollte. Ich habe hier die wichtigsten Punkte aus meiner Sicht dargestellt.
 
 
-  organizer-of-the-work-1: Widok główny aplikacji
-  organizer-of-the-work-2: Widok rozpoczęcia pracy
-  organizer-of-the-work-3: Wprowadzanie godziny rozpoczęcia pracy
-  organizer-of-the-work-4: Wprowadzanie godziny zakończenia pracy
-  organizer-of-the-work-5: Informacje o weekendach do oddania i finansach
-  organizer-of-the-work-6: Zakończenie dnia
-  organizer-of-the-work-7: Kopia zapasowa
-  organizer-of-the-work-8: Wprowadzanie notatek 
-  organizer-of-the-work-9: Wymiana palet
-  organizer-of-the-work-10: Podgląd notatek 
-  organizer-of-the-work-11: Podgląd terminów 
-  organizer-of-the-work-12: Podgląd rejestrów 
-  organizer-of-the-work-13: Podgląd raportów wymiany palet
-  organizer-of-the-work-14: Podpisywanie wymiany palet 
-  organizer-of-the-work-15: Podpis w tabeli wymiany palet
+  organizer-of-the-work-1: Hauptansicht der Anwendung
+  organizer-of-the-work-2: Start-up-Ansicht
+  organizer-of-the-work-3: Eingabe der Startzeit
+  organizer-of-the-work-4: Eingabe der End-of-Service-Zeit
+  organizer-of-the-work-5: Informationen über Wochenenden zum Spenden und Finanzieren
+  organizer-of-the-work-6: Ende des Tages
+  organizer-of-the-work-7: Sicherung
+  organizer-of-the-work-8: Eingabe von Notizen
+  organizer-of-the-work-9: Palettentausch
+  organizer-of-the-work-10: Vorschau der Notizen
+  organizer-of-the-work-11: Vorschau auf den Stichtag
+  organizer-of-the-work-12: Einsichtnahme in die Register
+  organizer-of-the-work-13: Vorschau der Palettentauschberichte
+  organizer-of-the-work-14: Unterschrift des Palettentausches
+  organizer-of-the-work-15: Unterschrift in der Palettentauschtabelle
 
 
 volunteer-association-page:
-  title: Wolontariat w Stowarzyszeniu
-  title-nav: Wolontariat Stowarzyszenie
-  start-coding: Projekt rozpoczęty w 2020r.
+  title: Ehrenamtliche Tätigkeit in der Vereinigung
+  title-nav: Freiwilligen-Vereinigung
+  start-coding: Projektstart im Jahr 2020.
 
   description-01: |
-    Na tej stronie widzimy dwa ciekawe elementy, pierwszy z nich to "pomarańczowa karuzela". Widnieją na niej aktywne stacje, a w przypadku ich braku 
-    na karuzeli widać wyniki całorocznego konkursu. Drugim ciekawym elementem jest mapka, która przedstawia łączności radiowe z ostatniej godziny.
-    Po kliknięciu w ikonkę stacji zobaczymy informację o łączności oraz podlinkowany znak radiowy. W przypadku dużej aktywności, gdy połączeń jest dużo na mapie,
-    klikając w dymku na podlinkowany znak radiowy zobaczymy na mapce odfiltrowane łączności tylko tej jednej stacji, co można zobaczyć na obrazkach 
-    "Przed odfiltrowaniem" i "Po odfiltrowaniu".
+    Auf dieser Seite sehen wir zwei interessante Elemente, das erste ist das „orangefarbene Karussell“. Es zeigt die aktiven Stationen an, und in Abwesenheit von ihnen 
+    zeigt das Karussell die Ergebnisse des einjährigen Wettbewerbs. Das zweite interessante Element ist eine Karte, die die Funkverbindungen der letzten Stunde anzeigt.
+    Wenn Sie auf das Stationssymbol klicken, erhalten Sie Informationen über die Kommunikation und ein verlinktes Funkzeichen. Wenn es viel Aktivität gibt, wenn es viele Verbindungen auf der Karte gibt,
+    , indem man in der Sprechblase auf das verlinkte Funkzeichen klickt, sieht man auf der Karte die gefilterten Kommunikationen nur dieses einen Senders, was in den Bildern 
+    "Vor der Filterung" und "Nach der Filterung" zu sehen ist.
 
   description-02: |
-    Logowanie do formularza odbywa się przy pomocy forum. Pierwotnie cluster miał służyć tylko członkom klubu, dlatego do logowania wykorzystałem zmienną sesyjną
-    forum phpBB. Obsługa formularza to oczywiście klasyczny "CRUD" (Create, Read, Update, Delete). Pod spodem kryje się więcej skomplikowanych mechanizmów
-    choćby implementowanie kart QSL (obrazek w formie widokówki potwierdzający łączność). Są one do pobrania bezpośrednio z samego clustera obrazek "Cluster".
+    Die Anmeldung über das Formular erfolgt über das Forum. Ursprünglich sollte der Cluster nur für Vereinsmitglieder verwendet werden, daher habe ich die Session-Variable
+    des phpBB-Forums für den Login verwendet. Die Formularbearbeitung ist natürlich das klassische "CRUD" (Create, Read, Update, Delete). Darunter befinden sich komplexere Mechanismen
+    wie die Implementierung von QSL-Karten (ein Bild in Form einer Postkarte zur Bestätigung der Kommunikation). Diese können direkt aus dem Cluster selbst heruntergeladen werden (Bild "Cluster").
 
   description-03: |
-    W clusterze oprócz kart do pobrania możemy podejrzeć daną łączność na mapce. Wracając do tematu formularza clustera i tego co jeszcze kryje się pod spodem-
-    w Stowarzyszeniu odbywają się czasami wszelkiego rodzaju konkursy, akcje dyplomowe, aktywacje i tutaj są potrzebne mechanizmy by te zagadnienia obsłużyć.
-    W tym celu stworzyłem panel administracyjny do inicjowania takich zdarzeń - obrazek "Panel administracyjny clustera".
+    Im Cluster können wir zusätzlich zu den herunterladbaren Karten eine Vorschau einer bestimmten Kommunikation auf einer Karte sehen. Zurück zum Thema des Cluster-Formulars und was sich sonst noch darunter verbirgt -
+    in der Vereinigung gibt es manchmal alle Arten von Wettbewerben, Graduierungsaktionen, Aktivierungen, und hier sind Mechanismen erforderlich, um diese Angelegenheiten zu handhaben.
+    Zu diesem Zweck habe ich ein Verwaltungspanel erstellt, um solche Veranstaltungen zu initiieren - Bild "Cluster-Verwaltungspanel".
 
   description-04: |
-    Panel administracyjny obsługuje akcje dyplomowe, do których można przydzielić specjalną na daną okazję kartę QSL. Szczególnie kłopotliwa w strukturalnym kodzie 
-    okazała się obsługa możliwości uzupełniania wpisów po zakończonej akcji. Ponieważ użytkownik potrzebuje czas na dodanie ostatnich
-    łączności po tym jak czas akcji dyplomowej dobiegł końca. Łączności wprowadzane po zakończonej akcji z datą, która mieści się w ramach akcji musiała być akceptowana.
-    Obrazek "Panel administracyjny clustera" przedstawia tabelę, w której jest widoczna rubryka 'Uzup', w tej rubryce znajdują się ilość godzin przeznaczonych
-    na uzupełnianie zaległych wpisów.
+    Im Administrationspanel werden Graduierungsaktionen abgewickelt, bei denen eine spezielle QSL-Karte für den Anlass vergeben werden kann. Besonders problematisch im strukturierten Code 
+    war die Handhabung der Möglichkeit, Einträge nach Beendigung der Aktion zu vervollständigen. Denn der Benutzer braucht Zeit, um die letzten
+    Mitteilungen nach Ablauf der Abschlussaktion hinzuzufügen. Nach der abgeschlossenen Aktion eingegebene Verbindungen mit einem Datum, das innerhalb der Aktion liegt, mussten akzeptiert werden.
+    Das Bild "Cluster Administration Panel" zeigt eine Tabelle, in der das Feld "Uzup" sichtbar ist. Dieses Feld enthält die Anzahl der Stunden, die
+    für die Vervollständigung ausstehender Einträge zugewiesen wurden.
 
   description-05: |
-    W późniejszych akcjach dyplomowych jak można zauważyć dodano funkcjonalność polegającą na zróżnicowanej punktacji. Zróżnicowana punktacja była uzależniona od 
-    tego czy łączność była wewnątrz kraju, czy też po za kraj, w którym stacjonuje dana stacja lub też po za Europę. Rubryki 'Wob' czyli w obrębie własnego kraju,
-    'Poz' czyli po za obręb kraju, w którym stacjonuje stacja oraz 'DX' czyli łączności wybiegające po za Europę. Obsługa tej funkcjonalności polegała na przetworzeniu 
-    zmiennej typu string przykładowy znak z pasma CB np. '161OS256' (czyli mamy string i szukamy w nim pozycji, która nie jest liczbą, resztę odcinamy i mamy numer dywizjonu).
-    Numer ten określa z jakiego kraju dana stacja nadaje, więc wystarczyło do bazy wprowadzić listę dywizjonów należących do Europy. I w ten sposób naliczane były punkty.
-    Jeśli respondent ma inny dywizjon niż mój wtedy sprawdzamy czy jest na liście dywizjonów Europejskich jeśli tak:otrzymuje 2 punkty a w przeciwnym wypadku 3. 
-    Wracając do formularza clustera, na wczesnym etapie tworzenia jedną z pierwszych funkcjonalności było ułatwienie lokalizowania respondenta. 
+    In den späteren Graduierungskampagnen wurde, wie Sie sehen können, die Funktion der differenzierten Punktevergabe hinzugefügt. Die differenzierte Punktevergabe hing davon ab, ob die Kommunikation innerhalb des Landes, außerhalb des Landes, in dem der Sender stationiert war, oder außerhalb Europas erfolgte ( 
+    ). Die Rubriken waren „Wob“, d.h. innerhalb des eigenen Landes,
+    ‚Poz‘, d.h. außerhalb des Landes, in dem der Sender stationiert ist, und „DX“, d.h. Kontakte, die über Europa hinausgehen. Diese Funktionalität basierte auf der Verarbeitung von 
+    einer String-Variablen, z.B. einem Zeichen aus dem CB-Band, z.B. '161OS256' (d.h. wir haben einen String und suchen darin eine Position, die keine Zahl ist, den Rest schneiden wir ab und wir haben eine Staffel-Nummer).
+    Diese Nummer gibt an, aus welchem Land der Sender sendet. Man musste also nur die Liste der Staffeln, die zu Europa gehören, in die Basis eingeben. Und so wurden die Punkte berechnet.
+    Wenn der Befragte eine andere Staffel hat als ich, dann prüfen wir, ob er auf der Liste der europäischen Staffeln steht, und wenn ja, bekommt er 2 Punkte, andernfalls 3. 
+    Um auf das Clusterformular zurückzukommen: In der Anfangsphase der Entwicklung bestand eine der ersten Funktionen darin, das Auffinden des Befragten zu erleichtern.
 
   description-06: |  
-    Jeśli respondent należał do 
-    klubu i wyraził zgodę na udostępnienie lokalizacji swojej stacji, wtedy jeśli użytkownik wprowadził w formularzu znak takiego operatora, otrzymywał informację
-    'Locator w bazie danych'. To oznaczało, że lokalizacja stacji jest zapisana w bazie danych i nie trzeba respondenta dopytywać skąd nadaje.
-    Ostatni istotny szczegół całego systemu, który pozostał do opisania w tym projekcie jest Aplikacja na Androida. Patrząc na "Formularz QSO" można sobie wyobrazić 
-    obsługę tegoż formularza na wąskim ekranie smartfona. Początkowo planowałem napisać wersję formularza dla urządzeń przenośnych. Co nie ukrywam w przyszłości 
-    po migracji całego systemu do symfony nastąpi. By nie tracić czasu wtedy kiedy nie miałem go zbyt wiele, postanowiłem pójść na kompromis. Zamiast pisać mobilną
-    wersję formularza postanowiłem napisać aplikację na Androida. Ponieważ wpadł mi go głowy pomysł by wykorzystać GPS w smartfonie do lokalizowania stacji mobilnych.
-    Wykorzystałem do tego celu bardzo łatwą platformę "MIT App Inventor", która służy do nauki programowania dla dzieci. 
-    Platforma ta pozwalała na wykorzystanie GPS z urządzenia do aktualizacji lokalizacji w tle przy zgaszonym ekranie by urządzenie nie zużywało zbyt wiele energii.
-    Aplikacja jest dostępna w sklepie
+    Wenn der Befragte einem 
+    Club angehörte und zustimmte, den Standort seines Senders mitzuteilen, erhielt er, wenn er das Zeichen eines solchen Betreibers in das Formular eingab, die Information
+    „Locator in database“. Dies bedeutete, dass der Standort des Senders in der Datenbank gespeichert war und der Befragte nicht gefragt werden musste, von wo aus er sendet.
+    Das letzte wichtige Detail des gesamten Systems, das in diesem Projekt noch beschrieben werden muss, ist die Android-Anwendung. Wenn man sich das „QSO-Formular“ ansieht, kann man sich vorstellen, dass 
+    dieses Formular auf dem schmalen Bildschirm eines Smartphones bedient. Ursprünglich hatte ich geplant, eine Version des Formulars für mobile Geräte zu schreiben. Was ich in der Zukunft nicht verheimlichen will 
+    , nachdem ich das ganze System auf symfony migriert habe. Um keine Zeit zu verschwenden, wenn ich nicht viel davon habe, entschied ich mich für einen Kompromiss. Anstatt eine mobile
+    Version des Formulars zu schreiben, entschied ich mich, eine Android-Anwendung zu schreiben. Denn mir kam die Idee, das GPS in meinem Smartphone zu nutzen, um mobile Stationen zu orten.
+    Dazu verwendete ich eine sehr einfache Plattform namens ‚MIT App Inventor‘, mit der man Kindern das Programmieren beibringt. 
+    Diese Plattform ermöglichte es mir, das GPS des Geräts zu nutzen, um den Standort bei ausgeschaltetem Bildschirm im Hintergrund zu aktualisieren, damit das Gerät nicht zu viel Strom verbraucht.
+    Die App ist im Shop erhältlich
 
   description-07: |  
-    gdzie można bardziej szczegółowo zapoznać się z aplikacją. Aplikacja jest stale rozwijana i służy użytkownikom do dziś.
+    wo Sie die Anwendung im Detail kennenlernen können. Die App wurde kontinuierlich weiterentwickelt und steht den Nutzern auch heute noch zur Verfügung.
 
 
-  volunteer-association-1:  Widok główny aplikacji
-  volunteer-association-2:  Przed odfiltrowaniem
-  volunteer-association-3:  Po odfiltrowaniu 
-  volunteer-association-4:  Wzmożony ruch w eterze krajowym
-  volunteer-association-5:  Formularz QSO
+  volunteer-association-1:  Hauptansicht der Anwendung
+  volunteer-association-2:  Vor der Filterung
+  volunteer-association-3:  Nach der Filterung
+  volunteer-association-4:  Verstärkter Verkehr auf dem nationalen Äther
+  volunteer-association-5:  QSO-Formular
   volunteer-association-6:  Cluster
-  volunteer-association-7:  Panel administracyjny clustera 
-  volunteer-association-8:  Wzmożony ruch w eterze międzynarodowym 
-  volunteer-association-9:  Ekran logowania
-  volunteer-association-10:  Formularz clustera aplikacji
-  volunteer-association-11:  Ustawienia aplikacji
-  link-description: Link do video prezentacji aplikacji.
+  volunteer-association-7:  Cluster-Verwaltungspanel
+  volunteer-association-8:  Verstärkter Verkehr auf dem internationalen Äther
+  volunteer-association-9:  Anmeldebildschirm
+  volunteer-association-10:  Formular für Bewerbungscluster
+  volunteer-association-11:  Einstellungen der Anwendung
+  link-description: Link zur Videopräsentation der Anwendung.
   
 monitoring-whe-watchmans-work-page:
-  title: Monitorowanie pracy stróża w firmie
-  title-nav: Monitorowanie pracy stróża
-  start-coding: Projekt rozpoczęty w 2024r.
+  title: Überwachung der Arbeit des Wachpersonals im Unternehmen
+  title-nav: Überwachung der Arbeit des Wächters
+  start-coding: Projektstart im Jahr 2024.
   description-01: |  
-    Jest to zdecydowanie najmniejszy projekt, który wykonałem nie licząc projektów wykonanych podczas nauki z różnych kursów.
-    Projekt wykonałem w języku Pascal w środowisku "Delphi 7". Zadanie było stosunkowo proste od strony kodowania, wystarczyło napisać 
-    program, który obsłuży port com i odbierze z odpowiednich pinów sygnały. Elektronikę wykonałem samodzielnie, która obsługiwała 
-    punkt kontrolny. System składa się z 2 włączników dzwonkowych zamontowanych w firmie, każdy włącznik posiadał światełko, które 
-    zaczynało migotać gdy przyszła pora na obchód. Wtedy należało nacisnąć przycisk, program od momentu aktywowania migotania lampki,
-    zaczął nasłuch na porcie com w pętli w odstępie czasowym co 1 sek. Gdy przycisk został naciśnięty, program odebrał sygnał po czym 
-    dezaktywował migotanie lampki. Przed kolejnym obchodem zanim kolejny raz migotanie lampki zostało aktywowane, program sprawdzał stan portu,
-    czy styki przełącznika są rozwarte (na wypadek gdyby stróż wpadł na pomysł by unieruchomić przycisk na stałe w pozycji wciśniętej).
-    W takim przypadku takie zdarzenie było odnotowane w raporcie. 
+    Dies ist bei weitem das kleinste Projekt, das ich gemacht habe, abgesehen von den Projekten, die ich während des Lernens in verschiedenen Kursen gemacht habe.
+    Ich habe das Projekt in Pascal in der "Delphi 7"-Umgebung erstellt. Die Aufgabe war vom Standpunkt der Programmierung aus gesehen relativ einfach, es reichte aus, ein Programm 
+    zu schreiben, das den Com-Port bedient und Signale von den entsprechenden Pins empfängt. Ich habe die Elektronik, die den 
+    Kontrollpunkt bedient, selbst gebaut. Das System bestand aus 2 Klingelschaltern, die in der Firma angebracht waren. Jeder Schalter hatte ein Licht, das 
+    zu flackern begann, wenn es Zeit war, die Runde zu machen. Dann musste eine Taste gedrückt werden, und das Programm begann ab dem Moment, in dem das flackernde Licht aktiviert wurde,
+    in einer Schleife im Abstand von 1 Sekunde auf dem Com-Port abzuhören. Wenn die Taste gedrückt wurde, nahm das Programm das Signal auf und 
+    deaktivierte das Flackern der Lampe. Vor der nächsten Runde, bevor das nächste Mal das Lampenflackern aktiviert wurde, überprüfte das Programm den Status des Anschlusses,
+    , ob die Schaltkontakte offen waren (für den Fall, dass der Wachmann auf die Idee kam, den Knopf in der gedrückten Position dauerhaft zu deaktivieren).
+    In diesem Fall wurde ein solches Ereignis im Bericht vermerkt. 
     
   description-02: |
-    Logika programu polegała na timerze, ponieważ pierwotnie planowano obchody co godzinę, cyklicznie.
-    Co godzinę następowała aktywacja migotania lampki na określony czas. Jeśli w określonym czasie przycisk został naciśnięty obchód został zaliczony,
-    w przeciwnym wypadku obchód - niezaliczony (co zostało w raporcie odnotowane). Dodatkowo system był wyposażony w pomarańczowe migoczące światło
-    usytuowane w taki sposób by było widoczne z portierni, światło było aktywowane tylko wtedy gdy zostało już niewiele czasu na obchód
-    celem przypomnienia. Po uruchomieniu systemu dostałem informację, że nie ma potrzeby robienia obchodów co godzinę, więc dodałem do interfejsu
-    24 check boksy by firma mogła ustawiać, w których godzinach mają być realizowane obchody.
+    Die Logik des Programms beruhte auf einer Zeitschaltuhr, da es ursprünglich geplant war, jede Stunde zyklisch zu feiern.
+    Jede Stunde wurde ein flackerndes Licht für eine bestimmte Zeit aktiviert. Wurde die Taste innerhalb der vorgegebenen Zeit gedrückt, wurde die Runde bestanden,
+    . Andernfalls wurde die Runde nicht bestanden (was im Bericht vermerkt wurde). Außerdem war das System mit einem orangefarbenen Blinklicht
+    ausgestattet, das so angebracht war, dass es vom Pförtnerhaus aus gesehen werden konnte. Das Licht wurde nur aktiviert, wenn nur noch wenig Zeit für die Runden übrig war
+    als Erinnerung. Nachdem das System in Betrieb war, wurde mir gesagt, dass es nicht notwendig sei, jede Stunde eine Visite durchzuführen, also fügte ich 24 Kontrollkästchen in die Schnittstelle
+    ein, so dass das Unternehmen die Zeiten für die Visite festlegen konnte.
 
   description-03: |
-    Program jest wyposażony w mini serwer umożliwiający podgląd pliku HTML z listą raportów według dat. Codziennie generowany jest nowy raport z nową datą.
-    Właściciel firmy ma dostęp do raportu w telefonie po za siedzibą firmy.
+    Das Programm ist mit einem Mini-Server ausgestattet, der es ermöglicht, eine HTML-Datei mit einer Liste von Berichten nach Datum anzuzeigen. Jeden Tag wird ein neuer Bericht mit einem neuen Datum erstellt.
+    Der Firmeninhaber kann den Bericht auf seinem Telefon von außerhalb des Firmengeländes abrufen.
 
 information-about-this-site-page:
-  title: Krótkie informacje o tej stronie 
-  title-nav: Informacje o tej stronie 
-  start-coding: Projekt rozpoczęty w 2025r.
+  title: Kurze Informationen über diese Website
+  title-nav: Informationen über diese Website
+  start-coding: Projektstart im Jahr 2025.
   description-01: |
-    Projekt stworzony w Symfony (w wersji 6.4.19). 
-    Aplikacja opiera się na wzorcu MVC i korzysta z szablonów Twig do renderowania widoków. 
+    Ein in Symfony (Version 6.4.19) entwickeltes Projekt. 
+    Die Anwendung basiert auf dem MVC-Muster und verwendet Twig-Vorlagen zum Rendern der Ansichten.
   description-02: |
-    Frontend – Bootstrap: W projekcie wykorzystałem Bootstrap do budowy responsywnych i estetycznych interfejsów użytkownika.
-    Dzięki Bootstrapowi aplikacja dostosowuje się do różnych rozmiarów ekranów,
-    co zapewnia optymalne doświadczenie na urządzeniach mobilnych, tabletach i komputerach stacjonarnych. 
+    Frontend - Bootstrap: In dem Projekt habe ich Bootstrap verwendet, um ansprechende und ästhetisch ansprechende Benutzeroberflächen zu erstellen.
+    Dank Bootstrap passt sich die Anwendung an verschiedene Bildschirmgrößen an,
+    was ein optimales Erlebnis auf mobilen Geräten, Tablets und Desktops bietet.
 
 qrz-page:
   title: QRZ Oscar Sierra
   title-nav: QRZ Oscar Sierra
-  start-coding: Projekt rozpoczęty w 2025r.
+  start-coding: Projektstart im Jahr 2025.
   description-01: |
-    Witryna skierowana jest do pasjonatów łączności radiowej. Jej celem jest stworzenie bazy wizytówek entuzjastów z całego świata.
+    Die Website richtet sich an Funkkommunikations-Enthusiasten. Ihr Ziel ist es, eine Datenbank mit Visitenkarten von Enthusiasten aus der ganzen Welt zu erstellen.
 
-    Po zalogowaniu się do systemu użytkownik może stworzyć elektroniczną wizytówkę, która będzie widoczna w wyszukiwarce wizytówek 
-    (a w przyszłości również w aplikacji mobilnej). Wizytówka zawiera dane użytkownika, takie jak znak wywoławczy, imię, lokalizacja, 
-    adres e-mail oraz inne informacje kontaktowe.
+    Nach dem Einloggen in das System kann der Benutzer eine elektronische Visitenkarte erstellen, die in der Visitenkarten-Suchmaschine 
+    (und in Zukunft auch in der mobilen Anwendung) sichtbar sein wird. Die Visitenkarte enthält die Angaben des Nutzers, wie Rufzeichen, Name, Standort, E-Mail-Adresse 
+    und andere Kontaktinformationen.
 
   
   description-02: | 
-    Użytkownik może edytować swoją wizytówkę, dodając opis radiostacji i anteny wraz ze zdjęciami. Możliwa jest również edycja znaku wywoławczego oraz imienia.
+    Der Benutzer kann seine Visitenkarte bearbeiten und eine Beschreibung der Funkstation und der Antenne zusammen mit Fotos hinzufügen. Es ist auch möglich, das Rufzeichen und den Namen zu bearbeiten.
 
-    Wizytówka jest widoczna w wyszukiwarce, która umożliwia wyszukiwanie według znaku wywoławczego. Tworzenie wizytówki jest proste i intuicyjne. 
-    Po zalogowaniu się do systemu użytkownik klika przycisk „Edytuj widok” i dodaje bloki z tytułem i treścią.
+    Die Visitenkarte ist in der Suchmaschine sichtbar, die eine Suche nach Rufzeichen ermöglicht. Das Erstellen einer Visitenkarte ist einfach und intuitiv. 
+    Nach der Anmeldung im System klickt der Benutzer auf die Schaltfläche „Ansicht bearbeiten“ und fügt Blöcke mit Titel und Inhalt hinzu.
 
 
   description-03: |
-    Pierwszy blok jest blokiem reprezentacyjnym – zawiera dane użytkownika (imię, znak wywoławczy automatycznie pobierany z bazy danych i wyświetlany jako nagłówek). 
-    Tytuł i treść tego bloku są pozycjonowane po lewej stronie. Można tam umieścić np. lokator QTH lub dane adresowe.
+    Der erste Block ist der repräsentative Block - er enthält die Daten des Benutzers (Name, Rufzeichen, die automatisch aus der Datenbank übernommen und als Kopfzeile angezeigt werden). 
+    Der Titel und der Inhalt dieses Blocks befinden sich auf der linken Seite. Sie können dort zum Beispiel Ihren QTH-Locator oder Ihre Adressdaten eintragen.
 
-    W tym bloku można również dodać jedno zdjęcie profilowe. W kolejnych blokach użytkownik może dodać tytuł i opis radiostacji lub anteny oraz maksymalnie trzy 
-    zdjęcia wraz z krótkim opisem. Aby dodać zdjęcie do bloku, należy najpierw przesłać je na serwer – pojawi się wtedy miniaturka po prawej stronie panelu edycji. 
-    Zdjęcie dodaje się poprzez zaznaczenie checkboxa oraz kliknięcie przycisku „Dodaj zaznaczone zdjęcie” w danym bloku.
+    In diesem Block kann auch ein Profilbild hinzugefügt werden. In den folgenden Blöcken kann der Benutzer den Titel und die Beschreibung der Funkstation oder Antenne sowie bis zu drei 
+    Fotos mit einer kurzen Beschreibung hinzufügen. Um ein Foto zu einem Block hinzuzufügen, muss das Foto zunächst auf den Server hochgeladen werden - eine Miniaturansicht erscheint dann auf der rechten Seite des Bearbeitungsfensters. 
+    Das Foto wird durch Ankreuzen des Kontrollkästchens und Klicken auf die Schaltfläche „Ausgewähltes Foto hinzufügen“ im jeweiligen Block hinzugefügt.
 
     
   description-04: |
-    Użytkownik może dodać maksymalnie 15 zdjęć do wizytówki. Liczba bloków nie jest ograniczona.
+    Der Benutzer kann der Visitenkarte maximal 15 Bilder hinzufügen. Die Anzahl der Blöcke ist nicht begrenzt.
 
-    Po utworzeniu wizytówki użytkownik może ją edytować – zmieniać zdjęcia, dodawać nowe bloki i modyfikować istniejące. 
-    Po wyszukaniu znaku wywoławczego w wyszukiwarce, użytkownik może przejść do wybranej wizytówki. 
-    Kliknięcie zdjęcia w wizytówce uruchamia podgląd slajdów w pełnym rozmiarze.
+    Sobald die Visitenkarte erstellt ist, kann der Nutzer sie bearbeiten - Fotos ändern, neue Blöcke hinzufügen und bestehende Blöcke ändern. 
+    Nach der Suche nach einem Rufzeichen in der Suchmaschine kann der Benutzer zu der ausgewählten Visitenkarte gehen. 
+    Mit einem Klick auf ein Foto in der Visitenkarte wird eine Diavorschau in voller Größe angezeigt.
 
   
   description-05: |
-    Projekt został napisany w Symfony 6.4 w języku PHP. Wykorzystuje bazę danych MySQL do przechowywania wizytówek i zdjęć. 
-    System zawiera funkcje rejestracji i logowania z linkiem aktywacyjnym przesyłanym e-mailem oraz możliwość resetowania hasła. 
-    Do zarządzania wizytówkami zastosowano klasyczny model CRUD (Create, Read, Update, Delete).
+    Das Projekt wurde in Symfony 6.4 in PHP geschrieben. Es verwendet eine MySQL-Datenbank, um Visitenkarten und Fotos zu speichern. 
+    Das System umfasst Registrierungs- und Anmeldefunktionen mit einem per E-Mail versandten Aktivierungslink und der Möglichkeit, das Passwort zurückzusetzen. 
+    Das klassische CRUD-Modell (Erstellen, Lesen, Aktualisieren, Löschen) wird für die Verwaltung der Visitenkarten verwendet.
 
-  qrz-association-1: Panel użytkownika
-  qrz-association-2: Edycja wizytówki
-  qrz-association-3: Dodawanie zdjęcia do wizytówki
-  qrz-association-4: Wizytówka w wyszukiwarce
+  qrz-association-1: Bedienfeld
+  qrz-association-2: Bearbeiten einer Visitenkarte
+  qrz-association-3: Hinzufügen eines Fotos zu einer Visitenkarte
+  qrz-association-4: Visitenkarte einer Suchmaschine
 
 quiz-page:
-  title: Szkoła Jazdy
-  title-nav: Szkoła Jazdy
-  start-coding: Projekt rozpoczęty w 2025r.
+  title: Fahrschule
+  title-nav: Fahrschule
+  start-coding: Projektstart im Jahr 2025.
 
   description-01: | 
-    Szkoła Jazdy to projekt wykonany w ramach nauki Laravel i podstaw Vue dla znajomego który prowadzi szkołę jazdy w Holandii w języku Polskim.
-    Ogólnie podobne narzędzie do nauki teorii już istnieje na holenderskim rynku ale posiada liczne błędy w tłumaczeniach w polskiej wersji językowej. 
-    Celem stworzenia platformy do nauki jest posiadanie pełnej kontroli nad tłumaczeniami, wszystkie wersje językowe pytań i odpowiedzi w quizach są 
-    wprowadzane przez właściciela platformy. 
+    Driving School ist ein Projekt, das im Rahmen des Lernens von Laravel und den Grundlagen von Vue für einen Freund gemacht wurde, der eine Fahrschule in den Niederlanden auf Polnisch betreibt.
+    Ein im Großen und Ganzen ähnliches Tool zum Erlernen der Theorie existiert bereits auf dem niederländischen Markt, hat aber zahlreiche Übersetzungsfehler in der polnischen Version. 
+    Der Zweck der Erstellung einer Lernplattform ist es, die volle Kontrolle über die Übersetzungen zu haben. Alle Sprachversionen der Fragen und Antworten in den Quizzes werden vom Plattformbesitzer 
+    eingegeben.
 
   description-02: | 
-    Do łatwego zarządzania stworzyłem panel administracyjny w którym można zarządzać kontami użytkowników po przez nadawanie ról takich jak user, premium, admin oraz 
-    można zarządzać quizami. W panelu zarządzania można dodawać, usuwać i edytować kategorie oraz quizy w danej kategorii. Wszystkie treści nazwy kategorii, 
-    quizy (pytania i odpowiedzi) wprowadza się osobno dla każdej wersji językowej korzystając z listy rozwijanej do wyboru języka.
+    Um die Verwaltung zu vereinfachen, habe ich ein Administrationspanel erstellt, in dem Benutzerkonten durch die Zuweisung von Rollen wie Benutzer, Premium, Admin und 
+    Quiz verwaltet werden können. In der Verwaltungskonsole können Sie Kategorien und Quizze in einer Kategorie hinzufügen, löschen und bearbeiten. Alle Inhalte für den Kategorienamen, 
+    Quiz (Fragen und Antworten) werden separat für jede Sprachversion eingegeben, wobei eine Dropdown-Liste für die Sprachauswahl verwendet wird.
 
   description-03: |
-    Są trzy typy kategorii demo, zwykła i egzamin, Jeśli chcemy by dana kategoria była dostępna dla każdego użytkowniak typu "user" wystarczy w nazwie kategori 
-    dodać słowo kluczowe (Demo) pozostałe typy kategorii są dostępne tylko dla użytkowników "premium". Jeśli chcemy utworzyć kategorię egzamin nadajemy
-    poprostu nazwę kategori "Egzamin" skrypt rozpoznaje słowa kluczowe i w odpowiedni sposób traktóje dzną kategorię. Nauka polega na rozwiązywaniu quizów wybierając
-    daną kategorię po czym jest losowane z puli danej kategorii 10 pytań. 
+    Es gibt drei Arten von Kategorien: Demo, Regulär und Prüfung. Wenn Sie möchten, dass eine Kategorie für jeden "Benutzer" verfügbar ist, genügt es, ein Schlüsselwort in den Kategorienamen 
+    (Demo) einzufügen. Die anderen Arten von Kategorien sind nur für "Premium"-Benutzer verfügbar. Wenn Sie eine Prüfungskategorie erstellen möchten, nennen Sie die Kategorie einfach "Prüfung" auf
+    . Das Skript erkennt die Schlüsselwörter und behandelt die Kategorie entsprechend. Das Lernen basiert auf dem Lösen von Quizfragen, indem Sie
+    eine bestimmte Kategorie auswählen und dann 10 Fragen aus dem Pool der gegebenen Kategorie ziehen.
 
   description-04: |
-    Pytania wyświetlane są asynchronicznie w okienku modal z obiektu który jest tworzony podczas wyboru kategorii na backendzie. Pytania można przewijać dowoli w przód i w stecz 
-    natomiast w ostatnim 10 pytaniu ukaże się przycisk "Podsumowanie". Po przejściu do podsumowania ukaże się wynik naszego quizu
-    który zostaje zapisany w bazie danych. System pozwala na kilka poprawnych odpowiedzi w jednym pytaniu. Podczas nauki wybranie 1 błędnej odbowiedzi blokóje możliwość udzielania
-    odpowiedzi w danym pytaniu, jest wyświetlane pouczenie na czerwonym tle dlaczego dana odpowiedź jest błędna, zadanie nie jest zaliczone. 
+    Die Fragen werden asynchron in einem modalen Fenster aus einem Objekt angezeigt, das erstellt wird, wenn eine Kategorie im Backend ausgewählt wird. Die Fragen können nach Belieben vor- und zurückgescrollt werden 
+    und bei den letzten 10 Fragen wird eine Schaltfläche "Zusammenfassung" angezeigt. Wenn Sie zur Zusammenfassung gehen, sehen Sie das Ergebnis unseres Quiz
+    , das in der Datenbank gespeichert ist. Das System lässt mehrere richtige Antworten in einer Frage zu. Wenn Sie während des Lernens eine falsche Antwort auswählen, können Sie die Frage
+    nicht beantworten, es erscheint eine rote Erklärung, warum die Antwort falsch ist, und die Aufgabe wird nicht gelöst.
 
   description-05: |  
-    W prziypadku zaznaczenia poprawnej odpowiedzi, jeśli to była jedyna poprawna odpowiedź wtedy udzielanie dalszych odpowiedzi jest blokowane oraz
-    wyświetla sie na zielonym tle wyjaśnienie dlaczego właśnie to poprawna odpowiedź. W przypadku wielu poprawnych odpowiedz blokada i ukazanie sie objaśnienia następuje 
-    gdy wybrane zostaną wszystkie poprawne odpowiedzi.
+    Wenn Sie die richtige Antwort ausgewählt haben und dies die einzige richtige Antwort war, wird die Eingabe weiterer Antworten blockiert und
+    zeigt auf grünem Hintergrund eine Erklärung an, warum dies die richtige Antwort war. Bei mehreren richtigen Antworten werden die Sperrung und die Erklärung auf 
+    angezeigt, wenn alle richtigen Antworten ausgewählt wurden.
 
   description-06: |
-    Uruchamiając egzamin jest losowane 50 pytań z wszystkich kategorii pobierając z każdej kategorii równą ilość losowo wybranych pytań.
-    Podobnie jak przy nauce na egzaminie możemy przechodzić do kolejnych pytań i powracać z tą różnicą że nie ma blolad po wybraniu poprawnij lub 
-    błędnej odpowiedz analogicznie tagże nie ma pouczeń. Poprostu możemy zaznaczać odznaczać zaznaczenia a jak dojdzieby do ostatniego pytania 
-    pojawi się przycisk "Podsumowanie" którym możemy zakończyć symulację egzaminu. 
+    Zu Beginn der Prüfung werden 50 Fragen aus allen Kategorien nach dem Zufallsprinzip gezogen, wobei aus jeder Kategorie die gleiche Anzahl von Fragen ausgewählt wird.
+    Wie bei der Prüfung kann man zur nächsten Frage springen und zur nächsten Frage zurückkehren, mit dem Unterschied, dass es keine Fehlermeldung gibt, nachdem man die richtige Antwort ausgewählt hat oder 
+    . Ebenso gibt es keine Anleitung. Sie können Ihre Auswahl einfach aufheben, und wenn Sie die letzte Frage 
+    erreichen, sehen Sie eine Schaltfläche "Zusammenfassung", mit der Sie die Prüfungssimulation beenden können.
 
   description-07: |
-    W przypadku gdiy nie zdążymy odpowiedzieć na wszystkie pytania i mija czas trwania egzaminu który wynośi 35 mniut przeniesie nas automatycznie
-    do podsumowania. Podsumowanie kończy egzamin zapisuje wynik w bazie danych ale nadal mamy możliwość powrucenia do poprzednich pytań ale już z 
-    włączoną blokadą i wyświetlonymi pouczeniami tak jak to wyglądało podczas nouki. Postęp nauki jak i egzaminów użytkownik może wyświetlić w "Statystykach".
+    Wenn Sie es nicht schaffen, alle Fragen zu beantworten, und die Prüfungszeit von 35 Minuten abgelaufen ist, werden Sie automatisch zur Zusammenfassung auf
+    geleitet. Die Zusammenfassung beendet die Prüfung und speichert das Ergebnis in der Datenbank, aber Sie können immer noch zu den vorherigen Fragen zurückkehren, aber mit 
+    blockiert und mit den Anweisungen angezeigt, wie sie während nouki. Der Benutzer kann den Lern- und Prüfungsfortschritt in "Statistik" einsehen.
     
 
   description-08: |
-    Dla ćwiczeń i egzaminów są oddzielne wykresy sporządzane na podstawie wyników zapisanych w bazie nadych.
+    Es gibt separate Tabellen für Übungen und Prüfungen, die aus den in der nadych-Datenbank gespeicherten Ergebnissen erstellt werden.
 
-  quiz-association-1: Widok strony domowej po zalogowaniu 
-  quiz-association-2: Zarządzanie użytkownikami 
-  quiz-association-3: Zarządzanie kategoriami
-  quiz-association-4: Edycja / dodawanie wersji językowej
-  quiz-association-5: Rozwiązywanie zadania
-  quiz-association-6: Egzamin
-  quiz-association-7: Podgląd pytań z danej kategorii
-  quiz-association-8: Statystyki nauki
-  quiz-association-9: Statystyki egzaminów
+  quiz-association-1: Ansicht der Startseite nach dem Einloggen
+  quiz-association-2: Benutzerverwaltung
+  quiz-association-3: Kategorie Management
+  quiz-association-4: Bearbeiten / Hinzufügen einer Sprachversion
+  quiz-association-5: Lösen der Aufgabe
+  quiz-association-6: Prüfung
+  quiz-association-7: Vorschau der Fragen in einer bestimmten Kategorie
+  quiz-association-8: Wissenschaftliche Statistik
+  quiz-association-9: Prüfungsstatistiken
 
-repo: Link do repozytorium
-not-redy: Niebawem opis projektu będzie dostępny.
+repo: Link zum Repository
+not-redy: Eine Beschreibung des Projekts wird in Kürze verfügbar sein.
 
 
