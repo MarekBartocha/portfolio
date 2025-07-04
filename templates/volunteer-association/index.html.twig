@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<center><h1>{{'volunteer-association-page.title' |trans}}</h1>
+<h3><a href="https://oscarsierra.pl" target="_blank">oscarsierra.pl</a></h3></center>
+
+
+<div class="row">
+     {% set number_of_images  = 12 %}
+    <div class="col-12 col-xl-4 m-auto text-center">
+        <a href="slider/volunteer-association/{{number_of_images}}/1"><img src="{{ asset('img/volunteer-association/1.png') }}"  alt="Obrazek"></a>
+        <center>{{'volunteer-association-page.volunteer-association-1'|trans}}</center>
+    </div>
+    <div class="col-12 col-xl-8 m-auto">
+        <p>{{'volunteer-association-page.description-01'|trans}}</p>
+    </div>
+
+    <div class="col-12 col-md-6 col-xl-4 m-auto text-center">
+        <a href="slider/volunteer-association/{{number_of_images}}/2"><img class="img-standard" src="{{ asset('img/volunteer-association/2.png') }}"  alt="Obrazek"></a>
+        <center>{{'volunteer-association-page.volunteer-association-2'|trans}}</center>
+    </div>
+    <div class="col-12 col-md-6 col-xl-4 m-auto text-center">
+        <a href="slider/volunteer-association/{{number_of_images}}/3"><img class="img-standard" src="{{ asset('img/volunteer-association/3.png') }}"  alt="Obrazek"></a>
+        <center>{{'volunteer-association-page.volunteer-association-3'|trans}}</center>
+    </div>
+    <div class="col-12 col-md-6 col-xl-4 m-auto text-center">
+        <a href="slider/volunteer-association/{{number_of_images}}/4"><img class="img-standard" src="{{ asset('img/volunteer-association/4.png') }}"  alt="Obrazek"></a>
+        <center>{{'volunteer-association-page.volunteer-association-4'|trans}}</center>
+    </div>
+
+
+    <div class="col-12 col-xl-8 m-auto">
+        <p>{{'volunteer-association-page.description-02'|trans}}</p>
+    </div>
+    <div class="col-12 col-md-6 col-xl-4 m-auto text-center">
+        <a href="slider/volunteer-association/{{number_of_images}}/5"><img src="{{ asset('img/volunteer-association/5.png') }}"  alt="Obrazek"></a>
+        <center>{{'volunteer-association-page.volunteer-association-5'|trans}}</center>
+    </div>
+ 
+    <div class="col-12 col-md-6 col-xl-4 m-auto text-center">
+        <a href="slider/volunteer-association/{{number_of_images}}/6"><img src="{{ asset('img/volunteer-association/6.png') }}"  alt="Obrazek"></a>
+        <center>{{'volunteer-association-page.volunteer-association-6'|trans}}</center>
+    </div>
+    <div class="col-12 col-xl-8 m-auto">
+        <p>{{'volunteer-association-page.description-03'|trans}}</p>
+    </div>
+  
+    <div class="col-12 col-xl-8 m-auto">
+        <p>{{'volunteer-association-page.description-04'|trans}}</p>
+    </div>
+    <div class="col-12 col-md-6 col-xl-4 m-auto text-center">
+        <a href="slider/volunteer-association/{{number_of_images}}/7"><img src="{{ asset('img/volunteer-association/7.png') }}"  alt="Obrazek"></a>
+        <center>{{'volunteer-association-page.volunteer-association-7'|trans}}</center>
+    </div> 
+
+    <div class="col-12 col-md-6 col-xl-4 m-auto text-center">
+        <a href="slider/volunteer-association/{{number_of_images}}/8"><img src="{{ asset('img/volunteer-association/8.png') }}"  alt="Obrazek"></a>
+        <center>{{'volunteer-association-page.volunteer-association-8'|trans}}</center>
+    </div>
+    <div class="col-12 col-xl-8 m-auto">
+        <p>{{'volunteer-association-page.description-05'|trans}}</p>
+    </div> 
+
+    <div class="col-12 m-auto">
+        <p>
+            {{'volunteer-association-page.description-06'|trans}}
+            <a href="https://play.google.com/store/apps/details?id=appinventor.ai_cigla93.Oscarsierra&pli=1" target="blank"> Google Play </a>
+            {{'volunteer-association-page.description-07'|trans}}
+        </p>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4 col-xl-4 m-auto text-center">
+        <a href="slider/volunteer-association/{{number_of_images}}/9"><img src="{{ asset('img/volunteer-association/9.png') }}"  alt="Obrazek"></a>
+        <center>{{'volunteer-association-page.volunteer-association-9'|trans}}</center>
+    </div>   
+    <div class="col-12 col-md-6 col-lg-4 col-xl-4 m-auto text-center">
+        <a href="slider/volunteer-association/{{number_of_images}}/10"><img src="{{ asset('img/volunteer-association/10.png') }}"  alt="Obrazek"></a>
+        <center>{{'volunteer-association-page.volunteer-association-10'|trans}}</center>
+    </div>  
+    <div class="col-12 col-md-6 col-lg-4 col-xl-4 m-auto text-center">
+        <a href="slider/volunteer-association/{{number_of_images}}/11"><img src="{{ asset('img/volunteer-association/11.png') }}"  alt="Obrazek"></a>
+        <center>{{'volunteer-association-page.volunteer-association-11'|trans}}</center>
+    </div>  
+    <center><br><br><p>{{'volunteer-association-page.link-description'|trans}}</p><br><br></center>
+    <center>
+        <iframe style="width: 80%; height: 600px;" src="https://www.youtube.com/embed/CE-1HfMASV0"
+        title="Aplikacja V4 Cluster OS" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br><br>
+    </center>
+</div>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<center><h1>{{'qrz-page.title' |trans}}</h1>
+<h3><a  href="https://qrz.oscarsierra.pl" target="_blank">qrz.oscarsierra.pl</a></h3></center>
+<div class="row">
+    {% set number_of_images  = 4 %}
+
+    <div class="col-12 col-xl-4 m-auto text-center">
+        <a href="slider/qrz-oscarsierra/{{number_of_images}}/1"><img src="{{ asset('img/qrz-oscarsierra/1.png') }}"  alt="Obrazek"></a>
+        <center>{{'qrz-page.qrz-association-1'|trans}}</center>
+    </div>
+    <div class="col-12 col-xl-8 m-auto">
+        <p>{{'qrz-page.description-01'|trans}}</p>
+    </div>
+
+     <div class="col-12 col-xl-8 m-auto">
+        <p>{{'qrz-page.description-02'|trans}}</p>
+    </div>
+    <div class="col-12 col-xl-4 m-auto text-center">
+        <a href="slider/qrz-oscarsierra/{{number_of_images}}/2"><img src="{{ asset('img/qrz-oscarsierra/2.png') }}"  alt="Obrazek"></a>
+        <center>{{'qrz-page.qrz-association-2'|trans}}</center>
+    </div>
+
+   <div class="col-12 col-xl-4 m-auto text-center">
+        <a href="slider/qrz-oscarsierra/{{number_of_images}}/3"><img src="{{ asset('img/qrz-oscarsierra/3.png') }}"  alt="Obrazek"></a>
+        <center>{{'qrz-page.qrz-association-3'|trans}}</center>
+    </div>
+    <div class="col-12 col-xl-8 m-auto">
+        <p>{{'qrz-page.description-03'|trans}}</p>
+    </div>
+
+    <div class="col-12 col-xl-8 m-auto">
+        <p>{{'qrz-page.description-04'|trans}}</p>
+    </div>
+    <div class="col-12 col-xl-4 m-auto text-center">
+        <a href="slider/qrz-oscarsierra/{{number_of_images}}/4"><img src="{{ asset('img/qrz-oscarsierra/4.png') }}"  alt="Obrazek"></a>
+        <center>{{'qrz-page.qrz-association-4'|trans}}</center>
+    </div>
+
+    <div class="col-12 m-auto">
+        <p>{{'qrz-page.description-05'|trans}}</p>
+    </div>
+
+</div>
+
+{% endblock %}

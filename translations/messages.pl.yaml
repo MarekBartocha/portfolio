@@ -1,0 +1,415 @@
+# messages.pl.yaml
+home-page:
+  home: Strona Główna
+  about: O mnie
+  projects: Projekty
+  contact: Kontakt
+  intro: |
+    Chciałbym rozwijać swoją karierę w branży IT. Interesuje mnie stanowisko Młodszego Programisty, z naciskiem na tworzenie bezpiecznych aplikacji webowych.
+    Na tej stronie znajdziesz moje projekty, które stworzyłem w ramach nauki programowania – wiele z nich uwzględnia dobre praktyki bezpieczeństwa,
+    takie jak walidacja danych, kontrola dostępu, autoryzacja (JWT), ochrona przed SQL Injection i XSS.
+    Zapraszam do zapoznania się z moimi projektami – stanowią one solidną podstawę techniczną do dalszego rozwoju w obszarze cyberbezpieczeństwa.
+
+  licenses-title: Licencje i źródła
+  more: Czytaj więcej
+  less: Czytaj mniej
+  technologies: Wykorzystane Technologie
+  github: Zobacz kod na GitHub 
+  project: Zobacz opis projektu 
+  
+
+about-page:
+  title: Kilka słów o mnie
+  description-01: |
+    Moja przygoda z programowaniem rozpoczęła się na przełomie 2015/2016 roku, kiedy szukałem rozwiązania do sterowania ogrzewaniem w domu.
+    Dostępne na rynku systemy były zintegrowane z nowoczesnymi instalacjami grzewczymi, a ja posiadałem starszy system. 
+    Postanowiłem więc stworzyć własny program dopasowany do moich potrzeb. Ten system działa do dziś i jest nadal rozwijany.
+
+  description-02: |
+    Z czasem pojawiły się kolejne potrzeby. Jako kierowca międzynarodowy, musiałem codziennie tworzyć czasochłonne raporty przejazdów 
+    przez różne kraje zgodnie z przepisami unijnymi. Postanowiłem zautomatyzować ten proces i stworzyłem aplikację do zarządzania czasem pracy, 
+    odpoczynku oraz dokumentacją. Używałem jej od 2016 do końca 2024 roku.
+
+  description-03: |
+    Kolejnym etapem był wolontariat w Stowarzyszeniu Pasjonatów Łączności Radiowej, gdzie pomogłem stworzyć system na potrzeby akcji dyplomowej z okazji 10-lecia działalności. 
+    Przygotowałem stronę informacyjną oraz tzw. "cluster" – formularz do rejestrowania łączności radiowych i mechanizm zliczania punktów. 
+    Po zakończeniu akcji napisałem własny system CMS do zarządzania stroną stowarzyszenia, który działa i jest rozwijany do dziś.
+
+  description-04: |
+    W 2023/2024 roku zrealizowałem swój pierwszy projekt dla firmy – prosty, ale praktyczny system do monitorowania pracy stróża. 
+    Głównym wymaganiem było stworzenie niezawodnego, niemal „niezniszczalnego” rozwiązania, niewymagającego od pracownika aktywnej obsługi (jak np. odbijania tagów RFID). 
+    Napisałem aplikację opartą na przełączniku dzwonkowym, która zapisuje obecność stróża w danym miejscu i czasie, a raporty są dostępne zdalnie w przeglądarce.
+  
+  description-05: |
+    Skupiam się głównie na technologiach backendowych (PHP, Symfony, Laravel, SQL), ale dobrze czuję się też w pracy z frontendem (HTML, CSS, Bootstrap, JavaScript, jQuery).
+    Pracuję w środowisku Linux i Windows oraz korzystam z SSH i bash.
+    Interesuję się również tematyką bezpieczeństwa aplikacji webowych – dbam o prawidłową walidację danych, kontrolę dostępu i podstawowe zabezpieczenia przed atakami
+    takimi jak SQL Injection czy XSS. Chętnie podejmę pierwszą pracę jako Junior Developer, by dalej rozwijać swoje umiejętności i zdobywać doświadczenie w pracy zespołowej.
+
+  links: Linki
+  hobby: Moje Hobby
+  hobby-1: Pianino
+  hobby-2: Motocykle
+  hobby-3: Krótkofalarstwo 
+
+
+home-heating-page:
+  title: Sterowanie ogrzewaniem domu.
+  title-nav: Sterowanie ogrzewaniem
+  start-coding: Projekt rozpoczęty w 2015r.
+  
+  description-01: | 
+    Program napisałem na potrzeby własne. Służy mi on do sterowania ogrzewaniem podłogowym w domu oraz steruje dolotem powietrza do kominka w salonie.
+    Pozwala to na kontrolę temperatury w płaszczu wodnym w kominku, który jest połączony z centralnym ogrzewaniem. Program także przełącza zawór 3 drożny,
+    który zmienia obieg wody w zależności od tego, czy palimy w kominku, czy w piecu tradycyjnym w kotłowni.
+    Program pozwala na ustawienie temperatury w jednym pomieszczeniu (w salonie).
+    Sterowanie odbywa się za pomocą zdalnego pulpitu w tablecie lub telefonie.
+    Jest możliwość samego podglądu temperatury na telewizorze z przeglądarką HTML. 
+    Jak widać na obrazku dane z kominka zostały dołożone do programu więc jak można się domyślać w planach rozbudowa.
+
+  description-02: | 
+    Cały program napisany jest w języku Pascal w środowisku Delphi 7 z odrobiną HTML na potrzeby widoku z przeglądarki i Javascript (logowanie).
+    Program działa na komputerze stacjonarnym z systemem Windows XP. Temperatury pobierane są za pomocą adapteru podpiętego do wejścia com do adapteru podpiąłem 
+    czujniki dallas ds18b20, które mają wbudowaną 16 bitową pamięć ram, w której znajduje się unikalny nr ID co pozwala na podpięcie do jednego portu com wiele czujników.
+    Program posiada także zabezpieczenie przed kopiowaniem. Pobiera on numer seryjny płyty głównej, przepuszcza go przez algorytm i sprawdza czy jest zgodny z podanym kluczem.
+
+  description-03: |   
+    Początkowo z braku wiedzy- jak w języku Pascal odczytać dane z czujników. Posłużyłem się gotowym programem (Logtemp), który odczytywał dane z czujników i zapisywał 
+    je do pliku xml w odstępie czasowym co 3 minuty a mój program odczytywał te dane z pliku xml co 3 minuty i dokonywał obliczeń posługując się tabelą sporządzoną na podstawie
+    wykresu znalezionego w sieci, który dostarczył mi dane jaka powinna być temperatura ogrzewania podłogowego w zależności od temperatury zewnętrznej.
+    Oba programy dodałem do auto startu komputera. Mój program po uruchomieniu posiadał specjalne kilkusekundowe opóźnienie ze względu na odczyt pliku xml by uniknąć 
+    kolizji z programem logtmp. W miarę upływu czasu ulepszyłem mój program by sam odczytywał dane z czujników i stawał się coraz bardziej samodzielny.
+
+  home-heating-1: Widok główny programu
+  home-heating-2: Widok z przeglądarki podgląd temperatur
+  home-heating-3: Ustawienia temperatury
+  home-heating-4: Widok z przeglądarki logowanie
+  home-heating-5: Raport
+  home-heating-6: Wykres temperatur 
+  home-heating-7: Informacje o serwerze
+  home-heating-technical-1: Wykorzystane porty LPT oraz COM
+  home-heating-technical-2: Sterownik
+  home-heating-technical-3: Sterowanie dolotem powietrza do kominka
+  home-heating-technical-4: Sterowanie zaworem trójdzielnym 
+  home-heating-technical-5: Sterowanie ogrzewaniem podłogowym  
+
+  technical: Kwestie techniczne
+
+licenses-page:
+  licenses: |
+    Wszystkie grafiki i ikony użyte na tej stronie zostały pobrane z ogólnodostępnych źródeł, które umożliwiają ich wykorzystanie w celach niekomercyjnych. 
+    Ich prawa autorskie należą do oryginalnych twórców, a wykorzystanie odbywa się zgodnie z warunkami licencji udostępnionymi na stronach źródłowych.
+    Proszę o kontakt jeśli jesteś autorem któregokolwiek z użytych materiałów i masz pytania dotyczące ich wykorzystania.
+  licenses-sources: Źródła
+
+organizer-of-the-work-page:
+  title: Organizator pracy na potrzeby własne.
+  title-nav: Organizator pracy
+  start-coding: Projekt rozpoczęty w 2016r.
+  
+  description-01: | 
+    Pisząc tą aplikację w 2016r niewiele wiedziałem o obiektowym programowaniu.Dlatego aplikacja została napisana jeszcze strukturalnie. 
+    Z końcem 2024 zaprzestałem używania tej aplikacji wraz z końcem kariery kierowcy.
+    W brew pozorom była dosyć rozbudowana. Miała wiele kart i funkcjonalności. 
+    Istotą sprawy było to by aplikacja spełniała swoją rolę. Kwestie frontendowe 
+    nie były najważniejsze, ponieważ aplikacja była tylko na potrzeby własne. 
+   
+  description-02: | 
+    Głównym celem projektu było zbudowanie inteligentnego ala notatnika. 
+    Aby w ciągu dnia wprowadzać kolejno istotne adnotacje, które później będą automatycznie przetwarzane i wprowadzane do odpowiednich raportów.
+    Na obrazku "Widok rozpoczęcia pracy" widzimy prosty widok wprowadzania daty rozpoczęcia. W widoku chciałem mieć duże przyciski ponieważ planowałem 
+    używać aplikację w tablecie 7 cali. I w taki prosty sposób wprowadzałem podstawowe dane do mini systemu. 
+
+  description-03: | 
+    Po rozpoczęciu dnia na głównym widoku program pokazywał do której godziny mogę w danym
+    dniu pracować. Uwzględniał on wykorzystane przerwy w danym tygodniu co widać na obrazku "Widok główny aplikacji", Pauzy 9h (2). To oznacza, że mam do 
+    wykorzystania dwie przerwy o długości 9 godzin, a to oznaczało że mogę pracować 15h. Ponieważ czas pracy i odpoczynku dziennego (nocleg) musiał
+    się zmieścić w 24h.
+    
+  description-04: | 
+    Jeśli licznik wskazywał by 0 w takim przypadku musiałem zastosować przerwę po pracy nie 9 a 11 godzin. Co zarazem skracało możliwość pracy do 13h.
+    To tylko 1 z najprostszych zagadnień jak pilnowanie ile razy już skróciłem czas pracy. Sprawy komplikowały się znacznie gdy musiałem skrócić 
+    odpoczynek tygodniowy (weekend). Pełny wynosił nie mniej niż 45 godzin (często zwłaszcza za granicą weekendy były skracane do minimum 24 godzin).
+
+  description-05: | 
+    W takim przypadku różnicę pomiędzy pełnym a skróconym odpoczynkiem tygodniowym należało oddać nie później niż do końca trzeciego tygodnia
+    od skróconego odpoczynku tygodniowego. O tych terminach i ilościach godzin do oddania z odpowiednim uprzedzeniem aplikacja sumienne mi przypominała. 
+    Jak widać na obrazku "Informacje o weekendach do oddania i finansach" odkrywają się kolejne funkcjonalności. Choćby takie jak finanse.
+    
+  description-06: |   
+    Chodzi tu o stany zaliczek służbowych w trzech walutach oraz poglądowe wyliczenie wynagrodzenia.
+    Na omawianym obrazku można zauważyć wyszukiwarkę do wyszukiwania w notatkach i "BackUp" czyli kopia zapasowa, która umożliwiała przywracanie bazy danych
+    po awarii urządzenia. Każdego dnia po zakończeniu pracy i dokonaniu ostatnich adnotacji obraz "Zakończenie dnia" tworzyła się automatyczna kopia zapasowa.
+
+  description-07: |
+    Zachowane były 4 ostatnie sztuki kopii zapasowych a wcześniejsze automatycznie skrypt usuwał z pamięci. Pora na małą wycieczkę po aplikacji zaczynając 
+    od "Widok główny aplikacji" / 'Zrób notatkę' / przeniesie nas do karty "Wprowadzanie notatek" Tutaj widzimy tylko trzy pola do wprowadzania danych ale
+    tutaj jedno pole ma więcej niż jedno zastosowanie. Np. W polu 'Czas' gdy znajdował się czas wtedy miały zastosowanie odpowiednie procedury. 
+
+  description-08: |
+    Czyli 'Miejscowość' była wykorzystywana w zakładce "Wymiana palet" gdzie dokonano wymiany oraz jako zwykła notatka.
+    Jeżeli w polu 'Czas' wprowadziłem słowo klucz "Agregat" wtedy w pole 'Miejscowość' wpisywałem litry zatankowanego paliwa do agregatu chłodniczego.
+    A w pole 'Notatki' stan licznika motogodzin. Dane te wędrowały do bazy danych i później z tych danych powstawał raport.
+    W Karcie "Wymiana palet" można zauważyć 'Miejscowość' wczytaną z pamięci. 
+
+  description-09: |
+    W pole 'Uwagi' wprowadzałem nazwę firmy, w której dokonano wymiany palet. Informacje te wędrowały do osobnej tabeli w bazie i później z tych danych
+    powstawał raport o wymianie palet. W karcie tej widać moduł do wysyłania raportu oraz podglądu wcześniejszych raportów. Moduł ten wysyłał do pracodawcy 
+    informacje o wymianie palet oraz rozliczenie wydatków służbowych. Podgląd raportów widzimy na obrazku "Podgląd raportów wymiany palet".
+  
+  description-10: |
+    Po powrocie z karty "Wymiana palet" do "Głównego widoku aplikacji". Przechodzimy do 'informacje wpisy' karta "Informacje o weekendach do oddania i finansach".
+    Z tej karty przechodzimy do 'Poprzednie wpisy' do karty "Podgląd notatek". Z poziomu tej karty wysyłałem raporty takie jak zestawienie notatek na mój adres mailowy
+    'Wyślij raport na mejla'. 
+
+  description-11: |
+    Wysyłałem także rejestry przekraczania granic państw (regulacje unijne), oraz informacje o tankowaniu agregatu chłodniczego. W karcie "Widok główny aplikacji"
+    widzimy przycisk z informacją ile dni pozostało do terminu 'Termin za 5 dni'.
+    Przycisk przeniesie nas do karty "Podgląd terminów" gdzie zastosowałem klasycznego "CRUD" (Create, Read, Update, Delete) czyli dodawanie nowego terminu, 
+    odczyt terminów, aktualizacja (edycja) terminu, oraz usuwanie terminu.
+
+  description-12: |
+    Wracając do karty "Podgląd raportów wymiany palet" w tabeli 'Informacja o wymianie palet' widnieje rubryka 'Podpis'. Linki te pozwalały na podpisanie przekazania 
+    lub pobrania palet od innego kierowcy z tej samej firmy. Do podpisu wykorzystałem bibliotekę "Canvas" co można zobaczyć na obrazkach "Podpisywanie wymiany palet"
+    oraz "Podpis w tabeli wymiany palet".
+
+  description-13: |
+    W karcie "Widok główny aplikacji" pozostał ostatni szczegół do opisania 'Pauza 3h', co wynika z przepisów, które można było wykorzystać w pracy.
+    W wciągu dnia gdy miałem przerwę nie planowaną (dłuższą niż 3h) 
+    mogłem zastosować po pracy pełny łączony odpoczynek dzienny 3h + 9h, co było traktowane jako pełny 11 godzinny odpoczynek dzienny.
+
+  description-14: |
+    To już wszystko co chciałem opisać w tej aplikacji. Przedstawiłem tutaj najistotniejsze zagadnienia z mojego punktu widzenia.
+
+
+  organizer-of-the-work-1: Widok główny aplikacji
+  organizer-of-the-work-2: Widok rozpoczęcia pracy
+  organizer-of-the-work-3: Wprowadzanie godziny rozpoczęcia pracy
+  organizer-of-the-work-4: Wprowadzanie godziny zakończenia pracy
+  organizer-of-the-work-5: Informacje o weekendach do oddania i finansach
+  organizer-of-the-work-6: Zakończenie dnia
+  organizer-of-the-work-7: Kopia zapasowa
+  organizer-of-the-work-8: Wprowadzanie notatek 
+  organizer-of-the-work-9: Wymiana palet
+  organizer-of-the-work-10: Podgląd notatek 
+  organizer-of-the-work-11: Podgląd terminów 
+  organizer-of-the-work-12: Podgląd rejestrów 
+  organizer-of-the-work-13: Podgląd raportów wymiany palet
+  organizer-of-the-work-14: Podpisywanie wymiany palet 
+  organizer-of-the-work-15: Podpis w tabeli wymiany palet
+
+
+volunteer-association-page:
+  title: Wolontariat w Stowarzyszeniu
+  title-nav: Wolontariat Stowarzyszenie
+  start-coding: Projekt rozpoczęty w 2020r.
+
+  description-01: |
+    Na tej stronie widzimy dwa ciekawe elementy, pierwszy z nich to "pomarańczowa karuzela". Widnieją na niej aktywne stacje, a w przypadku ich braku 
+    na karuzeli widać wyniki całorocznego konkursu. Drugim ciekawym elementem jest mapka, która przedstawia łączności radiowe z ostatniej godziny.
+    Po kliknięciu w ikonkę stacji zobaczymy informację o łączności oraz podlinkowany znak radiowy. W przypadku dużej aktywności, gdy połączeń jest dużo na mapie,
+    klikając w dymku na podlinkowany znak radiowy zobaczymy na mapce odfiltrowane łączności tylko tej jednej stacji, co można zobaczyć na obrazkach 
+    "Przed odfiltrowaniem" i "Po odfiltrowaniu".
+
+  description-02: |
+    Logowanie do formularza odbywa się przy pomocy forum. Pierwotnie cluster miał służyć tylko członkom klubu, dlatego do logowania wykorzystałem zmienną sesyjną
+    forum phpBB. Obsługa formularza to oczywiście klasyczny "CRUD" (Create, Read, Update, Delete). Pod spodem kryje się więcej skomplikowanych mechanizmów
+    choćby implementowanie kart QSL (obrazek w formie widokówki potwierdzający łączność). Są one do pobrania bezpośrednio z samego clustera obrazek "Cluster".
+
+  description-03: |
+    W clusterze oprócz kart do pobrania możemy podejrzeć daną łączność na mapce. Wracając do tematu formularza clustera i tego co jeszcze kryje się pod spodem-
+    w Stowarzyszeniu odbywają się czasami wszelkiego rodzaju konkursy, akcje dyplomowe, aktywacje i tutaj są potrzebne mechanizmy by te zagadnienia obsłużyć.
+    W tym celu stworzyłem panel administracyjny do inicjowania takich zdarzeń - obrazek "Panel administracyjny clustera".
+
+  description-04: |
+    Panel administracyjny obsługuje akcje dyplomowe, do których można przydzielić specjalną na daną okazję kartę QSL. Szczególnie kłopotliwa w strukturalnym kodzie 
+    okazała się obsługa możliwości uzupełniania wpisów po zakończonej akcji. Ponieważ użytkownik potrzebuje czas na dodanie ostatnich
+    łączności po tym jak czas akcji dyplomowej dobiegł końca. Łączności wprowadzane po zakończonej akcji z datą, która mieści się w ramach akcji musiała być akceptowana.
+    Obrazek "Panel administracyjny clustera" przedstawia tabelę, w której jest widoczna rubryka 'Uzup', w tej rubryce znajdują się ilość godzin przeznaczonych
+    na uzupełnianie zaległych wpisów.
+
+  description-05: |
+    W późniejszych akcjach dyplomowych jak można zauważyć dodano funkcjonalność polegającą na zróżnicowanej punktacji. Zróżnicowana punktacja była uzależniona od 
+    tego czy łączność była wewnątrz kraju, czy też po za kraj, w którym stacjonuje dana stacja lub też po za Europę. Rubryki 'Wob' czyli w obrębie własnego kraju,
+    'Poz' czyli po za obręb kraju, w którym stacjonuje stacja oraz 'DX' czyli łączności wybiegające po za Europę. Obsługa tej funkcjonalności polegała na przetworzeniu 
+    zmiennej typu string przykładowy znak z pasma CB np. '161OS256' (czyli mamy string i szukamy w nim pozycji, która nie jest liczbą, resztę odcinamy i mamy numer dywizjonu).
+    Numer ten określa z jakiego kraju dana stacja nadaje, więc wystarczyło do bazy wprowadzić listę dywizjonów należących do Europy. I w ten sposób naliczane były punkty.
+    Jeśli respondent ma inny dywizjon niż mój wtedy sprawdzamy czy jest na liście dywizjonów Europejskich jeśli tak:otrzymuje 2 punkty a w przeciwnym wypadku 3. 
+    Wracając do formularza clustera, na wczesnym etapie tworzenia jedną z pierwszych funkcjonalności było ułatwienie lokalizowania respondenta. 
+
+  description-06: |  
+    Jeśli respondent należał do 
+    klubu i wyraził zgodę na udostępnienie lokalizacji swojej stacji, wtedy jeśli użytkownik wprowadził w formularzu znak takiego operatora, otrzymywał informację
+    'Locator w bazie danych'. To oznaczało, że lokalizacja stacji jest zapisana w bazie danych i nie trzeba respondenta dopytywać skąd nadaje.
+    Ostatni istotny szczegół całego systemu, który pozostał do opisania w tym projekcie jest Aplikacja na Androida. Patrząc na "Formularz QSO" można sobie wyobrazić 
+    obsługę tegoż formularza na wąskim ekranie smartfona. Początkowo planowałem napisać wersję formularza dla urządzeń przenośnych. Co nie ukrywam w przyszłości 
+    po migracji całego systemu do symfony nastąpi. By nie tracić czasu wtedy kiedy nie miałem go zbyt wiele, postanowiłem pójść na kompromis. Zamiast pisać mobilną
+    wersję formularza postanowiłem napisać aplikację na Androida. Ponieważ wpadł mi go głowy pomysł by wykorzystać GPS w smartfonie do lokalizowania stacji mobilnych.
+    Wykorzystałem do tego celu bardzo łatwą platformę "MIT App Inventor", która służy do nauki programowania dla dzieci. 
+    Platforma ta pozwalała na wykorzystanie GPS z urządzenia do aktualizacji lokalizacji w tle przy zgaszonym ekranie by urządzenie nie zużywało zbyt wiele energii.
+    Aplikacja jest dostępna w sklepie
+
+  description-07: |  
+    gdzie można bardziej szczegółowo zapoznać się z aplikacją. Aplikacja jest stale rozwijana i służy użytkownikom do dziś.
+
+
+  volunteer-association-1:  Widok główny aplikacji
+  volunteer-association-2:  Przed odfiltrowaniem
+  volunteer-association-3:  Po odfiltrowaniu 
+  volunteer-association-4:  Wzmożony ruch w eterze krajowym
+  volunteer-association-5:  Formularz QSO
+  volunteer-association-6:  Cluster
+  volunteer-association-7:  Panel administracyjny clustera 
+  volunteer-association-8:  Wzmożony ruch w eterze międzynarodowym 
+  volunteer-association-9:  Ekran logowania
+  volunteer-association-10:  Formularz clustera aplikacji
+  volunteer-association-11:  Ustawienia aplikacji
+  link-description: Link do video prezentacji aplikacji.
+  
+monitoring-whe-watchmans-work-page:
+  title: Monitorowanie pracy stróża w firmie
+  title-nav: Monitorowanie pracy stróża
+  start-coding: Projekt rozpoczęty w 2024r.
+  description-01: |  
+    Jest to zdecydowanie najmniejszy projekt, który wykonałem nie licząc projektów wykonanych podczas nauki z różnych kursów.
+    Projekt wykonałem w języku Pascal w środowisku "Delphi 7". Zadanie było stosunkowo proste od strony kodowania, wystarczyło napisać 
+    program, który obsłuży port com i odbierze z odpowiednich pinów sygnały. Elektronikę wykonałem samodzielnie, która obsługiwała 
+    punkt kontrolny. System składa się z 2 włączników dzwonkowych zamontowanych w firmie, każdy włącznik posiadał światełko, które 
+    zaczynało migotać gdy przyszła pora na obchód. Wtedy należało nacisnąć przycisk, program od momentu aktywowania migotania lampki,
+    zaczął nasłuch na porcie com w pętli w odstępie czasowym co 1 sek. Gdy przycisk został naciśnięty, program odebrał sygnał po czym 
+    dezaktywował migotanie lampki. Przed kolejnym obchodem zanim kolejny raz migotanie lampki zostało aktywowane, program sprawdzał stan portu,
+    czy styki przełącznika są rozwarte (na wypadek gdyby stróż wpadł na pomysł by unieruchomić przycisk na stałe w pozycji wciśniętej).
+    W takim przypadku takie zdarzenie było odnotowane w raporcie. 
+    
+  description-02: |
+    Logika programu polegała na timerze, ponieważ pierwotnie planowano obchody co godzinę, cyklicznie.
+    Co godzinę następowała aktywacja migotania lampki na określony czas. Jeśli w określonym czasie przycisk został naciśnięty obchód został zaliczony,
+    w przeciwnym wypadku obchód - niezaliczony (co zostało w raporcie odnotowane). Dodatkowo system był wyposażony w pomarańczowe migoczące światło
+    usytuowane w taki sposób by było widoczne z portierni, światło było aktywowane tylko wtedy gdy zostało już niewiele czasu na obchód
+    celem przypomnienia. Po uruchomieniu systemu dostałem informację, że nie ma potrzeby robienia obchodów co godzinę, więc dodałem do interfejsu
+    24 check boksy by firma mogła ustawiać, w których godzinach mają być realizowane obchody.
+
+  description-03: |
+    Program jest wyposażony w mini serwer umożliwiający podgląd pliku HTML z listą raportów według dat. Codziennie generowany jest nowy raport z nową datą.
+    Właściciel firmy ma dostęp do raportu w telefonie po za siedzibą firmy.
+
+information-about-this-site-page:
+  title: Krótkie informacje o tej stronie 
+  title-nav: Informacje o tej stronie 
+  start-coding: Projekt rozpoczęty w 2025r.
+  description-01: |
+    Projekt stworzony w Symfony (w wersji 6.4.19). 
+    Aplikacja opiera się na wzorcu MVC i korzysta z szablonów Twig do renderowania widoków. 
+  description-02: |
+    Frontend – Bootstrap: W projekcie wykorzystałem Bootstrap do budowy responsywnych i estetycznych interfejsów użytkownika.
+    Dzięki Bootstrapowi aplikacja dostosowuje się do różnych rozmiarów ekranów,
+    co zapewnia optymalne doświadczenie na urządzeniach mobilnych, tabletach i komputerach stacjonarnych. 
+
+qrz-page:
+  title: QRZ Oscar Sierra
+  title-nav: QRZ Oscar Sierra
+  start-coding: Projekt rozpoczęty w 2025r.
+  description-01: |
+    Witryna skierowana jest do pasjonatów łączności radiowej. Jej celem jest stworzenie bazy wizytówek entuzjastów z całego świata.
+
+    Po zalogowaniu się do systemu użytkownik może stworzyć elektroniczną wizytówkę, która będzie widoczna w wyszukiwarce wizytówek 
+    (a w przyszłości również w aplikacji mobilnej). Wizytówka zawiera dane użytkownika, takie jak znak wywoławczy, imię, lokalizacja, 
+    adres e-mail oraz inne informacje kontaktowe.
+
+  
+  description-02: | 
+    Użytkownik może edytować swoją wizytówkę, dodając opis radiostacji i anteny wraz ze zdjęciami. Możliwa jest również edycja znaku wywoławczego oraz imienia.
+
+    Wizytówka jest widoczna w wyszukiwarce, która umożliwia wyszukiwanie według znaku wywoławczego. Tworzenie wizytówki jest proste i intuicyjne. 
+    Po zalogowaniu się do systemu użytkownik klika przycisk „Edytuj widok” i dodaje bloki z tytułem i treścią.
+
+
+  description-03: |
+    Pierwszy blok jest blokiem reprezentacyjnym – zawiera dane użytkownika (imię, znak wywoławczy automatycznie pobierany z bazy danych i wyświetlany jako nagłówek). 
+    Tytuł i treść tego bloku są pozycjonowane po lewej stronie. Można tam umieścić np. lokator QTH lub dane adresowe.
+
+    W tym bloku można również dodać jedno zdjęcie profilowe. W kolejnych blokach użytkownik może dodać tytuł i opis radiostacji lub anteny oraz maksymalnie trzy 
+    zdjęcia wraz z krótkim opisem. Aby dodać zdjęcie do bloku, należy najpierw przesłać je na serwer – pojawi się wtedy miniaturka po prawej stronie panelu edycji. 
+    Zdjęcie dodaje się poprzez zaznaczenie checkboxa oraz kliknięcie przycisku „Dodaj zaznaczone zdjęcie” w danym bloku.
+
+    
+  description-04: |
+    Użytkownik może dodać maksymalnie 15 zdjęć do wizytówki. Liczba bloków nie jest ograniczona.
+
+    Po utworzeniu wizytówki użytkownik może ją edytować – zmieniać zdjęcia, dodawać nowe bloki i modyfikować istniejące. 
+    Po wyszukaniu znaku wywoławczego w wyszukiwarce, użytkownik może przejść do wybranej wizytówki. 
+    Kliknięcie zdjęcia w wizytówce uruchamia podgląd slajdów w pełnym rozmiarze.
+
+  
+  description-05: |
+    Projekt został napisany w Symfony 6.4 w języku PHP. Wykorzystuje bazę danych MySQL do przechowywania wizytówek i zdjęć. 
+    System zawiera funkcje rejestracji i logowania z linkiem aktywacyjnym przesyłanym e-mailem oraz możliwość resetowania hasła. 
+    Do zarządzania wizytówkami zastosowano klasyczny model CRUD (Create, Read, Update, Delete).
+
+  qrz-association-1: Panel użytkownika
+  qrz-association-2: Edycja wizytówki
+  qrz-association-3: Dodawanie zdjęcia do wizytówki
+  qrz-association-4: Wizytówka w wyszukiwarce
+
+quiz-page:
+  title: Szkoła Jazdy
+  title-nav: Szkoła Jazdy
+  start-coding: Projekt rozpoczęty w 2025r.
+
+  description-01: | 
+    Szkoła Jazdy to projekt wykonany w ramach nauki Laravel i podstaw Vue dla znajomego który prowadzi szkołę jazdy w Holandii w języku Polskim.
+    Ogólnie podobne narzędzie do nauki teorii już istnieje na holenderskim rynku ale posiada liczne błędy w tłumaczeniach w polskiej wersji językowej. 
+    Celem stworzenia platformy do nauki jest posiadanie pełnej kontroli nad tłumaczeniami, wszystkie wersje językowe pytań i odpowiedzi w quizach są 
+    wprowadzane przez właściciela platformy. 
+
+  description-02: | 
+    Do łatwego zarządzania stworzyłem panel administracyjny w którym można zarządzać kontami użytkowników po przez nadawanie ról takich jak user, premium, admin oraz 
+    można zarządzać quizami. W panelu zarządzania można dodawać, usuwać i edytować kategorie oraz quizy w danej kategorii. Wszystkie treści nazwy kategorii, 
+    quizy (pytania i odpowiedzi) wprowadza się osobno dla każdej wersji językowej korzystając z listy rozwijanej do wyboru języka.
+
+  description-03: |
+    Są trzy typy kategorii demo, zwykła i egzamin, Jeśli chcemy by dana kategoria była dostępna dla każdego użytkowniak typu "user" wystarczy w nazwie kategori 
+    dodać słowo kluczowe (Demo) pozostałe typy kategorii są dostępne tylko dla użytkowników "premium". Jeśli chcemy utworzyć kategorię egzamin nadajemy
+    poprostu nazwę kategori "Egzamin" skrypt rozpoznaje słowa kluczowe i w odpowiedni sposób traktóje dzną kategorię. Nauka polega na rozwiązywaniu quizów wybierając
+    daną kategorię po czym jest losowane z puli danej kategorii 10 pytań. 
+
+  description-04: |
+    Pytania wyświetlane są asynchronicznie w okienku modal z obiektu który jest tworzony podczas wyboru kategorii na backendzie. Pytania można przewijać dowoli w przód i w stecz 
+    natomiast w ostatnim 10 pytaniu ukaże się przycisk "Podsumowanie". Po przejściu do podsumowania ukaże się wynik naszego quizu
+    który zostaje zapisany w bazie danych. System pozwala na kilka poprawnych odpowiedzi w jednym pytaniu. Podczas nauki wybranie 1 błędnej odbowiedzi blokóje możliwość udzielania
+    odpowiedzi w danym pytaniu, jest wyświetlane pouczenie na czerwonym tle dlaczego dana odpowiedź jest błędna, zadanie nie jest zaliczone. 
+
+  description-05: |  
+    W prziypadku zaznaczenia poprawnej odpowiedzi, jeśli to była jedyna poprawna odpowiedź wtedy udzielanie dalszych odpowiedzi jest blokowane oraz
+    wyświetla sie na zielonym tle wyjaśnienie dlaczego właśnie to poprawna odpowiedź. W przypadku wielu poprawnych odpowiedz blokada i ukazanie sie objaśnienia następuje 
+    gdy wybrane zostaną wszystkie poprawne odpowiedzi.
+
+  description-06: |
+    Uruchamiając egzamin jest losowane 50 pytań z wszystkich kategorii pobierając z każdej kategorii równą ilość losowo wybranych pytań.
+    Podobnie jak przy nauce na egzaminie możemy przechodzić do kolejnych pytań i powracać z tą różnicą że nie ma blolad po wybraniu poprawnij lub 
+    błędnej odpowiedz analogicznie tagże nie ma pouczeń. Poprostu możemy zaznaczać odznaczać zaznaczenia a jak dojdzieby do ostatniego pytania 
+    pojawi się przycisk "Podsumowanie" którym możemy zakończyć symulację egzaminu. 
+
+  description-07: |
+    W przypadku gdiy nie zdążymy odpowiedzieć na wszystkie pytania i mija czas trwania egzaminu który wynośi 35 mniut przeniesie nas automatycznie
+    do podsumowania. Podsumowanie kończy egzamin zapisuje wynik w bazie danych ale nadal mamy możliwość powrucenia do poprzednich pytań ale już z 
+    włączoną blokadą i wyświetlonymi pouczeniami tak jak to wyglądało podczas nouki. Postęp nauki jak i egzaminów użytkownik może wyświetlić w "Statystykach".
+    
+
+  description-08: |
+    Dla ćwiczeń i egzaminów są oddzielne wykresy sporządzane na podstawie wyników zapisanych w bazie nadych.
+
+  quiz-association-1: Widok strony domowej po zalogowaniu 
+  quiz-association-2: Zarządzanie użytkownikami 
+  quiz-association-3: Zarządzanie kategoriami
+  quiz-association-4: Edycja / dodawanie wersji językowej
+  quiz-association-5: Rozwiązywanie zadania
+  quiz-association-6: Egzamin
+  quiz-association-7: Podgląd pytań z danej kategorii
+  quiz-association-8: Statystyki nauki
+  quiz-association-9: Statystyki egzaminów
+
+repo: Link do repozytorium
+not-redy: Niebawem opis projektu będzie dostępny.
+
+

@@ -1,0 +1,513 @@
+.compsoul-slider {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .compsoul-slide {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+  }
+  
+  .compsoul-slide-hidden {
+    border: 0;
+    clip: rect(0 0 0 0); 
+    height: 1px; 
+    overflow: hidden; 
+    padding: 0;
+    position: absolute; 
+    margin: -1px;
+    width: 1px;
+  }
+  
+  .compsoul-slide-content {
+    display: inline-flex;
+    flex-flow: column wrap;
+    font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;
+    margin: 0 auto 48px;
+    max-width: 540px;
+    width: 90%;
+  }
+  
+  .compsoul-slide-content .compsoul-slide-heading {
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 100;
+    margin: 0 0 21px;
+    padding: 0;
+    position: relative;
+    text-align: center;
+    z-index: 0;
+  }
+  
+  .compsoul-slide-content .compsoul-slide-heading:before {
+    background: #e7a14f;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+  }
+  
+  .compsoul-slide-content .compsoul-slide-main {
+    background: #464972bb;
+    color: #d7d8ed;
+    font-size: 18px;
+    line-height: 1.4;
+    margin: 0 0 21px;
+    padding: 21px;
+  }
+  
+  .compsoul-slide-content .compsoul-slide-more {
+    background: #464972;
+    border-radius: 5px;
+    color: #d7d8ed;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 18px;
+    margin: 0 auto;
+    padding: 8px 16px;
+    position: relative;
+    text-decoration: none;
+    transition: background 0.4s, color 0.4s;
+    z-index: 0;
+  }
+  
+  .compsoul-slide-content .compsoul-slide-more:hover,
+  .compsoul-slide-content .compsoul-slide-more:focus {
+    background: #e7a14f;
+    color: #ffffff;
+  }
+  
+  .compsoul-slide {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    width: 100%;
+  }
+  
+  .compsoul-slide.compsoul-active {
+    z-index: 1;
+    pointer-events: auto;
+  }
+  
+  .compsoul-slide .compsoul-slide-figure {
+    background: no-repeat center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+  }
+  
+  .compsoul-slide .compsoul-slide-img {
+    display: none;
+  }
+  
+  .compsoul-slide-button {
+    background: #464972;
+    border: none;
+    cursor: pointer;
+    font-size: 2.6px;
+    height: 16em;
+    outline: 1px solid #e7a14f00;
+    padding: 0;
+    transition: outline 0.4s;
+    width: 16em;
+  }
+  
+  .compsoul-slide-button:focus, .compsoul-slide-button:focus-within {
+    outline: 1px solid #e7a14fff;
+  }
+  
+  .compsoul-slide-next {
+    right: 0;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    z-index: 5;
+  }
+  
+  .compsoul-slide-prev {
+    left: 0;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    z-index: 5;
+  }
+  
+  .compsoul-slide-next, .compsoul-slide-prev {
+    cursor: default;
+    opacity: 0;
+    text-align: center;
+    transition: opacity 0.4s, outline 0.4s;
+  }
+  
+  .compsoul-slide-next.compsoul-active, .compsoul-slide-prev.compsoul-active {
+    cursor: pointer;
+    opacity: 1;
+  }
+  
+  .compsoul-slide-next.compsoul-loading, .compsoul-slide-prev.compsoul-loading {
+    cursor: progress;
+  }
+  
+  .compsoul-slide-next:before, .compsoul-slide-prev:before {
+    border-top: 1em solid #d7d8ed;
+    border-right: 1em solid #d7d8ed;
+    box-sizing: content-box;
+    content: "";
+    cursor: pointer;
+    display: inline-block;
+    height: 4em;
+    padding: 0 0 1em 1em;
+    transform: rotate(45deg) translate(-25%, 25%);
+    transition: opacity 0.4s, border 0.4s;
+    width: 4em;
+  }
+  
+  .compsoul-slide-next:hover:before, .compsoul-slide-prev:hover:before {
+    border-top: 1em solid #e7a14f;
+    border-right: 1em solid #e7a14f;
+  }
+  
+  .compsoul-slide-next:after, .compsoul-slide-prev:after {
+    animation: compsoul-loading 1s infinite linear;
+    animation-play-state: paused;
+    border-bottom: 1em solid #d7d8ed;
+    border-left: 1em solid #d7d8ed;
+    border-right: 1em solid #d7d8ed;
+    border-top: 1em solid #fff;
+    border-radius: 100%;
+    box-sizing: content-box;
+    content: "";
+    cursor: pointer;
+    display: inline-block;
+    height: 6em;
+    left: 50%;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.4s, border 0.4s;
+    width: 6em;
+  }
+  
+  @keyframes compsoul-loading {
+    from {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+  
+    to {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+  
+  .compsoul-slide-next.compsoul-loading:before, .compsoul-slide-prev.compsoul-loading:before {
+    opacity: 0;
+  }
+  
+  .compsoul-slide-next.compsoul-loading:after, .compsoul-slide-prev.compsoul-loading:after {
+    animation-play-state: running;
+    cursor: progress;
+    opacity: 1;
+  }
+  
+  .compsoul-slide-next.compsoul-loading:hover:after, .compsoul-slide-prev.compsoul-loading:hover:after {
+    border-top: 1em solid #ff0000;
+  }
+  
+  .compsoul-slide-prev:before {
+    transform: rotate(-135deg) translate(-25%, 25%);
+  }
+  
+  .compsoul-slide-navigation {
+    bottom: 21px;
+    font-size: 0;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, 0);
+    z-index: 5;
+  }
+  
+  .compsoul-slide-navigation ul {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .compsoul-slide-navigation .compsoul-slide-nav {
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .compsoul-slide-navigation .compsoul-slide-nav * {
+    pointer-events: none;
+  }
+  
+  .compsoul-slide-navigation button {
+    background: none;
+    border: 0;
+    box-sizing: content-box;
+    display: block;
+    font-size: 1px;
+    padding: 4em 2em;
+  }
+  
+  .compsoul-slide-navigation button:focus, .compsoul-slide-navigation button:focus-within {
+    outline: none;
+  }
+  
+  .compsoul-slide-navigation .compsoul-slide-point {
+    background: #464972;
+    border: 1em solid #e7a14f00;
+    border-radius: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    height: 20em;
+    padding: 0;
+    position: relative;
+    transition: border 0.2s linear;
+    width: 20em;
+  }
+  
+  .compsoul-slide-navigation .compsoul-active .compsoul-slide-point, .compsoul-slide-navigation button:focus .compsoul-slide-point, .compsoul-slide-navigation button:focus-within .compsoul-slide-point, .compsoul-slide-navigation .compsoul-slide-nav:hover .compsoul-slide-point {
+    border: 3em solid #e7a14fff;
+  }
+  
+  .compsoul-slide-navigation .compsoul-loading button:focus .compsoul-slide-point, .compsoul-slide-navigation .compsoul-loading button:focus-within .compsoul-slide-point, .compsoul-slide-navigation .compsoul-slide-nav.compsoul-loading:hover .compsoul-slide-point {
+    border: 3em solid #ff0000ff;
+  }
+  
+  .compsoul-slide-navigation .compsoul-slide-point:before {
+    background: #d7d8ed00;
+    border: 2em solid #d7d8ed;
+    border-radius: 100%;
+    box-sizing: border-box;
+    content: "";
+    cursor: pointer;
+    display: inline-block;
+    height: 10em;
+    left: 50%;
+    opacity: 1;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: background 0.4s, opacity 0.4s;
+    width: 10em;
+  }
+  
+  .compsoul-slide-navigation .compsoul-slide-point:after {
+    animation: compsoul-loading 1s infinite;
+    animation-play-state: paused;
+    border-bottom: 2em solid #d7d8ed;
+    border-left: 2em solid #d7d8ed;
+    border-right: 2em solid #d7d8ed;
+    border-top: 2em solid #fff;
+    border-radius: 100%;
+    box-sizing: border-box;
+    content: "";
+    cursor: pointer;
+    height: 16em;
+    left: 50%;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.4s;
+    width: 16em;
+  }
+  
+  .compsoul-slide-navigation .compsoul-loading .compsoul-slide-point:before {
+    opacity: 0;
+  }
+  
+  .compsoul-slide-navigation .compsoul-loaded .compsoul-slide-point:before {
+    background: #d7d8ed;
+  }
+  
+  .compsoul-slide-navigation .compsoul-loading .compsoul-slide-point:after {
+    animation-play-state: running;
+    opacity: 1;
+  }
+  
+  .compsoul-slide-timeline {
+    height: 3px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: 5;
+    width: 100%;
+  }
+  
+  .compsoul-slide-timeline:before {
+    animation: compsoul-slide-timeline 6s linear forwards;
+    animation-play-state: paused;
+    background: #e7a14f;
+    content: "";
+    display: block;
+    height: 100%;
+    transform: translate(-100%, 0);
+    width: 100%;
+  }
+  
+  .compsoul-slider .compsoul-slide-timeline.compsoul-active:before {
+    animation-play-state: running;
+  }
+  
+  .compsoul-slider:hover .compsoul-slide-timeline:before {
+    animation-play-state: paused;
+  }
+  
+  .compsoul-slide-timeline.compsoul-unset:before {
+    animation: unset;
+  }
+  
+  @keyframes compsoul-slide-timeline {
+    from {
+      transform: translate(-100%, 0);
+    }
+  
+    to {
+      transform: translate(0, 0);
+    }
+  }
+  
+  .compsoul-slider-fade .compsoul-slide {
+    opacity: 0;
+    will-change: opacity;
+    z-index: 0;
+  }
+  
+  .compsoul-slider-fade .compsoul-slide.compsoul-wait {
+    opacity: 1;
+    z-index: 1;
+  }
+  
+  .compsoul-slider-fade .compsoul-slide.compsoul-active {
+    opacity: 1;
+    transition: opacity 0.4s;
+    z-index: 2;
+  }
+  
+  .compsoul-slider-fade .compsoul-slide.compsoul-first, .compsoul-slider-fade .compsoul-slide.compsoul-previous {
+    transition: unset;
+  }
+  
+  .compsoul-slider-vertical {
+    overflow: hidden;
+  }
+  
+  .compsoul-slider-vertical .compsoul-slide {
+    background: transparent;
+    will-change: transform;
+  }
+  
+  .compsoul-slider-vertical .compsoul-slide.compsoul-previous {
+    z-index: 2;
+  }
+  
+  .compsoul-slider-vertical .compsoul-slide.compsoul-active {
+    z-index: 4;
+  }
+  
+  .compsoul-slider-vertical .compsoul-slide.compsoul-direction-down {
+    animation: compsoul-slider-vertical-down 0.4s linear forwards;
+  }
+  
+  @keyframes compsoul-slider-vertical-down {
+    from {
+      transform: translate(0, -100%);
+    }
+  
+    to {
+      transform: translate(0, 0);
+    }
+  }
+  
+  .compsoul-slider-vertical .compsoul-slide.compsoul-direction-up {
+    animation: compsoul-slider-vertical-up 0.4s linear forwards;
+  }
+  
+  @keyframes compsoul-slider-vertical-up {
+    from {
+      transform: translate(0, 100%);
+    }
+  
+    to {
+      transform: translate(0, 0);
+    }
+  }
+  
+  .compsoul-slider-vertical .compsoul-slide.compsoul-first, .compsoul-slider-vertical .compsoul-slide.compsoul-previous {
+    animation: unset;
+  }
+  
+  .compsoul-slider-horizontal {
+    overflow: hidden;
+  }
+  
+  .compsoul-slider-horizontal .compsoul-slide {
+    background: #ffffff;
+    will-change: transform;
+  }
+  
+  .compsoul-slider-horizontal .compsoul-slide.compsoul-previous {
+    z-index: 2;
+  }
+  
+  .compsoul-slider-horizontal .compsoul-slide.compsoul-active {
+    z-index: 4;
+  }
+  
+  .compsoul-slider-horizontal .compsoul-slide.compsoul-direction-down {
+    animation: compsoul-slider-horizontal-left 0.4s linear forwards;
+  }
+  
+  @keyframes compsoul-slider-horizontal-left {
+    from {
+      transform: translate(-100%, 0);
+    }
+  
+    to {
+      transform: translate(0, 0);
+    }
+  }
+  
+  .compsoul-slider-horizontal .compsoul-slide.compsoul-direction-up {
+    animation: compsoul-slider-horizontal-right 0.4s linear forwards;
+  }
+  
+  @keyframes compsoul-slider-horizontal-right {
+    from {
+      transform: translate(100%, 0);
+    }
+  
+    to {
+      transform: translate(0, 0);
+    }
+  }
+  
+  .compsoul-slider-horizontal .compsoul-slide.compsoul-first, .compsoul-slider-horizontal .compsoul-slide.compsoul-previous {
+    animation: unset;
+  }
+  
+  @media (max-width: 840px) {
+    .compsoul-slide-next, .compsoul-slide-prev {
+      top: auto;
+      transform: unset;
+      bottom: 12px;
+    }
+  }
+  
+ 

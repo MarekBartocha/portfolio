@@ -1,0 +1,415 @@
+# messages.pl.yaml
+home-page:
+  home: Homepage
+  about: Über mich
+  projects: Projekte
+  contact: Kontakt
+  intro: |
+    Ich möchte meine Karriere im IT-Bereich ausbauen. Ich interessiere mich für eine Stelle als Junior-Entwickler mit dem Schwerpunkt auf der Erstellung sicherer Webanwendungen.
+    Auf dieser Seite finden Sie meine Projekte, die ich im Rahmen meiner Programmierausbildung erstellt habe - viele von ihnen beinhalten gute Sicherheitspraktiken,
+    wie Datenvalidierung, Zugriffskontrolle, Authentifizierung (JWT), SQL Injection und XSS-Schutz.
+    Ich lade Sie ein, einen Blick auf meine Projekte zu werfen - sie bieten eine solide technische Grundlage für die weitere Entwicklung im Bereich der Cybersicherheit.
+
+  licenses-title: Lizenzen und Quellen
+  more: Czytaj więcej
+  less: Weniger lesen
+  technologies: Verwendete Technologien
+  github: Siehe den Code auf GitHub
+  project: Projektbeschreibung ansehen
+  
+
+about-page:
+  title: Ein paar Worte über mich
+  description-01: |
+    Mein Abenteuer mit der Programmierung begann 2015/2016, als ich nach einer Lösung für die Steuerung meiner Heizung suchte.
+    Die auf dem Markt erhältlichen Systeme waren in moderne Heizungsanlagen integriert und ich hatte eine ältere Anlage. 
+    Also beschloss ich, mein eigenes, auf meine Bedürfnisse zugeschnittenes Programm zu erstellen. Dieses System funktioniert auch heute noch und wird ständig weiterentwickelt.
+
+  description-02: |
+    Mit der Zeit ergaben sich weitere Anforderungen. Als internationaler Fahrer musste ich jeden Tag zeitaufwändige Berichte über Fahrten 
+    durch verschiedene Länder gemäß den EU-Vorschriften erstellen. Ich beschloss, diesen Prozess zu automatisieren und erstellte eine App zur Verwaltung von Arbeitszeit, 
+    Ruhezeiten und Dokumentation. Ich benutzte sie von 2016 bis Ende 2024.
+
+  description-03: |
+    Die nächste Etappe war die ehrenamtliche Tätigkeit bei der Association of Radio Communications Enthusiasts, wo ich bei der Einrichtung des Systems für die Abschlusskampagne zum 10-jährigen Jubiläum half. 
+    Ich bereitete die Informationsseite und das so genannte „Cluster“ vor - ein Formular zur Erfassung von Funkverbindungen und ein Mechanismus zum Zählen von Punkten. 
+    Nach der Aktion schrieb ich mein eigenes CMS, um die Website des Vereins zu verwalten, die heute noch läuft und weiterentwickelt wird.
+
+  description-04: |
+    Im Jahr 2023/2024 schloss ich mein erstes Projekt für das Unternehmen ab - ein einfaches, aber praktisches System zur Überwachung der Arbeit des Wachpersonals. 
+    Die Hauptanforderung bestand darin, eine zuverlässige, fast „unzerstörbare“ Lösung zu schaffen, die keine aktive Wartung durch den Mitarbeiter erfordert (wie z. B. das Auswechseln von RFID-Tags). 
+    Ich habe eine auf einem Klingelschalter basierende Anwendung geschrieben, die die Anwesenheit des Wachmanns an einem bestimmten Ort und zu einer bestimmten Zeit aufzeichnet, wobei die Berichte über einen Browser aus der Ferne abrufbar sind.
+  
+  description-05: |
+    Ich konzentriere mich hauptsächlich auf Backend-Technologien (PHP, Symfony, Laravel, SQL), aber ich arbeite auch gerne mit dem Frontend (HTML, CSS, Bootstrap, JavaScript, jQuery).
+    Ich arbeite in Linux- und Windows-Umgebungen und benutze SSH und bash.
+    Ich interessiere mich auch für das Thema Sicherheit von Webanwendungen - ich kümmere mich um die richtige Datenvalidierung, Zugriffskontrolle und grundlegende Sicherheit gegen
+    Angriffe wie SQL Injection oder XSS. Ich möchte meine erste Stelle als Junior-Entwickler antreten, um meine Fähigkeiten weiterzuentwickeln und Erfahrungen in der Arbeit in einem Team zu sammeln.
+
+  links: Links
+  hobby: Mein Hobby
+  hobby-1: Klavier
+  hobby-2: Motorräder
+  hobby-3: Amateurfunk
+
+
+home-heating-page:
+  title: Heizungssteuerung.
+  title-nav: Steuerung der Heizung
+  start-coding: Das Projekt wurde 2015 gestartet.
+  
+  description-01: | 
+    Ich habe das Programm für meinen eigenen Gebrauch geschrieben. Ich verwende es, um die Fußbodenheizung im Haus zu steuern, und es regelt auch die Luftzufuhr zum Kamin im Wohnzimmer.
+    Es regelt die Temperatur des Wassermantels im Kamin, der an die Zentralheizung angeschlossen ist. Das Programm schaltet auch das 3-Wege-Ventil
+    , das den Wasserkreislauf umschaltet, je nachdem, ob wir im Kamin oder in einem herkömmlichen Herd im Heizungsraum heizen.
+    Mit dem Programm kann die Temperatur in einem Raum (dem Wohnzimmer) eingestellt werden.
+    Es wird über einen Remote-Desktop auf einem Tablet oder Telefon gesteuert.
+    Es besteht die Möglichkeit, die Temperatur selbst auf einem Fernsehgerät mit einem HTML-Viewer anzuzeigen. 
+    Wie Sie auf dem Bild sehen können, sind die Daten des Kamins in das Programm aufgenommen worden, so dass, wie Sie sich denken können, eine Erweiterung geplant ist.
+
+  description-02: | 
+    Das gesamte Programm ist in Pascal in der Delphi 7-Umgebung geschrieben, mit ein wenig HTML für die Browseransicht und Javascript (Protokollierung).
+    Das Programm läuft auf einem Desktop-Computer mit Windows XP. Die Temperaturen werden mit einem Adapter gemessen, der an den Com-Eingang angeschlossen ist. 
+    dallas ds18b20 Sensoren habe ich an den Adapter angeschlossen, der einen 16-Bit-Ram-Speicher mit einer eindeutigen ID-Nummer hat, so dass mehrere Sensoren an einen Com-Port angeschlossen werden können.
+    Die Software hat auch einen Kopierschutz. Sie nimmt die Seriennummer des Motherboards, lässt sie durch einen Algorithmus laufen und überprüft, ob sie mit dem angegebenen Schlüssel übereinstimmt.
+
+  description-03: |   
+    Anfänglich wusste ich nicht, wie ich die Daten von den Sensoren in Pascal lesen sollte. Ich verwendete ein handelsübliches Programm (Logtemp), das die Daten von den Sensoren las und 
+    sie in 3-Minuten-Intervallen in eine xml-Datei schrieb, und mein Programm las die Daten alle 3 Minuten aus der xml-Datei und führte Berechnungen anhand einer Tabelle durch, die aus
+    erstellt wurde, einer im Internet gefundenen Grafik, die mir Daten darüber lieferte, wie hoch die Temperatur der Fußbodenheizung in Abhängigkeit von der Außentemperatur sein sollte.
+    Ich habe beide Programme in den Autostart des Computers aufgenommen. Mein Programm hatte beim Start eine spezielle Verzögerung von einigen Sekunden durch das Einlesen der xml-Datei, um 
+    Kollisionen mit dem Programm logtmp zu vermeiden. Im Laufe der Zeit verbesserte ich mein Programm so, dass es die Daten von den Sensoren selbst auslesen konnte, und es wurde immer eigenständiger.
+
+  home-heating-1: Hauptansicht des Programms
+  home-heating-2: Ansicht aus dem Browser Temperaturübersicht
+  home-heating-3: Temperatur-Einstellungen
+  home-heating-4: Ansicht aus der Browser-Anmeldung
+  home-heating-5: Bericht
+  home-heating-6: Temperaturkurve
+  home-heating-7: Server-Informationen
+  home-heating-technical-1: Verwendete LPT- und COM-Ports
+  home-heating-technical-2: Controller
+  home-heating-technical-3: Steuerung der Luftzufuhr zum Kamin
+  home-heating-technical-4: Drei-Wege-Ventil-Steuerung
+  home-heating-technical-5: Steuerung der Fußbodenheizung
+
+  technical: Technische Fragen
+
+licenses-page:
+  licenses: |
+    Alle auf dieser Website verwendeten Grafiken und Icons wurden von öffentlich zugänglichen Quellen für den nichtkommerziellen Gebrauch heruntergeladen. 
+    Das Urheberrecht liegt bei den ursprünglichen Urhebern, und die Verwendung erfolgt in Übereinstimmung mit den auf den Quellenseiten angegebenen Lizenzbedingungen.
+    Bitte kontaktieren Sie mich, wenn Sie der Urheber eines der verwendeten Materialien sind und Fragen zu dessen Verwendung haben.
+  licenses-sources: Quellen
+
+organizer-of-the-work-page:
+  title: Ein Organisator der Subsistenzarbeit.
+  title-nav: Organisator der Arbeit
+  start-coding: Das Projekt wurde 2016 gestartet.
+  
+  description-01: | 
+    Als ich diese App im Jahr 2016 schrieb, wusste ich wenig über objektorientierte Programmierung, daher war die App noch strukturell geschrieben. 
+    Ich habe diese App Ende 2024 mit dem Ende meiner Fahrerkarriere eingestellt.
+    Trotz des äußeren Anscheins war sie recht umfangreich. Sie hatte viele Registerkarten und Funktionalitäten. 
+    Im Wesentlichen ging es darum, dass die App ihren Zweck erfüllte. Die Frontend-Fragen 
+    waren nicht das Wichtigste, da die App nur für den persönlichen Gebrauch bestimmt war.
+
+  description-02: | 
+    Das Hauptziel des Projekts war es, ein intelligentes ala Notizbuch zu bauen. 
+    So konnten wir im Laufe des Tages nach und nach relevante Anmerkungen eingeben, die dann automatisch verarbeitet und in die entsprechenden Berichte eingetragen wurden.
+    In der Abbildung „Startansicht“ sehen Sie eine einfache Ansicht für die Eingabe des Startdatums. In der Ansicht wollte ich große Schaltflächen haben, da ich geplant hatte, die App auf einem 7-Zoll-Tablet zu verwenden ( 
+    ). Und auf diese einfache Weise habe ich die Grunddaten in das Mini-System eingegeben. 
+
+  description-03: | 
+    Zu Beginn des Tages zeigte die Hauptansicht der Anwendung an, bis zu welcher Uhrzeit ich an einem bestimmten
+    Tag arbeiten konnte. Dabei wurden die Pausen für die Woche berücksichtigt, wie Sie auf dem Bild "Hauptansicht der Anwendung", Pausen 9h (2), sehen können. Das bedeutet, dass ich zwei Pausen von 9 Stunden auf 
+    nutzen kann, und das bedeutet, dass ich 15 Stunden arbeiten könnte. Da die Arbeit und die Ruhezeit am Tag (über Nacht) auf
+    in 24 Stunden passen mussten.
+        
+  description-04: | 
+    Wenn der Zähler in einem solchen Fall 0 anzeigte, musste ich eine Pause einlegen, nachdem ich nicht 9, sondern 11 Stunden gearbeitet hatte. Das reduzierte gleichzeitig die Möglichkeit, bis zu 13 Stunden zu arbeiten.
+    Dies ist nur eines der einfachsten Probleme, wie z. B. die Übersicht darüber, wie oft ich meine Arbeitszeit bereits reduziert habe. Viel komplizierter wurde es, als ich die 
+    wöchentliche Ruhezeit (Wochenende) verkürzen musste. Die volle Ruhezeit betrug nicht weniger als 45 Stunden (oft wurden vor allem die Wochenenden im Ausland auf ein Minimum von 24 Stunden verkürzt).
+
+  description-05: | 
+    In diesem Fall musste die Differenz zwischen der vollen und der reduzierten wöchentlichen Ruhezeit spätestens bis zum Ende der dritten Woche
+    der reduzierten wöchentlichen Ruhezeit eingereicht werden. Die App erinnerte mich fleißig an diese Fristen und die Anzahl der abzugebenden Stunden rechtzeitig. 
+    Wie Sie auf dem Bild "Informationen über abzugebende Wochenenden und Finanzen" sehen können, werden weitere Funktionalitäten offengelegt. Wie zum Beispiel die Finanzen.
+    
+  description-06: |   
+    Es handelt sich um die Salden der Geschäftsvorschüsse in drei Währungen und eine Übersichtsberechnung der Gehälter.
+    In diesem Bild sehen Sie die Suchmaschine für die Suche in den Notizen und das "BackUp" oder Backup, das es ermöglichte, die Datenbank
+    nach einem Geräteausfall wiederherzustellen. Jeden Tag wurde ein automatisches Backup erstellt, wenn die Arbeit beendet war und die letzten Anmerkungen des „End of day“-Bildes gemacht wurden.
+
+  description-07: |
+    Die letzten 4 Sicherungen wurden beibehalten und die früheren wurden automatisch vom Skript gelöscht. Es ist Zeit für einen kleinen Rundgang durch die Anwendung. 
+    mit "Hauptansicht der Anwendung" / "Notizen machen" / führt uns zur Registerkarte "Notizen eingeben" Hier sehen wir nur drei Felder für die Dateneingabe, aber
+    hier hat ein Feld mehr als eine Verwendung. Wenn z.B. im Feld „Zeit“ die Uhrzeit gefunden wird, dann werden die entsprechenden Verfahren angewendet. 
+
+  description-08: |
+    Das heißt, „Ort“ wurde auf der Registerkarte „Palettentausch“ verwendet, wo der Austausch vorgenommen wurde, und als einfache Notiz.
+    Wenn ich im Feld „Zeit“ das Schlüsselwort ‚Kältemaschine‘ eintrage, gebe ich im Feld „Ort“ die für die Kältemaschine getankten Liter Kraftstoff an.
+    Und in das Feld „Notizen“ den Stand des Motorstundenzählers. Diese Daten wurden in die Datenbank übertragen, und später wurde ein Bericht aus diesen Daten erstellt.
+    Auf der Registerkarte „Palettentausch“ sehen Sie den aus dem Speicher geladenen „Standort“.
+
+  description-09: |
+    In das Feld „Bemerkungen“ habe ich den Namen des Unternehmens eingegeben, in dem der Palettentausch stattgefunden hat. Diese Information wanderte in eine separate Tabelle in der Datenbank und später wurde aus diesen Daten ein Palettentauschbericht erstellt
+    . Die Registerkarte enthält ein Modul zum Senden des Berichts und zum Anzeigen früherer Berichte. Dieses Modul sendet Informationen über den Palettentausch und die Abrechnung der Geschäftskosten an den Arbeitgeber 
+    . Eine Vorschau der Berichte sehen Sie in der Abbildung "Palettentauschbericht-Vorschau".
+  
+  description-10: |
+    Wenn Sie von der Registerkarte „Palettentausch“ zur „Hauptansicht der Anwendung“ zurückkehren. Wir navigieren zur Registerkarte ‚Informationseinträge‘ 'Informationen über zu spendende Wochenenden und Finanzen'.
+    Gehen Sie von dieser Registerkarte zu ‚Frühere Einträge‘ auf die Registerkarte ‚Notizvorschau‘. Von dieser Registerkarte aus habe ich Berichte wie z. B. eine Zusammenfassung der Notizen an meine E-Mail-Adresse
+    „Bericht an E-Mail senden“ gesendet.
+
+  description-11: |
+    Ich habe auch Aufzeichnungen über nationale Grenzübertritte (EU-Vorschriften) und Informationen über das Betanken des Kühlgeräts übermittelt. Auf der Registerkarte "Hauptansicht der Anwendung"
+    sehen wir eine Schaltfläche mit der Information, wie viele Tage bis zur Frist "Frist in 5 Tagen" verbleiben.
+    Über die Schaltfläche gelangen wir zur Registerkarte „Begriffsansicht“, wo ich das klassische „CRUD“ (Create, Read, Update, Delete) angewendet habe, d. h. Hinzufügen eines neuen Begriffs, 
+    Lesen von Begriffen, Aktualisieren (Bearbeiten) eines Begriffs und Löschen eines Begriffs.
+
+  description-12: |
+    Wenn man zur Registerkarte „Palettentauschbericht-Ansicht“ zurückkehrt, zeigt die Tabelle ‚Palettentauschinformationen‘ ein Feld „Unterschrift“. Mit diesen Links können Sie die Übertragung von 
+    oder die Abholung von Paletten von einem anderen Fahrer desselben Unternehmens unterschreiben. Für die Unterschrift habe ich die „Canvas“-Bibliothek verwendet, wie in den Bildern „Unterzeichnung des Palettentauschs“
+    und „Unterschrift in der Palettentauschtabelle“ zu sehen ist.
+
+  description-13: |
+    Auf der Registerkarte „Hauptanwendungsansicht“ blieb noch ein letztes Detail zur Beschreibung der „Pause 3h“ übrig, das auf die Regelungen zurückzuführen war, die bei der Arbeit angewendet werden konnten.
+    Wenn ich tagsüber eine außerplanmäßige Pause (länger als 3 Stunden) hatte 
+    , konnte ich eine volle kombinierte tägliche Ruhezeit von 3 Stunden + 9 Stunden nach der Arbeit anwenden, die als volle 11 Stunden tägliche Ruhezeit behandelt wurde.
+
+  description-14: |
+    Das ist alles, was ich in diesem Antrag beschreiben wollte. Ich habe hier die wichtigsten Punkte aus meiner Sicht dargestellt.
+
+
+  organizer-of-the-work-1: Hauptansicht der Anwendung
+  organizer-of-the-work-2: Start-up-Ansicht
+  organizer-of-the-work-3: Eingabe der Startzeit
+  organizer-of-the-work-4: Eingabe der End-of-Service-Zeit
+  organizer-of-the-work-5: Informationen über Wochenenden zum Spenden und Finanzieren
+  organizer-of-the-work-6: Ende des Tages
+  organizer-of-the-work-7: Sicherung
+  organizer-of-the-work-8: Eingabe von Notizen
+  organizer-of-the-work-9: Palettentausch
+  organizer-of-the-work-10: Vorschau der Notizen
+  organizer-of-the-work-11: Vorschau auf den Stichtag
+  organizer-of-the-work-12: Einsichtnahme in die Register
+  organizer-of-the-work-13: Vorschau der Palettentauschberichte
+  organizer-of-the-work-14: Unterschrift des Palettentausches
+  organizer-of-the-work-15: Unterschrift in der Palettentauschtabelle
+
+
+volunteer-association-page:
+  title: Ehrenamtliche Tätigkeit in der Vereinigung
+  title-nav: Freiwilligen-Vereinigung
+  start-coding: Projektstart im Jahr 2020.
+
+  description-01: |
+    Auf dieser Seite sehen wir zwei interessante Elemente, das erste ist das „orangefarbene Karussell“. Es zeigt die aktiven Stationen an, und in Abwesenheit von ihnen 
+    zeigt das Karussell die Ergebnisse des einjährigen Wettbewerbs. Das zweite interessante Element ist eine Karte, die die Funkverbindungen der letzten Stunde anzeigt.
+    Wenn Sie auf das Stationssymbol klicken, erhalten Sie Informationen über die Kommunikation und ein verlinktes Funkzeichen. Wenn es viel Aktivität gibt, wenn es viele Verbindungen auf der Karte gibt,
+    , indem man in der Sprechblase auf das verlinkte Funkzeichen klickt, sieht man auf der Karte die gefilterten Kommunikationen nur dieses einen Senders, was in den Bildern 
+    "Vor der Filterung" und "Nach der Filterung" zu sehen ist.
+
+  description-02: |
+    Die Anmeldung über das Formular erfolgt über das Forum. Ursprünglich sollte der Cluster nur für Vereinsmitglieder verwendet werden, daher habe ich die Session-Variable
+    des phpBB-Forums für den Login verwendet. Die Formularbearbeitung ist natürlich das klassische "CRUD" (Create, Read, Update, Delete). Darunter befinden sich komplexere Mechanismen
+    wie die Implementierung von QSL-Karten (ein Bild in Form einer Postkarte zur Bestätigung der Kommunikation). Diese können direkt aus dem Cluster selbst heruntergeladen werden (Bild "Cluster").
+
+  description-03: |
+    Im Cluster können wir zusätzlich zu den herunterladbaren Karten eine Vorschau einer bestimmten Kommunikation auf einer Karte sehen. Zurück zum Thema des Cluster-Formulars und was sich sonst noch darunter verbirgt -
+    in der Vereinigung gibt es manchmal alle Arten von Wettbewerben, Graduierungsaktionen, Aktivierungen, und hier sind Mechanismen erforderlich, um diese Angelegenheiten zu handhaben.
+    Zu diesem Zweck habe ich ein Verwaltungspanel erstellt, um solche Veranstaltungen zu initiieren - Bild "Cluster-Verwaltungspanel".
+
+  description-04: |
+    Im Administrationspanel werden Graduierungsaktionen abgewickelt, bei denen eine spezielle QSL-Karte für den Anlass vergeben werden kann. Besonders problematisch im strukturierten Code 
+    war die Handhabung der Möglichkeit, Einträge nach Beendigung der Aktion zu vervollständigen. Denn der Benutzer braucht Zeit, um die letzten
+    Mitteilungen nach Ablauf der Abschlussaktion hinzuzufügen. Nach der abgeschlossenen Aktion eingegebene Verbindungen mit einem Datum, das innerhalb der Aktion liegt, mussten akzeptiert werden.
+    Das Bild "Cluster Administration Panel" zeigt eine Tabelle, in der das Feld "Uzup" sichtbar ist. Dieses Feld enthält die Anzahl der Stunden, die
+    für die Vervollständigung ausstehender Einträge zugewiesen wurden.
+
+  description-05: |
+    In den späteren Graduierungskampagnen wurde, wie Sie sehen können, die Funktion der differenzierten Punktevergabe hinzugefügt. Die differenzierte Punktevergabe hing davon ab, ob die Kommunikation innerhalb des Landes, außerhalb des Landes, in dem der Sender stationiert war, oder außerhalb Europas erfolgte ( 
+    ). Die Rubriken waren „Wob“, d.h. innerhalb des eigenen Landes,
+    ‚Poz‘, d.h. außerhalb des Landes, in dem der Sender stationiert ist, und „DX“, d.h. Kontakte, die über Europa hinausgehen. Diese Funktionalität basierte auf der Verarbeitung von 
+    einer String-Variablen, z.B. einem Zeichen aus dem CB-Band, z.B. '161OS256' (d.h. wir haben einen String und suchen darin eine Position, die keine Zahl ist, den Rest schneiden wir ab und wir haben eine Staffel-Nummer).
+    Diese Nummer gibt an, aus welchem Land der Sender sendet. Man musste also nur die Liste der Staffeln, die zu Europa gehören, in die Basis eingeben. Und so wurden die Punkte berechnet.
+    Wenn der Befragte eine andere Staffel hat als ich, dann prüfen wir, ob er auf der Liste der europäischen Staffeln steht, und wenn ja, bekommt er 2 Punkte, andernfalls 3. 
+    Um auf das Clusterformular zurückzukommen: In der Anfangsphase der Entwicklung bestand eine der ersten Funktionen darin, das Auffinden des Befragten zu erleichtern.
+
+  description-06: |  
+    Wenn der Befragte einem 
+    Club angehörte und zustimmte, den Standort seines Senders mitzuteilen, erhielt er, wenn er das Zeichen eines solchen Betreibers in das Formular eingab, die Information
+    „Locator in database“. Dies bedeutete, dass der Standort des Senders in der Datenbank gespeichert war und der Befragte nicht gefragt werden musste, von wo aus er sendet.
+    Das letzte wichtige Detail des gesamten Systems, das in diesem Projekt noch beschrieben werden muss, ist die Android-Anwendung. Wenn man sich das „QSO-Formular“ ansieht, kann man sich vorstellen, dass 
+    dieses Formular auf dem schmalen Bildschirm eines Smartphones bedient. Ursprünglich hatte ich geplant, eine Version des Formulars für mobile Geräte zu schreiben. Was ich in der Zukunft nicht verheimlichen will 
+    , nachdem ich das ganze System auf symfony migriert habe. Um keine Zeit zu verschwenden, wenn ich nicht viel davon habe, entschied ich mich für einen Kompromiss. Anstatt eine mobile
+    Version des Formulars zu schreiben, entschied ich mich, eine Android-Anwendung zu schreiben. Denn mir kam die Idee, das GPS in meinem Smartphone zu nutzen, um mobile Stationen zu orten.
+    Dazu verwendete ich eine sehr einfache Plattform namens ‚MIT App Inventor‘, mit der man Kindern das Programmieren beibringt. 
+    Diese Plattform ermöglichte es mir, das GPS des Geräts zu nutzen, um den Standort bei ausgeschaltetem Bildschirm im Hintergrund zu aktualisieren, damit das Gerät nicht zu viel Strom verbraucht.
+    Die App ist im Shop erhältlich
+
+  description-07: |  
+    wo Sie die Anwendung im Detail kennenlernen können. Die App wurde kontinuierlich weiterentwickelt und steht den Nutzern auch heute noch zur Verfügung.
+
+
+  volunteer-association-1:  Hauptansicht der Anwendung
+  volunteer-association-2:  Vor der Filterung
+  volunteer-association-3:  Nach der Filterung
+  volunteer-association-4:  Verstärkter Verkehr auf dem nationalen Äther
+  volunteer-association-5:  QSO-Formular
+  volunteer-association-6:  Cluster
+  volunteer-association-7:  Cluster-Verwaltungspanel
+  volunteer-association-8:  Verstärkter Verkehr auf dem internationalen Äther
+  volunteer-association-9:  Anmeldebildschirm
+  volunteer-association-10:  Formular für Bewerbungscluster
+  volunteer-association-11:  Einstellungen der Anwendung
+  link-description: Link zur Videopräsentation der Anwendung.
+  
+monitoring-whe-watchmans-work-page:
+  title: Überwachung der Arbeit des Wachpersonals im Unternehmen
+  title-nav: Überwachung der Arbeit des Wächters
+  start-coding: Projektstart im Jahr 2024.
+  description-01: |  
+    Dies ist bei weitem das kleinste Projekt, das ich gemacht habe, abgesehen von den Projekten, die ich während des Lernens in verschiedenen Kursen gemacht habe.
+    Ich habe das Projekt in Pascal in der "Delphi 7"-Umgebung erstellt. Die Aufgabe war vom Standpunkt der Programmierung aus gesehen relativ einfach, es reichte aus, ein Programm 
+    zu schreiben, das den Com-Port bedient und Signale von den entsprechenden Pins empfängt. Ich habe die Elektronik, die den 
+    Kontrollpunkt bedient, selbst gebaut. Das System bestand aus 2 Klingelschaltern, die in der Firma angebracht waren. Jeder Schalter hatte ein Licht, das 
+    zu flackern begann, wenn es Zeit war, die Runde zu machen. Dann musste eine Taste gedrückt werden, und das Programm begann ab dem Moment, in dem das flackernde Licht aktiviert wurde,
+    in einer Schleife im Abstand von 1 Sekunde auf dem Com-Port abzuhören. Wenn die Taste gedrückt wurde, nahm das Programm das Signal auf und 
+    deaktivierte das Flackern der Lampe. Vor der nächsten Runde, bevor das nächste Mal das Lampenflackern aktiviert wurde, überprüfte das Programm den Status des Anschlusses,
+    , ob die Schaltkontakte offen waren (für den Fall, dass der Wachmann auf die Idee kam, den Knopf in der gedrückten Position dauerhaft zu deaktivieren).
+    In diesem Fall wurde ein solches Ereignis im Bericht vermerkt. 
+    
+  description-02: |
+    Die Logik des Programms beruhte auf einer Zeitschaltuhr, da es ursprünglich geplant war, jede Stunde zyklisch zu feiern.
+    Jede Stunde wurde ein flackerndes Licht für eine bestimmte Zeit aktiviert. Wurde die Taste innerhalb der vorgegebenen Zeit gedrückt, wurde die Runde bestanden,
+    . Andernfalls wurde die Runde nicht bestanden (was im Bericht vermerkt wurde). Außerdem war das System mit einem orangefarbenen Blinklicht
+    ausgestattet, das so angebracht war, dass es vom Pförtnerhaus aus gesehen werden konnte. Das Licht wurde nur aktiviert, wenn nur noch wenig Zeit für die Runden übrig war
+    als Erinnerung. Nachdem das System in Betrieb war, wurde mir gesagt, dass es nicht notwendig sei, jede Stunde eine Visite durchzuführen, also fügte ich 24 Kontrollkästchen in die Schnittstelle
+    ein, so dass das Unternehmen die Zeiten für die Visite festlegen konnte.
+
+  description-03: |
+    Das Programm ist mit einem Mini-Server ausgestattet, der es ermöglicht, eine HTML-Datei mit einer Liste von Berichten nach Datum anzuzeigen. Jeden Tag wird ein neuer Bericht mit einem neuen Datum erstellt.
+    Der Firmeninhaber kann den Bericht auf seinem Telefon von außerhalb des Firmengeländes abrufen.
+
+information-about-this-site-page:
+  title: Kurze Informationen über diese Website
+  title-nav: Informationen über diese Website
+  start-coding: Projektstart im Jahr 2025.
+  description-01: |
+    Ein in Symfony (Version 6.4.19) entwickeltes Projekt. 
+    Die Anwendung basiert auf dem MVC-Muster und verwendet Twig-Vorlagen zum Rendern der Ansichten.
+  description-02: |
+    Frontend - Bootstrap: In dem Projekt habe ich Bootstrap verwendet, um ansprechende und ästhetisch ansprechende Benutzeroberflächen zu erstellen.
+    Dank Bootstrap passt sich die Anwendung an verschiedene Bildschirmgrößen an,
+    was ein optimales Erlebnis auf mobilen Geräten, Tablets und Desktops bietet.
+
+qrz-page:
+  title: QRZ Oscar Sierra
+  title-nav: QRZ Oscar Sierra
+  start-coding: Projektstart im Jahr 2025.
+  description-01: |
+    Die Website richtet sich an Funkkommunikations-Enthusiasten. Ihr Ziel ist es, eine Datenbank mit Visitenkarten von Enthusiasten aus der ganzen Welt zu erstellen.
+
+    Nach dem Einloggen in das System kann der Benutzer eine elektronische Visitenkarte erstellen, die in der Visitenkarten-Suchmaschine 
+    (und in Zukunft auch in der mobilen Anwendung) sichtbar sein wird. Die Visitenkarte enthält die Angaben des Nutzers, wie Rufzeichen, Name, Standort, E-Mail-Adresse 
+    und andere Kontaktinformationen.
+
+  
+  description-02: | 
+    Der Benutzer kann seine Visitenkarte bearbeiten und eine Beschreibung der Funkstation und der Antenne zusammen mit Fotos hinzufügen. Es ist auch möglich, das Rufzeichen und den Namen zu bearbeiten.
+
+    Die Visitenkarte ist in der Suchmaschine sichtbar, die eine Suche nach Rufzeichen ermöglicht. Das Erstellen einer Visitenkarte ist einfach und intuitiv. 
+    Nach der Anmeldung im System klickt der Benutzer auf die Schaltfläche „Ansicht bearbeiten“ und fügt Blöcke mit Titel und Inhalt hinzu.
+
+
+  description-03: |
+    Der erste Block ist der repräsentative Block - er enthält die Daten des Benutzers (Name, Rufzeichen, die automatisch aus der Datenbank übernommen und als Kopfzeile angezeigt werden). 
+    Der Titel und der Inhalt dieses Blocks befinden sich auf der linken Seite. Sie können dort zum Beispiel Ihren QTH-Locator oder Ihre Adressdaten eintragen.
+
+    In diesem Block kann auch ein Profilbild hinzugefügt werden. In den folgenden Blöcken kann der Benutzer den Titel und die Beschreibung der Funkstation oder Antenne sowie bis zu drei 
+    Fotos mit einer kurzen Beschreibung hinzufügen. Um ein Foto zu einem Block hinzuzufügen, muss das Foto zunächst auf den Server hochgeladen werden - eine Miniaturansicht erscheint dann auf der rechten Seite des Bearbeitungsfensters. 
+    Das Foto wird durch Ankreuzen des Kontrollkästchens und Klicken auf die Schaltfläche „Ausgewähltes Foto hinzufügen“ im jeweiligen Block hinzugefügt.
+
+    
+  description-04: |
+    Der Benutzer kann der Visitenkarte maximal 15 Bilder hinzufügen. Die Anzahl der Blöcke ist nicht begrenzt.
+
+    Sobald die Visitenkarte erstellt ist, kann der Nutzer sie bearbeiten - Fotos ändern, neue Blöcke hinzufügen und bestehende Blöcke ändern. 
+    Nach der Suche nach einem Rufzeichen in der Suchmaschine kann der Benutzer zu der ausgewählten Visitenkarte gehen. 
+    Mit einem Klick auf ein Foto in der Visitenkarte wird eine Diavorschau in voller Größe angezeigt.
+
+  
+  description-05: |
+    Das Projekt wurde in Symfony 6.4 in PHP geschrieben. Es verwendet eine MySQL-Datenbank, um Visitenkarten und Fotos zu speichern. 
+    Das System umfasst Registrierungs- und Anmeldefunktionen mit einem per E-Mail versandten Aktivierungslink und der Möglichkeit, das Passwort zurückzusetzen. 
+    Das klassische CRUD-Modell (Erstellen, Lesen, Aktualisieren, Löschen) wird für die Verwaltung der Visitenkarten verwendet.
+
+  qrz-association-1: Bedienfeld
+  qrz-association-2: Bearbeiten einer Visitenkarte
+  qrz-association-3: Hinzufügen eines Fotos zu einer Visitenkarte
+  qrz-association-4: Visitenkarte einer Suchmaschine
+
+quiz-page:
+  title: Fahrschule
+  title-nav: Fahrschule
+  start-coding: Projektstart im Jahr 2025.
+
+  description-01: | 
+    Driving School ist ein Projekt, das im Rahmen des Lernens von Laravel und den Grundlagen von Vue für einen Freund gemacht wurde, der eine Fahrschule in den Niederlanden auf Polnisch betreibt.
+    Ein im Großen und Ganzen ähnliches Tool zum Erlernen der Theorie existiert bereits auf dem niederländischen Markt, hat aber zahlreiche Übersetzungsfehler in der polnischen Version. 
+    Der Zweck der Erstellung einer Lernplattform ist es, die volle Kontrolle über die Übersetzungen zu haben. Alle Sprachversionen der Fragen und Antworten in den Quizzes werden vom Plattformbesitzer 
+    eingegeben.
+
+  description-02: | 
+    Um die Verwaltung zu vereinfachen, habe ich ein Administrationspanel erstellt, in dem Benutzerkonten durch die Zuweisung von Rollen wie Benutzer, Premium, Admin und 
+    Quiz verwaltet werden können. In der Verwaltungskonsole können Sie Kategorien und Quizze in einer Kategorie hinzufügen, löschen und bearbeiten. Alle Inhalte für den Kategorienamen, 
+    Quiz (Fragen und Antworten) werden separat für jede Sprachversion eingegeben, wobei eine Dropdown-Liste für die Sprachauswahl verwendet wird.
+
+  description-03: |
+    Es gibt drei Arten von Kategorien: Demo, Regulär und Prüfung. Wenn Sie möchten, dass eine Kategorie für jeden "Benutzer" verfügbar ist, genügt es, ein Schlüsselwort in den Kategorienamen 
+    (Demo) einzufügen. Die anderen Arten von Kategorien sind nur für "Premium"-Benutzer verfügbar. Wenn Sie eine Prüfungskategorie erstellen möchten, nennen Sie die Kategorie einfach "Prüfung" auf
+    . Das Skript erkennt die Schlüsselwörter und behandelt die Kategorie entsprechend. Das Lernen basiert auf dem Lösen von Quizfragen, indem Sie
+    eine bestimmte Kategorie auswählen und dann 10 Fragen aus dem Pool der gegebenen Kategorie ziehen.
+
+  description-04: |
+    Die Fragen werden asynchron in einem modalen Fenster aus einem Objekt angezeigt, das erstellt wird, wenn eine Kategorie im Backend ausgewählt wird. Die Fragen können nach Belieben vor- und zurückgescrollt werden 
+    und bei den letzten 10 Fragen wird eine Schaltfläche "Zusammenfassung" angezeigt. Wenn Sie zur Zusammenfassung gehen, sehen Sie das Ergebnis unseres Quiz
+    , das in der Datenbank gespeichert ist. Das System lässt mehrere richtige Antworten in einer Frage zu. Wenn Sie während des Lernens eine falsche Antwort auswählen, können Sie die Frage
+    nicht beantworten, es erscheint eine rote Erklärung, warum die Antwort falsch ist, und die Aufgabe wird nicht gelöst.
+
+  description-05: |  
+    Wenn Sie die richtige Antwort ausgewählt haben und dies die einzige richtige Antwort war, wird die Eingabe weiterer Antworten blockiert und
+    zeigt auf grünem Hintergrund eine Erklärung an, warum dies die richtige Antwort war. Bei mehreren richtigen Antworten werden die Sperrung und die Erklärung auf 
+    angezeigt, wenn alle richtigen Antworten ausgewählt wurden.
+
+  description-06: |
+    Zu Beginn der Prüfung werden 50 Fragen aus allen Kategorien nach dem Zufallsprinzip gezogen, wobei aus jeder Kategorie die gleiche Anzahl von Fragen ausgewählt wird.
+    Wie bei der Prüfung kann man zur nächsten Frage springen und zur nächsten Frage zurückkehren, mit dem Unterschied, dass es keine Fehlermeldung gibt, nachdem man die richtige Antwort ausgewählt hat oder 
+    . Ebenso gibt es keine Anleitung. Sie können Ihre Auswahl einfach aufheben, und wenn Sie die letzte Frage 
+    erreichen, sehen Sie eine Schaltfläche "Zusammenfassung", mit der Sie die Prüfungssimulation beenden können.
+
+  description-07: |
+    Wenn Sie es nicht schaffen, alle Fragen zu beantworten, und die Prüfungszeit von 35 Minuten abgelaufen ist, werden Sie automatisch zur Zusammenfassung auf
+    geleitet. Die Zusammenfassung beendet die Prüfung und speichert das Ergebnis in der Datenbank, aber Sie können immer noch zu den vorherigen Fragen zurückkehren, aber mit 
+    blockiert und mit den Anweisungen angezeigt, wie sie während nouki. Der Benutzer kann den Lern- und Prüfungsfortschritt in "Statistik" einsehen.
+    
+
+  description-08: |
+    Es gibt separate Tabellen für Übungen und Prüfungen, die aus den in der nadych-Datenbank gespeicherten Ergebnissen erstellt werden.
+
+  quiz-association-1: Ansicht der Startseite nach dem Einloggen
+  quiz-association-2: Benutzerverwaltung
+  quiz-association-3: Kategorie Management
+  quiz-association-4: Bearbeiten / Hinzufügen einer Sprachversion
+  quiz-association-5: Lösen der Aufgabe
+  quiz-association-6: Prüfung
+  quiz-association-7: Vorschau der Fragen in einer bestimmten Kategorie
+  quiz-association-8: Wissenschaftliche Statistik
+  quiz-association-9: Prüfungsstatistiken
+
+repo: Link zum Repository
+not-redy: Eine Beschreibung des Projekts wird in Kürze verfügbar sein.
+
+

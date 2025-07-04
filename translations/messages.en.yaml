@@ -1,0 +1,400 @@
+# messages.en.yaml
+home-page:
+  home: Home
+  about: About
+  projects: Projects
+  contact: Contact
+  intro: |
+    I would like to develop my career in the IT industry. I am interested in the position of Junior Programmer, with a focus on developing secure web applications.
+    On this page you will find my projects that I created as part of my programming education - many of them incorporate good security practices,
+    such as data validation, access control, authorization (JWT), SQL Injection and XSS protection.
+    I invite you to take a look at my projects - they provide a solid technical foundation for further development in the area of cyber security.
+
+  licenses-title: licenses and sources
+  more: Read more
+  less: Read less
+  technologies: Technologies Used
+  github: See code on GitHub 
+  project: See project description
+
+about-page:
+  title: A few words about me
+
+  description-01: |
+    My adventure with programming began in late 2015/2016, when I was looking for a solution to control heating at home.
+    The systems available on the market were integrated with modern heating systems, and I had an older system. 
+    So I decided to create my own program tailored to my needs. This system still works today and is still being developed.
+
+  description-02: |
+    Over time, other needs arose. As an international driver, I had to create time-consuming daily reports of 
+    trips through various countries in accordance with EU regulations. I decided to automate this process and created an application to manage working time, 
+    rest and documentation. I used it from 2016 until the end of 2024.
+
+
+  description-03: |
+    The next step was volunteering at the Association of Radio Communications Enthusiasts, where I helped create a system for the 10th anniversary graduation campaign. 
+    I prepared an information page and a so-called "cluster" - a form for recording radio communications and a mechanism for counting points. 
+    After the action, I wrote my own CMS system for managing the association's website, which is still working and being developed today.
+
+  description-04: |
+    In 2023/2024 I completed my first project for the company - a simple but practical system for monitoring the work of the watchman. 
+    The main requirement was to create a reliable, almost “indestructible” solution that does not require active maintenance (such as bouncing RFID tags) from the employee. 
+    I wrote a bell-switch-based application that records the watchman's presence at a given place and time, with reports available remotely in a browser.
+  
+  description-05: |
+    I mainly focus on backend technologies (PHP, Symfony, Laravel, SQL), but I am also comfortable working with frontend (HTML, CSS, Bootstrap, JavaScript, jQuery).
+    I work in Linux and Windows environments and use SSH and bash.
+    I am also interested in the topic of web application security - I take care of proper data validation, access control and basic security against
+    attacks such as SQL Injection and XSS. I am eager to take my first job as a Junior Developer to further develop my skills and gain experience in teamwork.
+
+
+  links: Links
+  hobby: My Hobby
+  hobby-1: Piano
+  hobby-2: Motorcycles
+  hobby-3: Ham radio
+
+home-heating-page:
+  title: Home heating control.
+  title-nav: Home heating
+  start-coding: The project started in 2015
+ 
+  description-01: | 
+    I wrote the program for my own use. It serves me to control the underfloor heating in the house and controls the air intake to the fireplace in the living room.
+    It allows me to control the temperature of the water jacket in the fireplace, which is connected to the central heating. The program also switches the 3-way valve,
+    which changes the water circulation depending on whether you are burning in the fireplace or in a traditional stove in the boiler room.
+    The program allows you to set the temperature in one room (the living room).
+    It is controlled via a remote desktop on a tablet or phone.
+    It is possible to view the temperature itself on a TV with an HTML viewer. 
+    As you can see in the picture, the data from the fireplace was added to the program so as you can guess in the plans for expansion.
+
+  description-02: | 
+    The entire program is written in Pascal in the Delphi 7 environment with a bit of HTML for the browser view and Javascript (logging).
+    The program runs on a desktop computer running Windows XP. Temperatures are taken using an adapter plugged into the com input to the adapter I plugged in 
+    dallas ds18b20 sensors, which have a built-in 16-bit ram memory, which contains a unique ID number which allows multiple sensors to be plugged into one com port.
+    The program also has copy protection. It takes the serial number of the motherboard, runs it through an algorithm and checks if it matches the key provided.
+
+  description-03: |
+    Initially, for lack of knowledge, how to read data from sensors in Pascal language. I used an off-the-shelf program (Logtemp) that read the data from the sensors and wrote them 
+    them to an xml file at an interval of every 3 minutes and my program read this data from the xml file every 3 minutes and made calculations using a table made from a
+    chart found on the web, which provided me with data on what the floor heating temperature should be depending on the outside temperature.
+    I added both programs to the computer's auto start. My program, upon startup, had a special delay of a few seconds due to the reading of the xml file to avoid 
+    collision with the logtmp program. As time went on, I improved my program to read the data from the sensors by itself and became more independent.
+
+  home-heating-1: Main program view
+  home-heating-2: View from the browser temperature preview 
+  home-heating-3: Temperature settings
+  home-heating-4: View from browser login 
+  home-heating-5: Report 
+  home-heating-6: Temperature graph 
+  home-heating-7: Information about the server 
+
+  home-heating-technical-1: LPT and COM ports used
+  home-heating-technical-2: Controller
+  home-heating-technical-3: Controlling the air intake for the fireplace
+  home-heating-technical-4: Control of three-way valve 
+  home-heating-technical-5: Floor heating control 
+
+  technical: technical issues
+  
+licenses-page:
+  licenses: |
+    All graphics and icons used on this site have been downloaded from publicly available sources that allow their use for non-commercial purposes. 
+    Their copyrights belong to the original creators, and use is in accordance with the license terms provided on the source sites.
+    Please contact me if you are the author of any of the materials used and have questions about their use.
+  licenses-sources: Sources
+
+organizer-of-the-work-page:
+  title: Organizer of work ne own needs.
+  title-nav: Organizer of the work
+  start-coding: The project started in 2016r.
+
+  description-01: | 
+    When writing this application in 2016 I knew little about object-oriented programming.Therefore, the application was still written structurally. 
+    I stopped using this app at the end of 2024 with the end of my driving career.
+    In spite of appearances, it was quite extensive. It had many tabs and functionalities. 
+    The essence of the matter was for the application to serve its purpose. Front-end issues 
+    were not the most important, as the app was only for personal use. 
+
+  description-02: |
+    The main goal of the project was to build a smart ala notepad. 
+    So that during the day we could enter relevant annotations one by one, which would later be automatically processed and entered into the relevant reports.
+    In the “Start View” image you can see a simple view of entering the start date. In the view, I wanted large buttons because I planned to 
+    use the application on a 7-inch tablet. And this was the simple way I entered the basic data into the mini system. 
+  description-03: | 
+    After starting the day on the main view, the program showed until what time I could
+    day to work. It took into account the used breaks for the week as you can see in the image “Main view of the application”, Pauses 9h (2). This means that I have to 
+    used two breaks of 9 hours, and this meant that I could work 15h. Since the work and daily rest time (overnight) had to
+    fit into 24h.
+  description-04: | 
+    If the counter indicated 0 in such a case I had to apply a break after work not 9 but 11 hours. Which at the same time reduced the possibility of working up to 13h.
+    This is just 1 of the simplest issues like keeping track of how many times I had already reduced my working hours. Things got much more complicated when I had to shorten the 
+    weekly rest (weekend). The full one was no less than 45 hours (often especially abroad weekends were shortened to a minimum of 24 hours).
+  description-05: | 
+    In this case, the difference between the full and shortened weekly rest had to be given no later than the end of the third week
+    of the shortened weekly rest. About these deadlines and the number of hours to be given back with due notice, the application conscientiously reminded me. 
+    As you can see in the image “Information about weekends to be turned in and finances” more functionality is revealed. If only such as finances.
+    
+  description-06: |  
+    This is about balances of business advances in three currencies and an overview calculation of salary.
+    In the image in question, you can see a search engine for searching in notes and a “BackUp,” or backup, which allowed the database to be restored
+    after a device failure. Each day, after the work was completed and the last annotations were made, the “End of Day” image created an automatic backup.
+  description-07: |
+    The last 4 backups were retained and the earlier ones were automatically deleted by the script. Time for a little tour of the application starting 
+    from the “Main view of the application” / 'Take a note' / will take us to the “Enter notes” tab Here we see only three input fields but
+    here one field has more than one use. E.g. In the field 'Time' when the time was found then the corresponding procedures applied. 
+  description-08: |
+    That is, 'Locality' was used in the 'Pallet Exchange' tab where the exchange was made and as a simple note.
+    If in the 'Time' field I entered the keyword “Chiller” then in the 'Locality' field I entered the liters of fuel refueled for the chiller.
+    And in the 'Notes' field, the status of the motor hour counter. This data traveled to the database and later a report was created from this data.
+    In the 'Pallet Replacement' card you can see the 'Locality' loaded from memory. 
+  description-09: |
+    In the 'Notes' field, I entered the name of the company where the pallet exchange was made. This information wandered to a separate table in the database and later from this data
+    pallet exchange report was created. In this tab you can see a module for sending the report and previewing previous reports. This module sent to the employer 
+    information about pallet exchange and settlement of business expenses. You can see the preview of the reports in the image “Preview of pallet exchange reports”.
+  
+  description-10: |
+    After returning from the 'Pallet Exchange' tab to the 'Main Application View'. Navigate to the 'information entries' tab “Information about weekends to donate and finances”.
+    From this tab, go to 'Previous entries' to the 'Notes preview' tab. From this tab, I sent reports such as a summary of notes to my email address
+    'Send report to email. 
+  description-11: |
+    I also sent records of crossing national borders (EU regulations), and information about refueling the refrigeration unit. In the tab “Application main view”
+    we see a button with information on how many days are left until the deadline 'Deadline in 5 days'.
+    The button will take us to the 'Term Preview' tab where I applied the classic 'CRUD' (Create, Read, Update, Delete) i.e. adding a new term, 
+    read appointments, update (edit) an appointment, and delete an appointment.
+  description-12: |
+    Returning to the “Preview pallet exchange reports” tab, the 'Pallet exchange information' table shows a 'Signature' box. These links allowed you to sign the transfer 
+    or retrieval of pallets from another driver from the same company. I used the 'Canvas' library for the signature, which can be seen in the images “Signing pallet exchange”
+    and “Signature in pallet exchange table”.
+  description-13: |
+    In the “Application main view” tab, there was one last detail left to describe 'Pause 3h', which was due to the regulations that could be used at work.
+    During the day when I had an unscheduled break (longer than 3h) 
+    I could apply a full combined daily rest of 3h + 9h after work, which was treated as a full 11-hour daily rest.
+  description-14: | 
+    That's all I wanted to describe in this application. I have presented here the most relevant issues from my point of view.
+
+  organizer-of-the-work-1: Main view of the application
+  organizer-of-the-work-2: Start-up view
+  organizer-of-the-work-3: Entering the start time
+  organizer-of-the-work-4: Entering the end of work time
+  organizer-of-the-work-5: Information on weekends to donate and finances
+  organizer-of-the-work-6: End of the day
+  organizer-of-the-work-7: Backup
+  organizer-of-the-work-8: Entering notes 
+  organizer-of-the-work-9: Pallet exchange
+  organizer-of-the-work-10: Preview notes 
+  organizer-of-the-work-11: Date preview 
+  organizer-of-the-work-12: Viewing registers 
+  organizer-of-the-work-13: Preview of pallet exchange reports
+  organizer-of-the-work-14: Signing pallet exchange 
+  organizer-of-the-work-15: Signature in the pallet exchange table
+
+  
+volunteer-association-page:
+  title: Volunteer Association
+  title-nav: Volunteer Association
+  start-coding: Project started in 2020.
+
+  description-01: |
+    On this page we see two interesting elements, the first of which is the “orange carousel.” It shows the active stations, and in the absence of them 
+    the carousel shows the results of the year-long contest. The second interesting element is a map that shows radio communications from the last hour.
+    When you click on the station icon, you will see information about the communications and the linked radio sign. If there is a lot of activity, when there are a lot of connections on the map,
+    by clicking on the linked radio sign in the balloon, we will see the filtered communications of only that one station on the map, which can be seen in the images 
+    “Before filtering” and ‘After filtering’.
+
+  description-02: |
+    The login to the form is done using the forum. Originally the cluster was to be used only for club members, so I used a session variable for logging in
+    phpBB forum. The form handling is, of course, the classic “CRUD” (Create, Read, Update, Delete). Underneath there are more complicated mechanisms
+    such as the implementation of QSL cards (a picture in the form of a postcard confirming connectivity). These are downloadable directly from the cluster itself image “Cluster”.
+
+  description-03: |
+    In the cluster, in addition to downloadable cards, we can preview a given link on a map. Returning to the topic of the cluster form and what else is hidden underneath-.
+    in the Association there are sometimes all sorts of contests, graduation actions, activations, and here are needed mechanisms to handle these issues.
+    For this purpose, I created an administrative panel for initiating such events - image “Cluster administrative panel”.
+
+  description-04: |
+    The administration panel supports graduation actions, to which a QSL card special for the occasion can be assigned. Particularly troublesome in the structural code 
+    proved to be the handling of the ability to complete entries after the action is completed. Since the user needs time to add the last
+    communications after the graduation action time is over. Communications entered after the completed action with a date that falls within the action had to be accepted.
+    The image “Cluster Administration Panel” shows a table, in which the 'Uzup' column is visible, in this column are the number of hours spent
+    for completing outstanding entries.
+
+  description-05: |
+    In later graduation actions, as you can see, functionality was added consisting of differentiated scoring. The differentiated scoring depended on 
+    whether the communication was within the country, or outside the country where the station was stationed, or outside Europe. The rubrics 'Wob' meaning within one's own country,
+    'Poz', i.e. outside the country in which the station is stationed, and 'DX', i.e. communications going beyond Europe. Support for this functionality consisted in processing 
+    a string variable, an example of a character from the CB band, e.g. '161OS256' (that is, we have a string and look for an item in it that is not a number, we cut off the rest and we have a squadron number).
+    This number determines what country the station is broadcasting from, so all we had to do was enter the list of squadrons belonging to Europe into the base. And that's how the points were calculated.
+    If the respondent has a different squadron than mine then we check if he is on the list of European squadrons if yes:he gets 2 points and otherwise 3. 
+    Going back to the cluster form, in the early stages of development one of the first functionalities was to make it easier to locate the respondent. 
+
+  description-06: |
+    If the respondent belonged to a 
+    club and agreed to share the location of his station, then if the user entered the sign of such operator in the form, he received the information
+    'Locator in database'. This meant that the station's location was stored in the database and the respondent did not need to be asked where it was transmitting from.
+    The last important detail of the whole system that remained to be described in this project is the Android Application. Looking at the “QSO Form” one can imagine 
+    operating this form on the slim screen of a smartphone. Initially, I planned to write a version of the form for mobile devices. What I do not hide in the future 
+    after the migration of the whole system to symfony will take place. In order not to waste time then when I didn't have much of it, I decided to compromise. Instead of writing a mobile
+    version of the form I decided to write an application for Android. Because I got the idea to use the GPS in the smartphone to locate mobile stations.
+    For this I used a very easy platform “MIT App Inventor”, which is used to teach programming to children. 
+    This platform allowed me to use the GPS from the device to update the location in the background with the screen off so that the device would not consume too much power.
+    The app is available in the store
+
+  description-07: |
+    Where you can get to know the application in more detail. The application has been continuously developed and continues to serve users today.
+
+  volunteer-association-1:  Main view of the application
+  volunteer-association-2:  Before filtering
+  volunteer-association-3:  After filtering
+  volunteer-association-4:  Increased traffic in the national ether
+  volunteer-association-5:  QSO Form
+  volunteer-association-6:  Cluster
+  volunteer-association-7:  Cluster administration panel 
+  volunteer-association-8:  Increased traffic in the international ether 
+  volunteer-association-9:  Login screen
+  volunteer-association-10:  Application cluster form
+  volunteer-association-11:  Application settings
+  link-description: Link to video presentation of the application.
+
+monitoring-whe-watchmans-work-page:
+  title: Monitoring the watchman's work in the company
+  title-nav: Monitoring the watchman's work
+  start-coding: Project started in 2024.
+  description-01: |  
+    This is by far the smallest project I have done not counting the projects done while learning from various courses.
+    I made the project in Pascal language in the “Delphi 7” environment. The task was relatively simple from the coding side, it was enough to write a 
+    program that would handle the com port and receive signals from the appropriate pins. I made the electronics myself, which handled the 
+    the control point. The system consisted of 2 bell switches mounted in the company, each switch had a light that 
+    began to flicker when it was time to make the rounds. Then a button had to be pressed, the program from the moment the flickering light was activated,
+    began listening on the com port in a loop at 1 sec intervals. When the button was pressed, the program picked up the signal after which it 
+    deactivated the lamp flicker. Before the next round before the next time the lamp flicker was activated, the program checked the status of the port,
+    whether the switch contacts were open (in case the watchman got the idea to immobilize the button permanently in the pressed position).
+    In such a case, such an event was noted in the report. 
+    
+  description-02: |
+    The logic of the program relied on a timer, as the original plan was to celebrate every hour, cyclically.
+    Every hour there was an activation of a flickering light for a specified period of time. If the button was pressed within the specified time, the celebration was credited,
+    otherwise, the rounds - not credited (which was noted in the report). In addition, the system was equipped with an orange flickering light
+    located in such a way as to be visible from the gatehouse, the light was activated only when there was little time left for rounds.
+    as a reminder. After launching the system, I received information that there was no need to make rounds every hour, so I added to the interface
+    24 check boxes so that the company could set which hours to make rounds.
+
+  description-03: |
+    The program is equipped with a mini server that allows viewing an HTML file with a list of reports by date. A new report with a new date is generated every day.
+    The owner of the company can access the report on his phone from off-site.
+
+information-about-this-site-page:
+  title: Brief information about this site 
+  title-nav: Information about this site
+  start-coding: Project started in 2025.
+  description-01: |
+    A project created in Symfony (version 6.4.19). 
+    The application is based on the MVC pattern and uses Twig templates to render views. 
+  description-02: |
+    Frontend - Bootstrap: In the project I used Bootstrap to build responsive and aesthetically pleasing user interfaces.
+    Thanks to Bootstrap, the app adapts to different screen sizes,
+    which provides an optimal experience on mobile devices, tablets and desktops. 
+
+qrz-page:
+  title: QRZ Oscar Sierra
+  title-nav: QRZ Oscar Sierra
+  start-coding: Project started in 2025
+  description-01: |
+    The site is aimed at radio communications enthusiasts. Its purpose is to create a database of business cards of enthusiasts from all over the world.
+
+    After logging into the system, users can create an electronic business card, which will be visible in the business card search engine 
+    (and in the future also in the mobile application). The business card contains the user's data, such as call sign, name, location, 
+    email address, and other contact information.
+
+  description-02: | 
+    Users can edit their business card, adding a description of the radio station and antenna along with photos. It is also possible to edit the call sign and name.
+
+    The business card is visible in the search engine, which allows searching by callsign. Creating a business card is simple and intuitive. 
+    After logging into the system, the user clicks the “Edit View” button and adds blocks with title and content.
+  
+  description-03: |
+    The first block is a representative block - it contains user data (first name, call sign automatically retrieved from the database and displayed as a header). 
+    The title and content of this block are positioned on the left side. You can put there, for example, QTH locator or address data.
+
+    One profile picture can also be added in this block. In the following blocks, the user can add the title and description of the radio station or antenna and up to three 
+    photos along with a brief description. To add a photo to a block, you must first upload it to the server - a thumbnail will then appear on the right side of the editing panel. 
+    The photo is added by checking the checkbox and clicking the “Add selected photo” button in the given block.
+  
+  description-04: |
+    The user can add a maximum of 15 photos to the business card. The number of blocks is not limited.
+
+    After creating a business card, the user can edit it - change photos, add new blocks and modify existing ones. 
+    After searching for a call sign in the search engine, the user can go to the selected business card. 
+    Clicking on a photo in a business card launches a full-size slide preview.
+  description-05: |
+    The project was written in Symfony 6.4 in PHP. It uses a MySQL database to store business cards and photos. 
+    The system includes registration and login functions with an activation link sent by email and the ability to reset the password. 
+    A classic CRUD (Create, Read, Update, Delete) model is used to manage business cards.
+
+
+  qrz-association-1: User panel
+  qrz-association-2: Editing a business card
+  qrz-association-3: Adding a photo to a business card
+  qrz-association-4: Search business card
+
+
+quiz-page:
+  title: Driving School
+  title-nav: Driving School
+  start-coding: The project started in 2025.
+
+  description-01: | 
+    Driving School is a project made learning Laravel and Vue basics for a friend who runs a driving school in the Netherlands in Polish.
+    A generally similar tool for learning theory already exists on the Dutch market but has numerous translation errors in the Polish version. 
+    The purpose of creating a learning platform is to have full control over translations, all language versions of questions and answers in quizzes are 
+    entered by the platform owner.
+
+  description-02: | 
+    For easy management, I created an admin panel in which you can manage user accounts after by assigning roles such as user, premium, admin and 
+    you can manage quizzes. In the management panel you can add, delete and edit categories and quizzes in a category. All the contents of the category name, 
+    quizzes (questions and answers) are entered separately for each language version using the drop-down list for language selection.
+
+  description-03: |
+    There are three types of categories: demo, regular and exam. If you want a category to be available for every "user" it is enough to add a keyword in the category name 
+    (Demo). The other types of categories are available only for "premium" users. If you want to create a category exam we give
+    simply the name of the category "Exam" the script recognizes the keywords and treats the category accordingly. Learning is based on solving quizzes by selecting
+
+  description-04: |
+    Questions are displayed asynchronously in a modal window from the object that is created when selecting a category on the backend. The questions can be scrolled back and forth 
+    and in the last 10 questions there will be a "Summary" button. After going to the summary you will see the result of our quiz
+    , which is saved in the database. The system allows for several correct answers in one question. During the learning process, if you choose 1 wrong answer, you will be blocked from giving
+    answers in the given question, you will be shown a message with a red background explaining why the answer is wrong, and the task will not be completed.
+
+  description-05: |  
+    In the case of selecting the correct answer, if it was the only correct answer, then giving further answers is blocked and
+    displays on the green background an explanation why it was the correct answer. In the case of multiple correct answers, the blocking and display of the explanation takes place 
+    when all correct answers are selected.
+
+  description-06: |
+    When starting the exam, 50 questions from all categories are drawn at random, taking from each category an equal number of randomly selected questions.
+    As in the exam we can go to the next questions and come back with the difference that there is no error after choosing correct or 
+    wrong answer, similarly there is no instruction. You can simply uncheck the marks and when you reach the last question 
+    you will see the "Summary" button, which you can use to finish the exam simulation.
+
+  description-07: |
+    In case you don't manage to answer all the questions and the exam time of 35 minutes passes, you will be automatically transferred
+    to the summary. The summary ends the exam and saves the result in the database, but you can still go back to the previous questions, but with 
+    blocked and displayed instructions, just as it was during nouki. The user can view the progress of learning as well as exams in "Statistics".
+
+  description-08: |
+    For exercises and exams there are separate charts made from the results stored in the nadych database.
+
+  quiz-association-1: View of the home page after logging in
+  quiz-association-2: User management
+  quiz-association-3: Category management
+  quiz-association-4: Editing / adding a language version
+  quiz-association-5: Solving the task
+  quiz-association-6: Exam
+  quiz-association-7: Preview questions from a particular category
+  quiz-association-8: Science statistics
+  quiz-association-9: Exam statistics
+
+
+
+repo: Link to repository
+not-redy: A description of the project will be available soon.

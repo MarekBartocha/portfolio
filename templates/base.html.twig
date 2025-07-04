@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Oficjalna strona Marka Bartochy – portfolio, projekty, kontakt.">
+        <meta name="keywords" content="Marek Bartocha, portfolio, projekty, kontakt, QRZ, organizator pracy, monitoring pracy, ogrzewanie domu, stowarzyszenie">
+        <meta name="author" content="Marek Bartocha">
+      
+        <title>{% block title %}Marek Bartocha{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+
+        {% block stylesheets %}
+           {{ encore_entry_link_tags('app') }}
+           <link rel="stylesheet" href="{{ asset('fontello/fontello.css') }}" type="text/css" />
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+            <script>
+                // Scroll on top
+                document.addEventListener("DOMContentLoaded", function () {
+                let backToTop = document.getElementById("backToTop");
+                let scrollTimeout;
+
+                function checkScroll() {
+                    clearTimeout(scrollTimeout);
+
+                    if (window.scrollY > 100) {
+                        scrollTimeout = setTimeout(function () {
+                            backToTop.classList.add("show");
+                        }, 500); 
+                    } else {
+                        backToTop.classList.remove("show");
+                    }
+                }
+
+                window.addEventListener("scroll", checkScroll);
+
+                function scrollToTop(duration) {
+                    let start = window.scrollY;
+                    let startTime = performance.now();
+
+                    function animateScroll(currentTime) {
+                        let elapsedTime = currentTime - startTime;
+                        let progress = Math.min(elapsedTime / duration, 1);
+
+                        let easeOut = 1 - Math.pow(1 - progress, 3);
+
+                        window.scrollTo(0, start * (1 - easeOut));
+
+                        if (elapsedTime < duration) {
+                            requestAnimationFrame(animateScroll);
+                        }
+                    }
+
+                    requestAnimationFrame(animateScroll);
+                }
+                
+                backToTop.addEventListener("click", function (event) {
+                            event.preventDefault();
+                            scrollToTop(800);
+                        });
+                });
+            </script>
+        {% endblock %}
+    </head>
+    <body>
+        <div class="container">
+        <a id="top"></a>
+
+            <nav class="navbar navbar-expand-lg navbar-custom navbar-fixed">
+                <a class="navbar-brand fw-bold" href="/{{current_locale}}">Portfolio</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link {% if site == '' %}active{% endif %}" href="/{{current_locale}}"  >{{ 'home-page.home'| trans }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if site == 'about' %}active{% endif %}" href="/{{current_locale}}/about">{{ 'home-page.about'| trans }}</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle {% if site == 'home-heating' %}active{% endif %}" href="/{{current_locale}}/{{site}}" id="submenu" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+                                {{ 'home-page.projects' | trans }}
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="submenu">
+                                <li><a class="dropdown-item" href="{{ path('quiz_index')}}"> {{'quiz-page.title-nav' |trans}}</a></li>
+                                <li><a class="dropdown-item" href="{{ path('qrz_oscarsierra_index')}}"> {{'qrz-page.title-nav' |trans}}</a></li>
+                                <li><a class="dropdown-item" href="{{ path('volunteer-association_index')}}"> {{'volunteer-association-page.title-nav' |trans}}</a></li>
+                                <li><a class="dropdown-item" href="{{ path('organizer-of-the-work_index')}}"> {{'organizer-of-the-work-page.title-nav' |trans}}</a></li>
+                                <li><a class="dropdown-item" href="{{ path('information-about-this-site_index')}}"> {{'information-about-this-site-page.title-nav' |trans}}</a></li>
+                                <li><a class="dropdown-item" href="{{ path('home-heating_index')}}"> {{'home-heating-page.title-nav' |trans}}</a></li>
+                                <li><a class="dropdown-item" href="{{ path('monitoring-whe-watchmans-work_index')}}"> {{'monitoring-whe-watchmans-work-page.title-nav' |trans}}</a></li>
+                            </ul>  
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if site == 'contact' %}active{% endif %}" href="/{{current_locale}}/contact">{{ 'home-page.contact'| trans }}</a>
+                        </li>
+                    </ul>
+
+                    <a href="{{ path('home_index', {'_locale': 'pl'}) }}/{{site}}"  class="btn btn-light btn-sm ms-3 btn-language">
+                        <img style="width:20px; padding:0; border-radius:0;" src="{{ asset('img/pl.png') }}" alt="Polish flag" width="20" >
+                        <span style="position: relative; top: 2px;">PL</span>
+                    </a>
+                    <a href="{{ path('home_index', {'_locale': 'en'}) }}/{{site}}" class="btn btn-light btn-sm ms-3 btn-language">
+                        <img style="width:20px; padding:0; border-radius:0;" src="{{ asset('img/gb.png') }}" alt="English flag" width="20" > 
+                        <span style="position: relative; top: 2px;">EN</span>
+                    </a>
+                    <a href="{{ path('home_index', {'_locale': 'de'}) }}/{{site}}" class="btn btn-light btn-sm ms-3 btn-language">
+                        <img style="width:20px; padding:0; border-radius:0;" src="{{ asset('img/de.png') }}" alt="German flag" width="20" > 
+                        <span style="position: relative; top: 2px;">DE</span>
+                    </a>
+                </div>
+            </nav>
+
+            <br><br>
+            {% for message in app.flashes('notice') %}
+                <div class="notice">
+                    {{ message }}
+                    </div>
+            {% endfor %}
+
+            {% block body %}{% endblock %}
+        </div>
+        <footer class="footer mt-5">
+            <div class="container text-center mb-4">
+                <br>
+                <span>
+                    Copyright &copy; marek-bartocha.pl (2025) 
+                </span>
+                <br>
+                <a href="/{{current_locale}}/licenses"> {{'home-page.licenses-title'|trans}}</a>
+                <br>
+            </div>
+        </footer>
+        
+        <a href="#top" id="backToTop" class="back-to-top"><i class="icon-up-big"></i></a>
+        <script>
+            // Read more
+            document.addEventListener("DOMContentLoaded", function () {
+                let readMore = document.getElementById("readMore");
+                let moreText = document.getElementById("moreText");
+
+                // Check if readMore element exists before adding the event listener
+                if (readMore && moreText) {
+                    readMore.addEventListener("click", function (event) {
+                        event.preventDefault();
+                        if (moreText.classList.contains("hidden")) {
+                            moreText.classList.remove("hidden");
+                            readMore.textContent = "{{'home-page.less'|trans}}";
+                        } else {
+                            moreText.classList.add("hidden");
+                            readMore.textContent = "{{'home-page.more'|trans}}";
+                        }
+                    });
+                }
+            });
+        </script>
+    </body>
+</html>

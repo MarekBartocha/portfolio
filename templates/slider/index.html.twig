@@ -1,0 +1,100 @@
+{% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+    <style>
+     body {
+        padding-top: 0;
+    }
+
+    .compsoul-slide-close {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: 50px;
+        height: 50px;
+        background: rgba(70, 70, 70, 0.6);
+        border: none;
+        border-radius: 50%;
+        font-size: 26px;
+        color: white;
+        z-index: 999;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+        padding-bottom: 2px;
+    }
+
+    .compsoul-slide-close:hover {
+        background: rgba(54, 54, 53, 0.85);
+    }
+
+    .compsoul-slider {
+        position: relative;
+    }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+
+ {# <center>{{(folder ~'-page.'~ folder ~'-'~ id)|trans}}</center> #}
+<div class="compsoul-slider compsoul-slider-fade">
+
+    <button class="compsoul-slide-close" onclick="window.history.back()">
+        &times;
+    </button>
+
+    {% for i in 1.. number %}
+            <article class="compsoul-slide">
+            <figure class="compsoul-slide-figure">
+            <img class="compsoul-slide-img" alt="Zdjęcie slajdu" 
+                src="{{ asset('img/' ~ folder ~ '/' ~ id ~ '.png') }}"
+                data-src="{{ asset('img/' ~ folder ~ '/' ~ id ~ '.png') }}"
+            >
+            <noscript>
+                <img class="compsoul-slide-noscript" src="{{ asset('img/' ~ folder ~ '/' ~ id ~ '.png') }}" alt="Zdjęcie slajdu">
+            </noscript>
+            </figure>
+        </article>
+        {% set id = (id + 1) %}
+
+        {% if id > number %}
+            {% set id = 1 %}
+        {% endif %}
+
+    {% endfor %}
+
+
+  <nav class="compsoul-slide-navigation">
+    <ul>
+      
+        {% for i in 1.. number %}
+
+        <li class="compsoul-slide-nav">
+            <button class="compsoul-slide-point"></button>
+        </li>
+
+        {% set id = (id + 1) %}
+
+            {% if id > number %}
+                {% set id = 1 %}
+            {% endif %}
+
+        {% endfor %}
+    </ul>
+  </nav>
+
+  <button class="compsoul-slide-button compsoul-slide-next"><span class="compsoul-slide-hidden">Następny slajd</span></button> 
+  <button class="compsoul-slide-button compsoul-slide-prev"><span class="compsoul-slide-hidden">Poprzedni slajd</span></button>
+
+  <div class="compsoul-slide-timeline">
+    <span class="compsoul-slide-hidden">Oś czasu</span>
+  </div>
+    <script src="{{ asset('js/compsoul.js') }}"></script>
+    <script src="{{ asset('js/slider.js') }}"></script>
+    <script>
+        new Slider(".compsoul-slider .compsoul-slide").init();
+    </script>
+
+{% endblock %}

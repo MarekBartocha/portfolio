@@ -1,0 +1,86 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+{% set number_of_images  = 7 %}
+<center><h1>{{'home-heating-page.title' |trans}}</h1></center>
+
+<div class="row">
+
+    <div class="col-lg-12 col-xl-4 m-auto text-center">
+        <a href="slider/home-heating/{{number_of_images}}/1"><img src="{{ asset('img/home-heating/1.png') }}"  alt="Obrazek"></a>
+        <center>{{'home-heating-page.home-heating-1'|trans}}</center>
+    </div>
+    <div class="col-lg-12 col-xl-8 m-auto">
+        <p>{{'home-heating-page.description-01'|trans}}</p>
+    </div>
+
+    <div class="col-lg-12 col-xl-8 m-auto mt-4">
+        <p>{{'home-heating-page.description-02'|trans}}</p>
+    </div>
+    <div class="col-lg-12 col-xl-4 m-auto text-center">
+        <a href="slider/home-heating/{{number_of_images}}/2"><img src="{{ asset('img/home-heating/2.png') }}"  alt="Obrazek"></a>
+        <center>{{'home-heating-page.home-heating-2'|trans}}</center>
+    </div>
+
+    <div class="col-lg-12 col-xl-4 m-auto text-center">
+        <a href="slider/home-heating/{{number_of_images}}/3"><img src="{{ asset('img/home-heating/3.png') }}"  alt="Obrazek"></a>
+        <center>{{'home-heating-page.home-heating-3'|trans}}</center>
+    </div>
+    <div class="col-lg-12 col-xl-8 m-auto ">
+        <p>{{'home-heating-page.description-02'|trans}}</p>
+    </div>
+
+    <div class="col-lg-12 col-xl-6 m-auto text-center">
+        <a href="slider/home-heating/{{number_of_images}}/4"><img src="{{ asset('img/home-heating/4.png') }}"  alt="Obrazek"></a>
+        <center>{{'home-heating-page.home-heating-4'|trans}}</center>
+    </div>
+    <div class="col-lg-12 col-xl-6 m-auto text-center">
+        <a href="slider/home-heating/{{number_of_images}}/5"><img src="{{ asset('img/home-heating/5.png') }}"  alt="Obrazek"></a>
+        <center>{{'home-heating-page.home-heating-5'|trans}}</center>
+    </div>
+
+    <div class="col-lg-12 col-xl-6 m-auto text-center">
+        <a href="slider/home-heating/{{number_of_images}}/6"><img src="{{ asset('img/home-heating/6.png') }}"  alt="Obrazek"></a>
+        <center>{{'home-heating-page.home-heating-6'|trans}}</center>
+    </div>
+    <div class="col-lg-12 col-xl-6 m-auto text-center">
+        <a href="slider/home-heating/{{number_of_images}}/7"><img src="{{ asset('img/home-heating/7.png') }}"  alt="Obrazek"></a>
+        <center>{{'home-heating-page.home-heating-7'|trans}}</center>
+    </div>
+   
+
+    <div class="col-lg-12 m-auto text-center">
+    <a href="https://github.com/161OS256/Program-do-sterowania-ogrzewaniem-domu" target="blank">{{'repo'|trans}}</a>
+    </div>
+</div>
+        <div id="moreText" class="row hidden">
+        {% set number_of_images2  = 5 %}
+
+            <div class="col-lg-12 col-xl-6 m-auto text-center">
+                <a href="slider/home-heating-technical/{{ number_of_images2}}/1"><img src="{{ asset('img/home-heating-technical/1.png') }}"  alt="Obrazek"></a>
+                <center>{{'home-heating-page.home-heating-technical-1'|trans}}</center>
+            </div>
+            <div class="col-lg-12 col-xl-6 m-auto text-center">
+                <a href="slider/home-heating-technical/{{ number_of_images2}}/2"><img src="{{ asset('img/home-heating-technical/2.png') }}"  alt="Obrazek"></a>
+                <center>{{'home-heating-page.home-heating-technical-2'|trans}}</center>
+            </div>
+        
+            <div class="col-lg-12 col-xl-6 m-auto text-center">
+                <a href="slider/home-heating-technical/{{ number_of_images2}}/3"><img src="{{ asset('img/home-heating-technical/3.png') }}"  alt="Obrazek"></a>
+                <center>{{'home-heating-page.home-heating-technical-3'|trans}}</center>
+            </div>
+            <div class="col-lg-12 col-xl-6 m-auto text-center">
+                <a href="slider/home-heating-technical/{{ number_of_images2}}/4"><img src="{{ asset('img/home-heating-technical/4.png') }}"  alt="Obrazek"></a>
+                <center>{{'home-heating-page.home-heating-technical-4'|trans}}</center>
+            </div>
+
+            <div class="col-lg-12 col-xl-6 m-auto text-center">
+                <a href="slider/home-heating-technical/{{ number_of_images2}}/5"><img src="{{ asset('img/home-heating-technical/5.png') }}"  alt="Obrazek"></a>
+                <center>{{'home-heating-page.home-heating-technical-5'|trans}}</center>
+            </div>
+        </div>
+   
+    <center><h3>{{'home-heating-page.technical'|trans}}</h3></center>
+    <center><a href="#" id="readMore" class="read-more">{{'home-page.more'|trans}}</a></center>
+
+{% endblock %}

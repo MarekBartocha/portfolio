@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<center><h1>{{'quiz-page.title' |trans}}</h1>
+
+<h3><a  href="https://tests.rijschoolpolska.nl" target="_blank">https://tests.rijschoolpolska.nl</a></h3></center>
+
+<div class="row">
+    {% set number_of_images  = 9 %}
+
+    <div class="col-12 col-xl-4 m-auto text-center">
+        <a href="slider/quiz/{{number_of_images}}/1"><img src="{{ asset('img/quiz/1.png') }}"  alt="Obrazek"></a>
+        <center>{{'quiz-page.quiz-association-1'|trans}}</center>
+    </div>
+    <div class="col-12 col-xl-8 m-auto">
+        <p>{{'quiz-page.description-01'|trans}}</p>
+    </div>
+
+     <div class="col-12 col-xl-8 m-auto">
+        <p>{{'quiz-page.description-02'|trans}}</p>
+    </div>
+    <div class="col-12 col-xl-4 m-auto text-center">
+        <a href="slider/quiz/{{number_of_images}}/2"><img src="{{ asset('img/quiz/2.png') }}"  alt="Obrazek"></a>
+        <center>{{'quiz-page.quiz-association-2'|trans}}</center>
+    </div>
+
+   <div class="col-12 col-xl-4 m-auto text-center">
+        <a href="slider/quiz/{{number_of_images}}/3"><img src="{{ asset('img/quiz/3.png') }}"  alt="Obrazek"></a>
+        <center>{{'quiz-page.quiz-association-3'|trans}}</center>
+    </div>
+    <div class="col-12 col-xl-8 m-auto">
+        <p>{{'quiz-page.description-03'|trans}}</p>
+    </div>
+
+    <div class="col-12 col-xl-8 m-auto">
+        <p>{{'quiz-page.description-04'|trans}}</p>
+    </div>
+    <div class="col-12 col-xl-4 m-auto text-center">
+        <a href="slider/quiz/{{number_of_images}}/4"><img src="{{ asset('img/quiz/4.png') }}"  alt="Obrazek"></a>
+        <center>{{'quiz-page.quiz-association-4'|trans}}</center>
+    </div>
+
+    <div class="col-12 col-xl-4 m-auto text-center">
+        <a href="slider/quiz/{{number_of_images}}/5"><img src="{{ asset('img/quiz/5.png') }}"  alt="Obrazek"></a>
+        <center>{{'quiz-page.quiz-association-5'|trans}}</center>
+    </div>
+    <div class="col-12 col-xl-8 m-auto">
+        <p>{{'quiz-page.description-05'|trans}}</p>
+    </div>
+
+    <div class="col-12 col-xl-8 m-auto">
+        <p>{{'quiz-page.description-06'|trans}}</p>
+    </div>
+    <div class="col-12 col-xl-4 m-auto text-center">
+        <a href="slider/quiz/{{number_of_images}}/6"><img src="{{ asset('img/quiz/6.png') }}"  alt="Obrazek"></a>
+        <center>{{'quiz-page.quiz-association-6'|trans}}</center>
+    </div>
+
+    <div class="col-12 col-xl-4 m-auto text-center">
+        <a href="slider/quiz/{{number_of_images}}/7"><img src="{{ asset('img/quiz/7.png') }}"  alt="Obrazek"></a>
+        <center>{{'quiz-page.quiz-association-7'|trans}}</center>
+    </div>
+    <div class="col-12 col-xl-8 m-auto">
+        <p>{{'quiz-page.description-07'|trans}}</p>
+    </div>
+
+    <div class="col-12 col-xl-4 m-auto">
+        <p>{{'quiz-page.description-08'|trans}}</p>
+    </div>
+    <div class="col-12 col-xl-4 m-auto text-center">
+        <a href="slider/quiz/{{number_of_images}}/8"><img src="{{ asset('img/quiz/8.png') }}"  alt="Obrazek"></a>
+        <center>{{'quiz-page.quiz-association-8'|trans}}</center>
+    </div>
+    <div class="col-12 col-xl-4 m-auto text-center">
+        <a href="slider/quiz/{{number_of_images}}/9"><img src="{{ asset('img/quiz/9.png') }}"  alt="Obrazek"></a>
+        <center>{{'quiz-page.quiz-association-9'|trans}}</center>
+    </div>
+
+</div>
+
+{% endblock %}

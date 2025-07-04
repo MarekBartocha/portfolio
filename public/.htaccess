@@ -1,0 +1,21 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Jeśli użytkownik nie podał języka w URL, wykryj go i przekieruj
+    RewriteCond %{REQUEST_URI} ^/public/$
+    RewriteCond %{HTTP:Accept-Language} ^pl [NC]
+    RewriteRule ^$ /public/pl/ [R=302,L]
+
+    RewriteCond %{REQUEST_URI} ^/public/$
+    RewriteCond %{HTTP:Accept-Language} ^en [NC]
+    RewriteRule ^$ /public/en/ [R=302,L]
+
+    # Domyślnie przekieruj na angielski, jeśli nie wykryto języka
+    RewriteCond %{REQUEST_URI} ^/public/$
+    RewriteRule ^$ /public/en/ [R=302,L]
+
+    # Obsługa Symfony (usuwanie index.php)
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php [QSA,L]
+</IfModule>

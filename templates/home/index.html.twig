@@ -1,0 +1,113 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+<center><h1>Marek Bartocha</h1></center>
+
+<div class="container intro mt-4">
+    <p>{{'home-page.intro'|trans}}</p>
+</div>
+    <div class="row">
+        <div class="col-12   text-center ">
+            <a href="{{ path('quiz_index')}}">
+                <img src="{{ asset('img/quiz/5.png') }}" class="img-fluid rounded-lg home-img" alt="Obrazek">
+            </a>
+            <p class="text-gray-700 font-bold py-0 text-center">
+                <span class="title"><b>🔥 {{'quiz-page.title' |trans}}</b></span><br>
+                {{'home-page.technologies' |trans}}<br>
+                Laravel · Blade · Vue · Bootstrap <br>Laravel Auth · MySQL · Eloquent ORM<br>
+                {{'quiz-page.start-coding' |trans}}
+            </p>  
+            <a href="{{ path('quiz_index')}}">🔗 {{'home-page.project'|trans}}</a><br><br>
+        </div>
+        
+
+        <div class="col-12 col-lg-6  text-center ">
+            <a href="{{ path('qrz_oscarsierra_index')}}">
+                <img src="{{ asset('img/qrz-oscarsierra/1.png') }}" class="img-fluid rounded-lg home-img" alt="Obrazek">
+            </a>
+            <p class="text-gray-700 font-bold py-0 text-center">
+                <span class="title"><b>⭐ {{'qrz-page.title' |trans}}</b></span><br>
+                {{'home-page.technologies' |trans}}<br>
+                Symfony · Doctrine ORM · Twig  <br>Symfony Security · Bootstrap · MySQL<br>
+                {{'qrz-page.start-coding' |trans}}
+            </p>  
+            <a href="{{ path('qrz_oscarsierra_index')}}">🔗 {{'home-page.project'|trans}}</a>
+        </div>
+
+        <div class="col-12 col-lg-6  text-center">
+            <a href="{{ path('volunteer-association_index')}}">
+                <img src="{{ asset('img/volunteer-association/1.png') }}" class="img-fluid rounded-lg home-img" alt="Obrazek">
+            </a>
+            <p class="text-gray-700 font-bold py-0 text-center">
+                <span class="title"><b>⭐ {{'volunteer-association-page.title' |trans}}</b></span><br>
+                {{'home-page.technologies' |trans}}<br>
+                PHP · HTML · CSS · JavaScript · MySql<br>
+                {{'volunteer-association-page.start-coding' |trans}}
+            </p>  
+            <a href="{{ path('volunteer-association_index')}}">🔗 {{'home-page.project'|trans}}</a>
+        </div>
+ 
+        <div class="col-12 col-lg-6  text-center">
+            <a href="{{ path('organizer-of-the-work_index')}}">
+                <img src="{{ asset('img/organizer-of-the-work/1-home.png') }}" class="img-fluid rounded-lg home-img" alt="Obrazek">
+            </a>
+            <p class="text-gray-700 font-bold py-0 text-center">
+                <span class="title"><b>{{'organizer-of-the-work-page.title' |trans}}</b></span><br>
+                {{'home-page.technologies' |trans}}<br>
+                PHP · HTML · CSS · JavaScript · MySql<br>
+                {{'organizer-of-the-work-page.start-coding' |trans}}
+            </p>   
+            <a href="{{ path('organizer-of-the-work_index')}}">🔗 {{'home-page.project'|trans}}</a><br>
+            <a href="https://github.com/161OS256/Organizator-pracy-na-potrzeby-w-asne" target="_blank">
+                <i class="fab fa-github"></i> {{'home-page.github' |trans}}
+            </a>
+        </div>
+
+        <div class="col-12 col-lg-6  text-center">
+            <a href="{{ path('home-heating_index')}}">
+                <img src="{{ asset('img/home-heating/2.png') }}" class="img-fluid rounded-lg home-img" alt="Obrazek">
+            </a>
+            <p class="text-gray-700 font-bold py-0 text-center">
+                <span class="title"><b>{{'home-heating-page.title' |trans}}</b></span><br>
+                {{'home-page.technologies' |trans}}<br>
+                Pascal · HTML · CSS · JavaScript<br>
+                {{'home-heating-page.start-coding' |trans}} 
+            </p>   
+            <a href="{{ path('home-heating_index')}}">🔗 {{'home-page.project'|trans}}</a><br>
+            <a href="https://github.com/161OS256/Program-do-sterowania-ogrzewaniem-domu" target="_blank">
+                <i class="fab fa-github"></i> {{'home-page.github' |trans}}
+            </a>
+        </div>
+
+        <div class="col-12 col-lg-6  text-center ">
+            <a href="{{ path('information-about-this-site_index')}}">
+                <p class="text-gray-700 font-bold text-center no-picture all-border">
+                    <span class="title"><b>{{'information-about-this-site-page.title' |trans}}</b></span><br>
+                    {{'home-page.technologies' |trans}}<br>
+                    Symfony · Twig · Bootstrap <br>
+                    {{'information-about-this-site-page.start-coding' |trans}}
+                </p> 
+            </a>
+            <a href="{{ path('information-about-this-site_index')}}">🔗 {{'home-page.project'|trans}}</a><br>
+            <a href="https://github.com/161OS256/portfolio" target="_blank">
+                <i class="fab fa-github"></i> {{'home-page.github' |trans}}
+            </a>
+        </div>
+
+        <div class="col-12 col-lg-6  text-center"> 
+            <a href="{{ path('monitoring-whe-watchmans-work_index')}}">
+                <p class="text-gray-700 font-bold text-center no-picture all-border"> 
+                    <span class="title"><b>{{'monitoring-whe-watchmans-work-page.title' |trans}}</b></span><br>
+                    {{'home-page.technologies' |trans}}<br>
+                    Pascal · HTML · CSS<br>
+                    {{'monitoring-whe-watchmans-work-page.start-coding' |trans}}
+                </p> 
+            </a>
+            <a href="{{ path('monitoring-whe-watchmans-work_index')}}">🔗 {{'home-page.project'|trans}}</a>
+            <br><br>
+        </div>
+    </div>
+
+
+{% endblock %}
