@@ -1,6 +1,6 @@
 body {
-    background-color: rgb(104, 109, 103);
-    color: #c8ced4;
+    background-color: rgb(228, 241, 225);
+    color: #6d7072;
     padding-top: 60px; 
     text-align: justify;
     display: flex;
@@ -13,15 +13,15 @@ html, body {
 
 .navbar-custom .navbar-brand,
 .navbar-custom .nav-link {
-    color: #c8ced4  !important; 
+    color: #6d7072  !important; 
 }
 
 .navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
-    color: #fff !important; 
+    color: #c5c2c2 !important; 
 }
  
 .navbar-custom .nav-link:hover {
-    color: #fff !important; 
+    color: #d5d2d2 !important; 
 }
 
 .dropdown-menu {
@@ -57,11 +57,11 @@ p {
 
 .footer {
     margin-top: auto; 
-    background-color: rgb(87, 92, 87);
+    background-color: rgb(220, 230, 220);
 }
 
 a {
-    color: #c8ced4; 
+    color: #6d7072; 
     text-decoration: none;
 }
 
@@ -101,7 +101,7 @@ img {
 }
 
 .back-to-top:hover {
-    background-color: rgb(79, 82, 78);
+    background-color: rgb(208, 217, 204);
 }
 
 .back-to-top.hidden {
@@ -115,7 +115,7 @@ img {
     top: 0;
     left: 0;
     width: 100%;
-    background: rgb(104, 109, 103);
+    background: rgb(228, 241, 225);
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     padding: 15px 20px;
     z-index: 1000;
@@ -157,7 +157,7 @@ img {
     border: 2px solid wheat;
     border-radius: 15px;
     margin: 23px auto 25px auto;
-    background-color: #485e56;
+    background-color: #b1c9c0;
     padding-top: 35px;
 }
 
@@ -168,4 +168,39 @@ img {
 } 
 
 
+/* Ciemny motyw (dark) */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: rgb(104, 109, 103);
+    color: #c8ced4;
+  }
+  .footer {
+    margin-top: auto; 
+    background-color: rgb(87, 92, 87);
+    }
+    .navbar-fixed {
+    background: rgb(104, 109, 103);
+    }
+
+    .navbar-custom .navbar-brand,
+    .navbar-custom .nav-link {
+        color: #c8ced4  !important; 
+    }
+    a {
+        color: #c8ced4; 
+        text-decoration: none;
+    }
+    .navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+        color: #fff !important; 
+    }
+    .navbar-custom .nav-link:hover {
+        color: #fff !important; 
+    }
+    .no-picture {
+        background-color: #485e56;
+    }
+    .back-to-top:hover {
+        background-color: rgb(79, 82, 78);
+    }
+}
   
