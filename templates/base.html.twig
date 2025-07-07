@@ -85,6 +85,9 @@
                         <li class="nav-item">
                             <a class="nav-link {% if site == 'about' %}active{% endif %}" href="/{{current_locale}}/about">{{ 'home-page.about'| trans }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if site == 'blog' %}active{% endif %}" href="/{{current_locale}}/blog">{{ 'home-page.blog'| trans }}</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle {% if site == 'home-heating' %}active{% endif %}" href="/{{current_locale}}/{{site}}" id="submenu" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
