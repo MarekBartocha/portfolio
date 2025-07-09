@@ -10,3 +10,6 @@ homepage:
     requirements:
         _locale: 'en|pl|de'
 
+app_login:
+    path: /admin-cigla-blog-login
+    controller: App\Controller\SecurityController::admin-cigla-blog-login
