@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Statystyki ruchu{% endblock %}
+
+{% block body %}
+<h1>Statystyki wizyt</h1>
+
+<canvas id="visitsChart" width="800" height="400" style="background-color: #aaaaa3;"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('visitsChart').getContext('2d');
+    const chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: {{ dates|json_encode|raw }},
+            datasets: [
+                {
+                    label: 'Ludzie',
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    data: {{ humans|json_encode|raw }},
+                    fill: false
+                },
+                {
+                    label: 'Boty',
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    data: {{ bots|json_encode|raw }},
+                    fill: false
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+{% endblock %}

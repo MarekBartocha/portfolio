@@ -15,12 +15,13 @@ class BotLoggerListener
         $request = $event->getRequest();
         $userAgent = $request->headers->get('User-Agent', '');
         $ip = $request->getClientIp();
-        $date = (new \DateTime())->format('Y-m-d');
+        $path = $request->getPathInfo();
+        $datetime = (new \DateTime())->format('Y-m-d H:i:s');
+        $isBot = $this->isBot($userAgent) ? 'BOT' : 'HUMAN';
 
-        if ($this->isBot($userAgent)) {
-            $logEntry = "$date|$ip|$userAgent\n";
-            file_put_contents(__DIR__ . '/../../var/bot_visits.log', $logEntry, FILE_APPEND);
-        }
+        $logEntry = "$datetime|$ip|$isBot|$path|$userAgent\n";
+
+        file_put_contents(__DIR__ . '/../../var/visit_log.log', $logEntry, FILE_APPEND);
     }
 
     private function isBot(string $userAgent): bool
@@ -30,6 +31,8 @@ class BotLoggerListener
             'YandexBot', 'Sogou', 'Exabot', 'facebot', 'ia_archiver', 'MJ12bot', 'AhrefsBot'
         ];
 
+        
+
         foreach ($bots as $bot) {
             if (stripos($userAgent, $bot) !== false) {
                 return true;
@@ -38,3 +41,5 @@ class BotLoggerListener
         return false;
     }
 }
+
+
