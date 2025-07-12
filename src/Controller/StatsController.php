@@ -5,6 +5,9 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use DateTime;
+use DateInterval;
+
 
 class StatsController extends AbstractController
 {
@@ -19,6 +22,9 @@ class StatsController extends AbstractController
 
         if (file_exists($logFile)) {
             $lines = file($logFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+
+            $last30Days = new \DateTime('-30 days');
+
             foreach ($lines as $line) {
                 [$datetime, $ip, $type, $path] = explode('|', $line, 5);
 
@@ -27,14 +33,21 @@ class StatsController extends AbstractController
                     continue;
                 }
 
+                
+                $date = substr($datetime, 0, 10); // yyyy-mm-dd
+                $logDate = new \DateTime($date);
+                
+                // ⛔ Pomijaj wpisy starsze niż 30 dni
+                if ($logDate < $last30Days) {
+                    continue;
+                }
+                
                 $rawLogLines[] = [
                     'datetime' => $datetime,
                     'ip' => $ip,
                     'type' => $type,
                     'path' => $path,
                 ];
-
-                $date = substr($datetime, 0, 10); // yyyy-mm-dd
 
                 if (!isset($visitsPerDay[$date])) {
                     $visitsPerDay[$date] = ['BOT' => 0, 'HUMAN' => 0];
@@ -67,6 +80,8 @@ class StatsController extends AbstractController
         foreach ($uniqueIpsPerDay as $date => $ips) {
             $uniqueVisits[$date] = count($ips);
         }
+
+        //$rawLogLines = array_slice($rawLogLines, -100);
 
         return $this->render('stats/index.html.twig', [
             'dates' => array_keys($visitsPerDay),
