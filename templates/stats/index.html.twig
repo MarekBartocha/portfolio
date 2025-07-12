@@ -9,6 +9,35 @@
 
 <canvas id="visitsChart" width="800" height="400" style="background-color: #aaaaa3;"></canvas>
 
+<center>
+    <h2 class="mt-5">Podgląd surowego loga</h2>
+
+    <table border="1" cellpadding="5" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Data i czas</th>
+                <th>IP</th>
+                <th>Typ</th>
+                <th>Ścieżka</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for log in raw_logs %}
+                <tr>
+                    <td>{{ log.datetime }}</td>
+                    <td>{{ log.ip }}</td>
+                    <td>{{ log.type }}</td>
+                    <td>{{ log.path }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">Brak danych logów.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</center>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     const ctx = document.getElementById('visitsChart').getContext('2d');

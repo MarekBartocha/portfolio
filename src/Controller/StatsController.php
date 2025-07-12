@@ -15,6 +15,7 @@ class StatsController extends AbstractController
         $visitsPerDay = [];
         $uniqueIpsPerDay = [];
         $adminVisitsPerDay = [];
+        $rawLogLines = [];
 
         if (file_exists($logFile)) {
             $lines = file($logFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
@@ -25,6 +26,13 @@ class StatsController extends AbstractController
                 if (preg_match('#^/_wdt|^/_profiler|^/favicon\.ico#', $path)) {
                     continue;
                 }
+
+                $rawLogLines[] = [
+                    'datetime' => $datetime,
+                    'ip' => $ip,
+                    'type' => $type,
+                    'path' => $path,
+                ];
 
                 $date = substr($datetime, 0, 10); // yyyy-mm-dd
 
@@ -66,6 +74,7 @@ class StatsController extends AbstractController
             'bots' => array_column($visitsPerDay, 'BOT'),
             'unique_visits' => array_values($uniqueVisits),
             'admin_visits' => array_values($adminVisitsPerDay),
+            'raw_logs' => $rawLogLines,
             'current_locale' => $_locale,
             'site' => 'admin/stats',
         ]);
