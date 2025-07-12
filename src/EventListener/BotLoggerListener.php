@@ -27,7 +27,7 @@ class BotLoggerListener
 
         $logEntry = "$datetime|$ip|$type|$path\n";
 
-        file_put_contents(__DIR__ . '/../../var/visit_log.log', $logEntry, FILE_APPEND);
+        file_put_contents(__DIR__ . '/../../var/log/visit_log.log', $logEntry, FILE_APPEND);
     }
 
     private function isBot(string $userAgent): bool
