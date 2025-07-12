@@ -16,18 +16,26 @@
             labels: {{ dates|json_encode|raw }},
             datasets: [
                 {
-                    label: 'Ludzie',
+                    label: 'Ludzie (odsłony)',
                     backgroundColor: 'rgba(54, 162, 235, 0.2)',
                     borderColor: 'rgba(54, 162, 235, 1)',
                     data: {{ humans|json_encode|raw }},
                     fill: false
                 },
                 {
-                    label: 'Boty',
+                    label: 'Boty (odsłony)',
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     borderColor: 'rgba(255, 99, 132, 1)',
                     data: {{ bots|json_encode|raw }},
                     fill: false
+                },
+                {
+                    label: 'Unikalne grupy użytkowników (anonimizowane)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    data: {{ unique_visits|json_encode|raw }},
+                    fill: false,
+                    borderDash: [5, 5]
                 }
             ]
         },
@@ -36,6 +44,19 @@
             scales: {
                 y: {
                     beginAtZero: true
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        font: {
+                            size: 14
+                        }
+                    }
+                },
+                tooltip: {
+                    mode: 'index',
+                    intersect: false,
                 }
             }
         }
