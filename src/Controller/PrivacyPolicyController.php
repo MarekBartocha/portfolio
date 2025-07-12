@@ -6,15 +6,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-final class AdminController extends AbstractController
+final class PrivacyPolicyController extends AbstractController
 {
-    #[Route('/{_locale}/cigla-blog-admin', name: 'admin_index')]
+    #[Route('{_locale}/privacy-policy', name: 'privacy_policy_index')]
     public function index(string $_locale): Response
     {
-        return $this->render('admin/index.html.twig', [
-            'controller_name' => 'AdminController',
+        return $this->render('privacy_policy/index.html.twig', [
+            'controller_name' => 'PrivacyPolicyController',
             'current_locale' => $_locale,
-            'site' => 'cigla-blog-admin',
+            'site' => 'privacy-policy',
         ]);
     }
 }

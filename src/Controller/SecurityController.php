@@ -9,7 +9,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
 {
-    #[Route(path: '/{_locale}/admin-cigla-blog-login', name: 'login_index')]
+    #[Route(path: '/{_locale}/cigla-blog-login', name: 'login_index')]
     public function login(string $_locale, AuthenticationUtils $authenticationUtils): Response
     {
         // get the login error if there is one
@@ -22,7 +22,7 @@ class SecurityController extends AbstractController
             'last_username' => $lastUsername,
             'current_locale' => $_locale,
             'error' => $error,
-            'site' => 'login',
+            'site' => 'cigla-blog-login',
         ]);
     }
 

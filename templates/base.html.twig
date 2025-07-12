@@ -85,9 +85,9 @@
                         <li class="nav-item">
                             <a class="nav-link {% if site == 'about' %}active{% endif %}" href="/{{current_locale}}/about">{{ 'home-page.about'| trans }}</a>
                         </li>
-                        <li class="nav-item">
+                        {# <li class="nav-item">
                             <a class="nav-link {% if site == 'blog' %}active{% endif %}" href="/{{current_locale}}/blog">{{ 'home-page.blog'| trans }}</a>
-                        </li>
+                        </li> #}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle {% if site == 'home-heating' %}active{% endif %}" href="/{{current_locale}}/{{site}}" id="submenu" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
@@ -139,7 +139,8 @@
                     Copyright &copy; marek-bartocha.pl (2025) 
                 </span>
                 <br>
-                <a href="/{{current_locale}}/licenses"> {{'home-page.licenses-title'|trans}}</a>
+                <a href="/{{current_locale}}/licenses"> {{'home-page.licenses-title'|trans}},</a>
+                <a href="/{{current_locale}}/privacy-policy"> {{'home-page.privacy-policy'|trans}}</a>
                 <br>
             </div>
         </footer>

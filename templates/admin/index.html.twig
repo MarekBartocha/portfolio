@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <a href="{{ path('app_logout', {'_locale': app.request.locale}) }}">Logout</a>
+    <a href="{{ path('app_logout', {'_locale': app.request.locale}) }}">Logout</a><br>
+    <a href="cigla-blog-admin/stats">Statystyki</a>
 {% endblock %}

@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class StatsController extends AbstractController
 {
-    #[Route('/{_locale}/stats', name: 'stats')]
+    #[Route('/{_locale}/cigla-blog-admin/stats', name: 'stats')]
     public function index(string $_locale): Response
     {
         $logFile = __DIR__ . '/../../var/visit_log.log';
