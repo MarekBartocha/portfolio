@@ -8,13 +8,13 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class AdminController extends AbstractController
 {
-    #[Route('/{_locale}/cigla-blog-admin', name: 'admin_index')]
+    #[Route('/{_locale}/admin', name: 'admin_index')]
     public function index(string $_locale): Response
     {
         return $this->render('admin/index.html.twig', [
             'controller_name' => 'AdminController',
             'current_locale' => $_locale,
-            'site' => 'cigla-blog-admin',
+            'site' => 'admin',
         ]);
     }
 }

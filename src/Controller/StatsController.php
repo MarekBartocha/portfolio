@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class StatsController extends AbstractController
 {
-    #[Route('/{_locale}/cigla-blog-admin/stats', name: 'stats')]
+    #[Route('/{_locale}/admin/stats', name: 'stats')]
     public function index(string $_locale): Response
     {
         $logFile = __DIR__ . '/../../var/visit_log.log';
@@ -58,7 +58,7 @@ class StatsController extends AbstractController
             'bots' => array_column($visitsPerDay, 'BOT'),
             'unique_visits' => array_values($uniqueVisits),
             'current_locale' => $_locale,
-            'site' => 'stats',
+            'site' => 'admin/stats',
         ]);
     }
 }
