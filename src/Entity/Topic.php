@@ -24,6 +24,9 @@ class Topic
     #[ORM\OneToMany(targetEntity: Blog::class, mappedBy: 'topic')]
     private Collection $blogs;
 
+    #[ORM\Column(length: 255, unique: true)]
+    private ?string $slug = null;
+
     public function __construct()
     {
         $this->blogs = new ArrayCollection();
@@ -75,4 +78,17 @@ class Topic
 
         return $this;
     }
+
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): static
+    {
+        $this->slug = $slug;
+        return $this;
+    }
+
 }
