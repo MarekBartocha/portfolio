@@ -18,7 +18,9 @@ class BlogType extends AbstractType
             ->add('title')
             ->add('topic', EntityType::class, [
                 'class' => Topic::class,
-                'choice_label' => 'id',
+                'choice_label' => 'name',
+                'placeholder' => 'Wybierz temat',
+                'label' => false,
             ])
         ;
     }

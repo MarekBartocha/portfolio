@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container mt-5" style="max-width: 700px;">
+    <h1 class="mb-4 text-center">📝 Nowy wpis</h1>
+
+    {{ form_start(form) }}
+
+        <div class="mb-3">
+            {{ form_label(form.title, null, {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.title) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form_label(form.content, null, {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(form.content, {'attr': {'class': 'form-control', 'rows': 10}}) }}
+            {{ form_errors(form.content) }}
+        </div>
+
+        <div class="mb-3">
+            {{ form_label(form.topic, null, {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(form.topic, {'attr': {'class': 'form-select'}}) }}
+            {{ form_errors(form.topic) }}
+        </div>
+
+        <button class="btn btn-success w-100">💾 Zapisz</button>
+
+    {{ form_end(form) }}
+ 
+</div>
+{% endblock %}

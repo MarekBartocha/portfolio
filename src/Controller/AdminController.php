@@ -10,7 +10,11 @@ use App\Form\TopicType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use App\Repository\TopicRepository;
+use App\Repository\BlogRepository;
 use Symfony\Component\String\Slugger\SluggerInterface;
+use App\Entity\Blog;
+use App\Form\BlogType;
+
 
 
 final class AdminController extends AbstractController
@@ -102,6 +106,50 @@ final class AdminController extends AbstractController
 
         return $this->redirectToRoute('admin_index', ['_locale' => $request->getLocale()]);
     }
+
+    #[Route('/{_locale}/blog/new', name: 'blog_new')]
+    public function new(string $_locale, Request $request, EntityManagerInterface $em, SluggerInterface $slugger): Response
+    {
+        $blog = new Blog();
+        $form = $this->createForm(BlogType::class, $blog);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Generujemy slug z tytułu
+            $slug = $slugger->slug($blog->getTitle())->lower();
+            $blog->setSlug($slug);
+
+            $em->persist($blog);
+            $em->flush();
+
+            $this->addFlash('success', 'Blog zapisany!');
+
+            return $this->redirectToRoute('blog_show', ['slug' => $blog->getSlug(), '_locale' => $request->getLocale()]);
+        }
+
+        return $this->render('blog/new.html.twig', [
+            'form' => $form->createView(),
+            'current_locale' => $_locale,
+            'site' => 'blog/new',
+        ]);
+    }
+
+    #[Route('/{_locale}/blog/{slug}', name: 'blog_show')]
+    public function show2(string $_locale, string $slug, BlogRepository $repo): Response
+    {
+        $blog = $repo->findOneBy(['slug' => $slug]);
+
+        if (!$blog) {
+            throw $this->createNotFoundException('Nie znaleziono wpisu.');
+        }
+
+        return $this->render('blog/show.html.twig', [
+            'blog' => $blog,
+            'current_locale' => $_locale,
+            'site' => 'blog/new',
+        ]);
+    }
+
 
 
 }
