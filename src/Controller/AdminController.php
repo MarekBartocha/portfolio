@@ -25,6 +25,12 @@ final class AdminController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $slug = $slugger->slug($topic->getName())->lower();
+
+            if ($topicRepository->findOneBy(['slug' => $slug])) {
+                $this->addFlash('error', 'Temat o takiej nazwie już istnieje.');
+                return $this->redirectToRoute('admin_index');
+            }
+
             $topic->setSlug($slug);
 
             $entityManager->persist($topic);   
@@ -57,8 +63,45 @@ final class AdminController extends AbstractController
 
         return $this->render('topic/show.html.twig', [
             'topic' => $topic,
+            'current_locale' => $_locale,
+            'site' => 'topic/' . $slug,
         ]);
     }
 
-    
+    #[Route('/{_locale}/topic/{id}/edit', name: 'topic_edit')]
+    public function edit(string $_locale, int $id, Request $request, Topic $topic, EntityManagerInterface $entityManager): Response
+    {
+        $form = $this->createForm(TopicType::class, $topic);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Temat został zaktualizowany.');
+
+            return $this->redirectToRoute('admin_index', ['_locale' => $request->getLocale()]);
+        }
+
+        return $this->render('admin/edit.html.twig', [
+            'form' => $form->createView(),
+            'topic' => $topic,
+            'current_locale' => $_locale,
+            'site' => 'topic/' . $id . '/edit',
+        ]);
+    }
+
+    #[Route('/{_locale}/topic/{id}/delete', name: 'topic_delete', methods: ['POST'])]
+    public function delete(Request $request, Topic $topic, EntityManagerInterface $entityManager): Response
+    { 
+        if ($this->isCsrfTokenValid('delete' . $topic->getId(), $request->request->get('_token'))) {
+            $entityManager->remove($topic);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Temat został usunięty.');
+        }
+
+        return $this->redirectToRoute('admin_index', ['_locale' => $request->getLocale()]);
+    }
+
+
 }
