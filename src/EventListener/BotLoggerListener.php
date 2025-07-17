@@ -6,7 +6,11 @@ namespace App\EventListener;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 
 class BotLoggerListener
-{
+{    
+    private $knownBotIps = [
+        '20.171.207.0',
+    ];
+
     public function onKernelRequest(RequestEvent $event): void
     {
         if (!$event->isMainRequest()) {
@@ -23,7 +27,13 @@ class BotLoggerListener
         }
 
         $datetime = (new \DateTime())->format('Y-m-d H:i:s');
-        $type = $this->isBot($request->headers->get('User-Agent', '')) ? 'BOT' : 'HUMAN';
+        
+        if (in_array($ip, $this->knownBotIps, true)) {
+            $type = 'BOT';
+        } else {
+            $type = $this->isBot($request->headers->get('User-Agent', '')) ? 'BOT' : 'HUMAN';
+        }
+
 
         $logEntry = "$datetime|$ip|$type|$path\n";
 
@@ -32,16 +42,21 @@ class BotLoggerListener
 
     private function isBot(string $userAgent): bool
     {
-        $bots = [
-            'Googlebot', 'Bingbot', 'Slurp', 'DuckDuckBot', 'Baiduspider',
-            'YandexBot', 'Sogou', 'Exabot', 'facebot', 'ia_archiver', 'MJ12bot', 'AhrefsBot'
+        $userAgent = strtolower($userAgent);
+
+        $botKeywords = [
+            'bot', 'crawl', 'slurp', 'spider', 'fetch', 'monitor', 'pingdom', 'facebookexternalhit',
+            'headless', 'phantomjs', 'python', 'curl', 'wget', 'java', 'libwww-perl',
+            'scrapy', 'axios', 'go-http-client', 'httpclient', 'mj12bot', 'ahrefsbot', 'semrushbot',
+            'bingpreview', 'slackbot', 'discordbot', 'embedly', 'quora link preview', 'whatsapp'
         ];
 
-        foreach ($bots as $bot) {
-            if (stripos($userAgent, $bot) !== false) {
+        foreach ($botKeywords as $keyword) {
+            if (str_contains($userAgent, $keyword)) {
                 return true;
             }
         }
+
         return false;
     }
 
