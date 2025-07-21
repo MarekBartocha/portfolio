@@ -56,29 +56,70 @@ final class AdminController extends AbstractController
         ]);
     }
 
-    #[Route('/{_locale}/topic/{slug}', name: 'topic_show')]
-    public function show(string $_locale, string $slug, TopicRepository $topicRepository): Response
+    #[Route('/{_locale}/blog/{slug}/new', name: 'blog_new')]
+    public function new(string $_locale, Request $request, Topic $topic, EntityManagerInterface $em, SluggerInterface $slugger): Response
     {
+        $blog = new Blog();
+        $blog->setTopic($topic); // Przypisanie tematu
+
+        $form = $this->createForm(BlogType::class, $blog);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $slug = $slugger->slug($blog->getTitle())->lower();
+            $blog->setSlug($slug);
+
+            $em->persist($blog);
+            $em->flush();
+
+            $this->addFlash('success', 'Blog zapisany!');
+
+            return $this->redirectToRoute('topic_show', [
+                'slug' => $blog->getTopic()->getSlug(),
+                '_locale' => $_locale,
+            ]);
+
+        }
+
+        return $this->render('blog/new.html.twig', [
+            'form' => $form->createView(),
+            'current_locale' => $_locale,
+            'site' => 'blog/new',
+        ]);
+    }
+
+    #[Route('/{_locale}/blog/{slug}', name: 'topic_show')]
+    public function show(string $_locale, string $slug, TopicRepository $topicRepository, BlogRepository $blogRepository): Response
+    {
+
         $topic = $topicRepository->findOneBy(['slug' => $slug]);
 
         if (!$topic) {
             throw $this->createNotFoundException('Temat nie istnieje.');
         }
 
+        $blogs = $blogRepository->findBy(['topic' => $topic]);
+
         return $this->render('topic/show.html.twig', [
             'topic' => $topic,
             'current_locale' => $_locale,
-            'site' => 'topic/' . $slug,
+            'site' => 'blog/' . $slug,
+            'blogs' => $blogs,
         ]);
     }
 
     #[Route('/{_locale}/topic/{id}/edit', name: 'topic_edit')]
-    public function edit(string $_locale, int $id, Request $request, Topic $topic, EntityManagerInterface $entityManager): Response
+    public function edit(string $_locale, int $id, Request $request, Topic $topic, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(TopicType::class, $topic);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+          
+            // Generujemy slug z tytułu
+            $slug = $slugger->slug($topic->getName())->lower();
+            $topic->setSlug($slug);
+            $entityManager->persist($topic);
             $entityManager->flush();
 
             $this->addFlash('success', 'Temat został zaktualizowany.');
@@ -106,50 +147,5 @@ final class AdminController extends AbstractController
 
         return $this->redirectToRoute('admin_index', ['_locale' => $request->getLocale()]);
     }
-
-    #[Route('/{_locale}/blog/new', name: 'blog_new')]
-    public function new(string $_locale, Request $request, EntityManagerInterface $em, SluggerInterface $slugger): Response
-    {
-        $blog = new Blog();
-        $form = $this->createForm(BlogType::class, $blog);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            // Generujemy slug z tytułu
-            $slug = $slugger->slug($blog->getTitle())->lower();
-            $blog->setSlug($slug);
-
-            $em->persist($blog);
-            $em->flush();
-
-            $this->addFlash('success', 'Blog zapisany!');
-
-            return $this->redirectToRoute('blog_show', ['slug' => $blog->getSlug(), '_locale' => $request->getLocale()]);
-        }
-
-        return $this->render('blog/new.html.twig', [
-            'form' => $form->createView(),
-            'current_locale' => $_locale,
-            'site' => 'blog/new',
-        ]);
-    }
-
-    #[Route('/{_locale}/blog/{slug}', name: 'blog_show')]
-    public function show2(string $_locale, string $slug, BlogRepository $repo): Response
-    {
-        $blog = $repo->findOneBy(['slug' => $slug]);
-
-        if (!$blog) {
-            throw $this->createNotFoundException('Nie znaleziono wpisu.');
-        }
-
-        return $this->render('blog/show.html.twig', [
-            'blog' => $blog,
-            'current_locale' => $_locale,
-            'site' => 'blog/new',
-        ]);
-    }
-
-
 
 }
