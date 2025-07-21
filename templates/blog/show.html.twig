@@ -5,7 +5,7 @@
     <h1 class="mb-3">{{ blog.title }}</h1>
 
     {% if blog.topic %}
-        <p class="text-muted">Temat: 
+        <p class="text-muted">
             <a href="{{ path('topic_show', { slug: blog.topic.slug, _locale: app.request.locale }) }}">
                 {{ blog.topic.name }}
             </a>

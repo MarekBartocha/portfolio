@@ -16,12 +16,6 @@ class BlogType extends AbstractType
         $builder
             ->add('content')
             ->add('title')
-            ->add('topic', EntityType::class, [
-                'class' => Topic::class,
-                'choice_label' => 'name',
-                'placeholder' => 'Wybierz temat',
-                'label' => false,
-            ])
         ;
     }
 

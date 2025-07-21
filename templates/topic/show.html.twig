@@ -7,10 +7,26 @@
       <div class="alert alert-success">{{ message }}</div>
    {% endfor %}
 
+   <div class="d-flex justify-content-center mt-4">
+      <div class="d-flex gap-2">
+         <a class="btn btn-primary" href="{{ path('blog_new', {'_locale': app.request.locale, 'slug': topic.slug}) }}">
+            Dodaj bloga
+         </a>
+      </div>
+   </div>
 
 
-
- 
+   {% if blogs is not empty %}
+      {% for blog in blogs %}
+         <div class="blog-entry">
+               <h3>{{ blog.title }}</h3>
+               <p>{{ blog.content|raw }}</p> {# lub |e, jeśli chcesz zescapować HTML #}
+               <hr>
+         </div>
+      {% endfor %}
+   {% else %}
+      <p>Brak wpisów dla tego tematu.</p>
+   {% endif %}
 
 
 

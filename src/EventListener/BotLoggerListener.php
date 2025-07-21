@@ -9,6 +9,8 @@ class BotLoggerListener
 {    
     private $knownBotIps = [
         '20.171.207.0',
+        '4.227.36.0',
+        '138.246.253.0',
     ];
 
     public function onKernelRequest(RequestEvent $event): void
