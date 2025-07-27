@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+   <center><h1>{{ topic.name }}</h1></center>
+
+   {% for message in app.flashes('success') %}
+      <div class="alert alert-success">{{ message }}</div>
+   {% endfor %}
+
+
+   <a href="{{ path( 'admin_index', {'_locale': app.request.locale}) }}" class="btn btn-secondary mt-3">Powrót</a>
+
+   <br>
+   
+   {% if blogs is not empty %}
+      {% for blog in blogs %}
+         <div style="background-color:#949b8f; color: black" class="blog-entry border border-1 rounded-2 m-3 p-2">
+
+               <center>
+                  <h3>{{ blog.title }}</h3>
+               </center>
+               <p>{{ blog.content|raw }}</p> 
+       
+              
+         </div>
+      {% endfor %}
+   {% else %}
+      <p>Brak wpisów dla tego tematu.</p>
+   {% endif %}
+
+
+
+
+
+
+{% endblock %}

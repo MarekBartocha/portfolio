@@ -89,7 +89,7 @@
                             <a class="nav-link {% if site == 'about' %}active{% endif %}" href="/{{current_locale}}/about">{{ 'home-page.about'| trans }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {% if site == 'blog' %}active{% endif %}" href="/{{current_locale}}/blog">{{ 'home-page.blog'| trans }}</a>
+                            <a class="nav-link {% if site == 'blog-topics' %}active{% endif %}" href="/{{current_locale}}/blog-topics">{{ 'home-page.blog'| trans }}</a>
                         </li>
 
                         {% if is_granted('ROLE_ADMIN') %}
