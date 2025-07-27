@@ -27,6 +27,9 @@ class Blog
     #[ORM\Column(type: 'string', length: 255, unique: true)]
     private ?string $slug = null;
 
+    #[ORM\Column]
+    private ?bool $public = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -76,6 +79,18 @@ class Blog
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
+        return $this;
+    }
+
+    public function isPublic(): ?bool
+    {
+        return $this->public;
+    }
+
+    public function setPublic(bool $public): static
+    {
+        $this->public = $public;
+
         return $this;
     }
 }

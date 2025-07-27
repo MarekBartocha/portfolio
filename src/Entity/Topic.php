@@ -27,6 +27,9 @@ class Topic
     #[ORM\Column(length: 255, unique: true)]
     private ?string $slug = null;
 
+    #[ORM\Column]
+    private ?bool $public = null;
+
     public function __construct()
     {
         $this->blogs = new ArrayCollection();
@@ -88,6 +91,18 @@ class Topic
     public function setSlug(string $slug): static
     {
         $this->slug = $slug;
+        return $this;
+    }
+
+    public function isPublic(): ?bool
+    {
+        return $this->public;
+    }
+
+    public function setPublic(bool $public): static
+    {
+        $this->public = $public;
+
         return $this;
     }
 

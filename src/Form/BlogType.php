@@ -16,6 +16,7 @@ class BlogType extends AbstractType
         $builder
             ->add('content')
             ->add('title')
+            ->add('public')
         ;
     }
 

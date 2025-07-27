@@ -13,6 +13,7 @@ class TopicType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add('public')
         ;
     }
 
