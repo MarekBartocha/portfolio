@@ -15,6 +15,10 @@
       <div class="d-flex justify-content-center mt-4">
          <div class="d-flex gap-2">
             {{ form_widget(form.name, { 'attr': {'placeholder': 'admin-page.new'|trans, 'class': 'form-control'} }) }}
+            <div class="form-check d-flex align-items-center gap-2 mb-0">
+                {{ form_widget(form.public, {'attr': {'class': 'form-check-input'}}) }}
+                {{ form_label(form.public, null, {'label_attr': {'class': 'form-check-label mb-0'}}) }}
+            </div>
             <button class="btn btn-primary">Zapisz</button>
          </div>
       </div>
@@ -28,21 +32,28 @@
    {% for topic in topics %}
       <li style="background-color:#949b8f;" class="list-group-item d-flex justify-content-between align-items-center">
          <div>
-         <a class="text-dark fw-bold text-decoration-none" href="{{ path('topic_show', {slug: topic.slug, _locale: app.request.locale}) }}">
-            {{ topic.name }}
-         </a>
+            <a class="text-dark fw-bold text-decoration-none" href="{{ path('topic_show', {slug: topic.slug, _locale: app.request.locale}) }}">
+               {{ topic.name }}
+            </a>
          </div>
-         <div>
-         {# <input type="checkbox" disabled {% if topic.isPublic %}checked{% endif %}> #}
+         <div class="d-flex align-items-center gap-2">
+         {% if topic.public %}
+            <p class="mb-0 text-success">Public</p>
+         {% else %}
+            <p class="mb-0 text-muted">Private</p>
+         {% endif %}
 
-         <a href="{{ path('topic_edit', {id: topic.id}) }}" class="btn btn-sm btn-outline-primary me-2">Edytuj</a>
+            <a href="{{ path('topic_edit', {id: topic.id}) }}" class="btn btn-sm btn-outline-primary">Edytuj</a>
 
-         <form method="post" action="{{ path('topic_delete', {id: topic.id, _locale: app.request.locale}) }}" style="display:inline;" 
-               onsubmit="return confirm('Na pewno chcesz usunąć ten temat?');">
-            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ topic.id) }}">
-            <button class="btn btn-sm btn-outline-danger">Usuń</button>
-         </form>
+            <form method="post"
+                  action="{{ path('topic_delete', {id: topic.id, _locale: app.request.locale}) }}"
+                  style="display:inline;"
+                  onsubmit="return confirm('Na pewno chcesz usunąć ten temat?');">
+               <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ topic.id) }}">
+               <button class="btn btn-sm btn-outline-danger">Usuń</button>
+            </form>
          </div>
+
       </li>
    {% else %}
       <li class="list-group-item">Brak tematów.</li>

@@ -36,7 +36,7 @@ final class AdminController extends AbstractController
             }
 
             $topic->setSlug($slug);
-
+            $topic->setPublic(false);
             $entityManager->persist($topic);   
             $entityManager->flush();           
 
@@ -68,6 +68,7 @@ final class AdminController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $slug = $slugger->slug($blog->getTitle())->lower();
             $blog->setSlug($slug);
+            $blog->setPublic(false);
 
             $em->persist($blog);
             $em->flush();
@@ -89,7 +90,6 @@ final class AdminController extends AbstractController
         ]);
     }
     
-
     #[Route('/{_locale}/admin-blog/{slug}', name: 'topic_show')]
     public function show(string $_locale, string $slug, TopicRepository $topicRepository, BlogRepository $blogRepository): Response
     {
@@ -138,36 +138,36 @@ final class AdminController extends AbstractController
         ]);
     }
 
-      #[Route('/{_locale}/admin-blog/{slug_topic}/{id}/edit', name: 'blog_edit')]
-        public function editBlog(string $_locale, string $slug_topic, int $id, Request $request, Blog $blog, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
-        {
-            $form = $this->createForm(BlogType::class, $blog);
-            $form->handleRequest($request);
+    #[Route('/{_locale}/admin-blog/{slug_topic}/{id}/edit', name: 'blog_edit')]
+    public function editBlog(string $_locale, string $slug_topic, int $id, Request $request, Blog $blog, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
+    {
+        $form = $this->createForm(BlogType::class, $blog);
+        $form->handleRequest($request);
 
-            if ($form->isSubmitted() && $form->isValid()) {
-            
-                // Generujemy slug z tytułu
-                $slug = $slugger->slug($blog->getTitle())->lower();
-                $blog->setSlug($slug);
-                $entityManager->persist($blog);
-                $entityManager->flush();
+        if ($form->isSubmitted() && $form->isValid()) {
+        
+            // Generujemy slug z tytułu
+            $slug = $slugger->slug($blog->getTitle())->lower();
+            $blog->setSlug($slug);
+            $entityManager->persist($blog);
+            $entityManager->flush();
 
-                $this->addFlash('success', 'Blog został zaktualizowany.');
+            $this->addFlash('success', 'Blog został zaktualizowany.');
 
-                return $this->redirectToRoute('topic_show', [
-                    'slug' => $blog->getTopic()->getSlug(),
-                    '_locale' => $_locale,
-                ]);
-            }
-
-            return $this->render('blog/new.html.twig', [
-                'form' => $form->createView(),
-                'blog' => $blog,
-                'current_locale' => $_locale,
-                'site' => 'admin-blog/' . $id . '/edit',
-                'slug' => $slug_topic,
+            return $this->redirectToRoute('topic_show', [
+                'slug' => $blog->getTopic()->getSlug(),
+                '_locale' => $_locale,
             ]);
         }
+
+        return $this->render('blog/new.html.twig', [
+            'form' => $form->createView(),
+            'blog' => $blog,
+            'current_locale' => $_locale,
+            'site' => 'admin-blog/' . $id . '/edit',
+            'slug' => $slug_topic,
+        ]);
+    }
 
     #[Route('/{_locale}/admin-topic/{id}/delete', name: 'topic_delete', methods: ['POST'])]
     public function deleteTopic(Request $request, Topic $topic, EntityManagerInterface $entityManager): Response
@@ -201,5 +201,4 @@ final class AdminController extends AbstractController
             'slug' => $slug,
         ]);
     }
-
 }

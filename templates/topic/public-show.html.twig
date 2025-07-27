@@ -14,15 +14,14 @@
    
    {% if blogs is not empty %}
       {% for blog in blogs %}
-         <div style="background-color:#949b8f; color: black" class="blog-entry border border-1 rounded-2 m-3 p-2">
-
+         {% if blog.public %}
+            <div style="background-color:#949b8f; color: black" class="blog-entry border border-1 rounded-2 m-3 p-2">
                <center>
                   <h3>{{ blog.title }}</h3>
                </center>
-               <p>{{ blog.content|raw }}</p> 
-       
-              
-         </div>
+               <p>{{ blog.content|raw }}</p>  
+            </div>
+         {% endif %}
       {% endfor %}
    {% else %}
       <p>Brak wpisów dla tego tematu.</p>
