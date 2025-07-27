@@ -2,7 +2,7 @@
 home-page:
   home: Strona Główna
   about: O mnie
-  blog: Blog
+  blog: Blog 
   projects: Projekty
   contact: Kontakt
   intro: |
@@ -13,7 +13,7 @@ home-page:
 
   licenses-title: Licencje i źródła
   privacy-policy: Polityka prywatności 
-  admin: Admin
+  admin: Admin blog tematy
   more: Czytaj więcej
   less: Czytaj mniej
   technologies: Wykorzystane Technologie
