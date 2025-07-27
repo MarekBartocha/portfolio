@@ -10,7 +10,7 @@ use App\Repository\BlogRepository;
 
 final class BlogController extends AbstractController
 {
-    #[Route('/{_locale}/blog-topics', name: 'admin_index')]
+    #[Route('/{_locale}/blog-topics', name: 'blog_index')]
     public function index(string $_locale, TopicRepository $topicRepository): Response
     {
         $topics = $topicRepository->findAll();
