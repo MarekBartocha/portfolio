@@ -14,7 +14,7 @@
    {{ form_start(form) }}
       <div class="d-flex justify-content-center mt-4">
          <div class="d-flex gap-2">
-            {{ form_widget(form.name, { 'attr': {'placeholder': 'Nowy temat', 'class': 'form-control'} }) }}
+            {{ form_widget(form.name, { 'attr': {'placeholder': 'admin-page.new'|trans, 'class': 'form-control'} }) }}
             <button class="btn btn-primary">Zapisz</button>
          </div>
       </div>
@@ -33,6 +33,8 @@
          </a>
          </div>
          <div>
+         {# <input type="checkbox" disabled {% if topic.isPublic %}checked{% endif %}> #}
+
          <a href="{{ path('topic_edit', {id: topic.id}) }}" class="btn btn-sm btn-outline-primary me-2">Edytuj</a>
 
          <form method="post" action="{{ path('topic_delete', {id: topic.id, _locale: app.request.locale}) }}" style="display:inline;" 

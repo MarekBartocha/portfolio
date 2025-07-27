@@ -20,6 +20,9 @@ home-page:
   github: See code on GitHub 
   project: See project description
 
+admin-page:
+  new: New topic
+  
 about-page:
   title: A few words about me
 
