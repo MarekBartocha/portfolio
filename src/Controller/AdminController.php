@@ -14,12 +14,12 @@ use App\Repository\BlogRepository;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use App\Entity\Blog;
 use App\Form\BlogType;
-
+use Doctrine\DBAL\Exception\ForeignKeyConstraintViolationException;
 
 
 final class AdminController extends AbstractController
 {
-    #[Route('/{_locale}/admin', name: 'admin_index')]
+    #[Route('/{_locale}/admin-blog-topic', name: 'admin_index')]
     public function index(Request $request, EntityManagerInterface $entityManager, string $_locale, TopicRepository $topicRepository, SluggerInterface $slugger,): Response
     {
         $topic = new Topic();
@@ -50,14 +50,14 @@ final class AdminController extends AbstractController
         return $this->render('admin/index.html.twig', [
             'controller_name' => 'AdminController',
             'current_locale' => $_locale,
-            'site' => 'admin',
+            'site' => 'admin-blog-topic',
             'form' => $form->createView(),
             'topics' => $topics,
         ]);
     }
 
-    #[Route('/{_locale}/blog/{slug}/new', name: 'blog_new')]
-    public function new(string $_locale, Request $request, Topic $topic, EntityManagerInterface $em, SluggerInterface $slugger): Response
+    #[Route('/{_locale}/admin-blog/{slug}/new', name: 'blog_new')]
+    public function new(string $_locale, string $slug, Request $request, Topic $topic, EntityManagerInterface $em, SluggerInterface $slugger): Response
     {
         $blog = new Blog();
         $blog->setTopic($topic); // Przypisanie tematu
@@ -85,10 +85,12 @@ final class AdminController extends AbstractController
             'form' => $form->createView(),
             'current_locale' => $_locale,
             'site' => 'blog/new',
+            'slug' => $slug,
         ]);
     }
+    
 
-    #[Route('/{_locale}/blog/{slug}', name: 'topic_show')]
+    #[Route('/{_locale}/admin-blog/{slug}', name: 'topic_show')]
     public function show(string $_locale, string $slug, TopicRepository $topicRepository, BlogRepository $blogRepository): Response
     {
 
@@ -103,13 +105,14 @@ final class AdminController extends AbstractController
         return $this->render('topic/show.html.twig', [
             'topic' => $topic,
             'current_locale' => $_locale,
-            'site' => 'blog/' . $slug,
+            'site' => 'admin-blog/' . $slug,
+            'slug' => $slug,
             'blogs' => $blogs,
         ]);
     }
 
-    #[Route('/{_locale}/topic/{id}/edit', name: 'topic_edit')]
-    public function edit(string $_locale, int $id, Request $request, Topic $topic, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
+    #[Route('/{_locale}/admin-blog-topic/{id}/edit', name: 'topic_edit')]
+    public function editTopic(string $_locale, int $id, Request $request, Topic $topic, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(TopicType::class, $topic);
         $form->handleRequest($request);
@@ -127,7 +130,7 @@ final class AdminController extends AbstractController
             return $this->redirectToRoute('admin_index', ['_locale' => $request->getLocale()]);
         }
 
-        return $this->render('admin/edit.html.twig', [
+        return $this->render('topic/edit.html.twig', [
             'form' => $form->createView(),
             'topic' => $topic,
             'current_locale' => $_locale,
@@ -135,17 +138,68 @@ final class AdminController extends AbstractController
         ]);
     }
 
-    #[Route('/{_locale}/topic/{id}/delete', name: 'topic_delete', methods: ['POST'])]
-    public function delete(Request $request, Topic $topic, EntityManagerInterface $entityManager): Response
+      #[Route('/{_locale}/admin-blog/{slug_topic}/{id}/edit', name: 'blog_edit')]
+        public function editBlog(string $_locale, string $slug_topic, int $id, Request $request, Blog $blog, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
+        {
+            $form = $this->createForm(BlogType::class, $blog);
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+            
+                // Generujemy slug z tytułu
+                $slug = $slugger->slug($blog->getTitle())->lower();
+                $blog->setSlug($slug);
+                $entityManager->persist($blog);
+                $entityManager->flush();
+
+                $this->addFlash('success', 'Blog został zaktualizowany.');
+
+                return $this->redirectToRoute('topic_show', [
+                    'slug' => $blog->getTopic()->getSlug(),
+                    '_locale' => $_locale,
+                ]);
+            }
+
+            return $this->render('blog/new.html.twig', [
+                'form' => $form->createView(),
+                'blog' => $blog,
+                'current_locale' => $_locale,
+                'site' => 'admin-blog/' . $id . '/edit',
+                'slug' => $slug_topic,
+            ]);
+        }
+
+    #[Route('/{_locale}/admin-topic/{id}/delete', name: 'topic_delete', methods: ['POST'])]
+    public function deleteTopic(Request $request, Topic $topic, EntityManagerInterface $entityManager): Response
     { 
         if ($this->isCsrfTokenValid('delete' . $topic->getId(), $request->request->get('_token'))) {
-            $entityManager->remove($topic);
-            $entityManager->flush();
+            try {
+                    $entityManager->remove($topic);
+                    $entityManager->flush();
 
-            $this->addFlash('success', 'Temat został usunięty.');
+                    $this->addFlash('success', 'Temat został usunięty.');
+                } catch (ForeignKeyConstraintViolationException $e) {
+                    $this->addFlash('error', 'Nie można usunąć tematu, ponieważ jest on przypisany do co najmniej jednego wpisu.');
+                }
         }
 
         return $this->redirectToRoute('admin_index', ['_locale' => $request->getLocale()]);
+    }
+
+    #[Route('/{_locale}/blog/{slug}/{id}/delete', name: 'blog_delete', methods: ['POST'])]
+    public function deleteBlog(Request $request, string $slug, Blog $blog, EntityManagerInterface $entityManager): Response
+    { 
+        if ($this->isCsrfTokenValid('delete' . $blog->getId(), $request->request->get('_token'))) {
+            $entityManager->remove($blog);
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Blog został usunięty.');
+        }
+
+        return $this->redirectToRoute('topic_show', [
+            '_locale' => $request->getLocale(),
+            'slug' => $slug,
+        ]);
     }
 
 }
