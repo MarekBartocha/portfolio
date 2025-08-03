@@ -14,43 +14,37 @@
          </a>
       </div>
    </div>
-         <a href="{{ path( 'admin_index', {'_locale': app.request.locale}) }}" class="btn btn-secondary mt-3">Powrót</a>
+   <a href="{{ path('admin_index', {'_locale': app.request.locale}) }}" class="btn btn-secondary mt-3">Powrót</a>
 
    <br>
-   
-   {% if blogs is not empty %}
-      {% for blog in blogs %}
-         <div style="background-color:#949b8f; color: black" class="blog-entry border border-1 rounded-2 m-3 p-2">
 
-               <center>
-                  <h3>{{ blog.title }}</h3>
-               </center>
-               <p>{{ blog.content|raw }}</p> 
+   {% if renderedBlogs is not empty %}
+      {% for entry in renderedBlogs %}
+         <div class="blog-entry border border-1 rounded-2 m-3 p-2 bg-light text-dark">
+            <h2>{{ entry.blog.title }}</h2>
+            <div class="blog-content mb-3">
+               {{ entry.renderedContent|raw }}
+            </div>
 
-               <div class="d-flex align-items-center gap-2">
-                  <a href="{{ path('blog_edit', {'_locale': app.request.locale, id: blog.id, 'slug_topic': topic.slug}) }}" class="btn btn-sm btn-outline-primary me-2">Edytuj</a>
+            <div class="d-flex align-items-center gap-2">
+               <a href="{{ path('blog_edit', {'_locale': app.request.locale, id: entry.blog.id, 'slug_topic': topic.slug}) }}" class="btn btn-sm btn-outline-primary me-2">Edytuj</a>
 
-                  <form method="post" action="{{ path('blog_delete', {id: blog.id, _locale: app.request.locale, 'slug': topic.slug }) }}" style="display:inline;" 
-                        onsubmit="return confirm('Na pewno chcesz usunąć ten blog?');">
-                     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ blog.id) }}">
-                     <button class="btn btn-sm btn-outline-danger">Usuń</button>
-                  </form>
+               <form method="post" action="{{ path('blog_delete', {id: entry.blog.id, _locale: app.request.locale, 'slug': topic.slug }) }}" style="display:inline;" 
+                     onsubmit="return confirm('Na pewno chcesz usunąć ten blog?');">
+                  <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ entry.blog.id) }}">
+                  <button class="btn btn-sm btn-outline-danger">Usuń</button>
+               </form>
 
-                  {% if blog.public %}
-                     <p class="mb-0 text-success">Public</p>
-                  {% else %}
-                     <p class="mb-0 text-muted">Private</p>
-                  {% endif %}
-               </div>
+               {% if entry.blog.public %}
+                  <p class="mb-0 text-success">Public</p>
+               {% else %}
+                  <p class="mb-0 text-muted">Private</p>
+               {% endif %}
+            </div>
          </div>
       {% endfor %}
    {% else %}
       <p>Brak wpisów dla tego tematu.</p>
    {% endif %}
-
-
-
-
-
 
 {% endblock %}

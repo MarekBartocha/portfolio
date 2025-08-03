@@ -5,6 +5,8 @@ namespace App\Entity;
 use App\Repository\BlogRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 #[ORM\Entity(repositoryClass: BlogRepository::class)]
 class Blog
@@ -29,6 +31,40 @@ class Blog
 
     #[ORM\Column]
     private ?bool $public = null;
+
+    #[ORM\OneToMany(mappedBy: 'blog', targetEntity: Image::class, cascade: ['persist', 'remove'], orphanRemoval: true)]
+    private Collection $images;
+
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+    }
+
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(Image $image): self
+    {
+        if (!$this->images->contains($image)) {
+            $this->images[] = $image;
+            $image->setBlog($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Image $image): self
+    {
+        if ($this->images->removeElement($image)) {
+            if ($image->getBlog() === $this) {
+                $image->setBlog(null);
+            }
+        }
+
+        return $this;
+    }
 
     public function getId(): ?int
     {

@@ -15,6 +15,9 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 use App\Entity\Blog;
 use App\Form\BlogType;
 use Doctrine\DBAL\Exception\ForeignKeyConstraintViolationException;
+use App\Entity\Image;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use App\Service\BlogHelper;
 
 
 final class AdminController extends AbstractController
@@ -66,6 +69,36 @@ final class AdminController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            // obsługa uploadu wielu plików
+            $uploadedFiles = $form->get('uploadedImages')->getData();
+
+            if ($uploadedFiles) {
+                $position = 1;
+
+                foreach ($uploadedFiles as $uploadedFile) {
+                    if ($uploadedFile) {
+                        $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
+                        $safeFilename = $slugger->slug($originalFilename);
+                        $newFilename = $safeFilename.'-'.uniqid().'.'.$uploadedFile->guessExtension();
+
+                        try {
+                            $uploadedFile->move(
+                                $this->getParameter('uploads_directory'),
+                                $newFilename
+                            );
+
+                            $image = new Image();
+                            $image->setFilePath($newFilename);
+                            $image->setPosition($position++);
+                            $blog->addImage($image);
+                        } catch (FileException $e) {
+                            $this->addFlash('danger', '❌ Wystąpił błąd podczas przesyłania pliku: '.$e->getMessage());
+                        }
+                    }
+                }
+            }
+
             $slug = $slugger->slug($blog->getTitle())->lower();
             $blog->setSlug($slug);
             $blog->setPublic(false);
@@ -84,6 +117,7 @@ final class AdminController extends AbstractController
 
         return $this->render('blog/new.html.twig', [
             'form' => $form->createView(),
+            'blog' => $blog,
             'current_locale' => $_locale,
             'site' => 'blog/new',
             'slug' => $slug,
@@ -91,7 +125,7 @@ final class AdminController extends AbstractController
     }
     
     #[Route('/{_locale}/admin-blog/{slug}', name: 'topic_show')]
-    public function show(string $_locale, string $slug, TopicRepository $topicRepository, BlogRepository $blogRepository): Response
+    public function show(string $_locale, string $slug, TopicRepository $topicRepository, BlogRepository $blogRepository, BlogHelper $blogHelper): Response
     {
 
         $topic = $topicRepository->findOneBy(['slug' => $slug]);
@@ -102,12 +136,22 @@ final class AdminController extends AbstractController
 
         $blogs = $blogRepository->findBy(['topic' => $topic]);
 
+        // Przetwórz treść blogów przez helper
+        $renderedBlogs = [];
+        foreach ($blogs as $blog) {
+            $renderedBlogs[] = [
+                'blog' => $blog,
+                'renderedContent' => $blogHelper->renderBlogWithImages($blog->getContent(), $blog->getImages()),
+            ];
+        }
+
         return $this->render('topic/show.html.twig', [
             'topic' => $topic,
             'current_locale' => $_locale,
             'site' => 'admin-blog/' . $slug,
             'slug' => $slug,
             'blogs' => $blogs,
+            'renderedBlogs' => $renderedBlogs,
         ]);
     }
 
@@ -145,7 +189,36 @@ final class AdminController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-        
+            // obsługa uploadu wielu plików
+            $uploadedFiles = $form->get('uploadedImages')->getData();
+
+            if ($uploadedFiles) {
+                $position = 1;
+
+                foreach ($uploadedFiles as $uploadedFile) {
+                    if ($uploadedFile) {
+                        $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
+                        $safeFilename = $slugger->slug($originalFilename);
+                        $newFilename = $safeFilename.'-'.uniqid().'.'.$uploadedFile->guessExtension();
+
+                        try {
+                            $uploadedFile->move(
+                                $this->getParameter('uploads_directory'),
+                                $newFilename
+                            );
+
+                            $image = new Image();
+                            $image->setFilePath($newFilename);
+                            $image->setPosition($position++);
+                            $blog->addImage($image);
+                        } catch (FileException $e) {
+                            $this->addFlash('danger', '❌ Wystąpił błąd podczas przesyłania pliku: '.$e->getMessage());
+                        }
+                    }
+                }
+            }
+
+            
             // Generujemy slug z tytułu
             $slug = $slugger->slug($blog->getTitle())->lower();
             $blog->setSlug($slug);
@@ -201,4 +274,5 @@ final class AdminController extends AbstractController
             'slug' => $slug,
         ]);
     }
+
 }

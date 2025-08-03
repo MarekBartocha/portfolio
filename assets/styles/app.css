@@ -161,6 +161,16 @@ img {
     padding-top: 35px;
 }
 
+.blog-image {
+    width: 500px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px 0;
+    border-radius: 8px;
+}
+
+
 @media screen and (max-width: 768px) {
 .intro {
     padding: 0;

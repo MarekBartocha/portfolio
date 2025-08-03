@@ -3,11 +3,12 @@
 namespace App\Form;
 
 use App\Entity\Blog;
-use App\Entity\Topic;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\All;
 
 class BlogType extends AbstractType
 {
@@ -17,7 +18,23 @@ class BlogType extends AbstractType
             ->add('content')
             ->add('title')
             ->add('public')
-        ;
+            ->add('uploadedImages', FileType::class, [
+                'label' => 'Zdjęcia',
+                'mapped' => false,
+                'multiple' => true,
+                'required' => false,
+                'constraints' => [
+                    new All([
+                        'constraints' => [
+                            new File([
+                                'maxSize' => '2M',
+                                'mimeTypes' => ['image/jpeg', 'image/png', 'image/webp'],
+                                'mimeTypesMessage' => 'Dozwolone formaty: JPG, PNG, WEBP',
+                            ])
+                        ]
+                    ])
+                ],
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
@@ -27,3 +44,4 @@ class BlogType extends AbstractType
         ]);
     }
 }
+

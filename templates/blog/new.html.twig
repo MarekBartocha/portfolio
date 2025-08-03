@@ -18,15 +18,43 @@
             {{ form_errors(form.content) }}
         </div>
 
-   
-        <div class="form-check d-flex align-items-center gap-2 mb-0">
+        
+        <div class="mb-3">
+            {{ form_label(form.uploadedImages, null, {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(form.uploadedImages, {
+                'attr': {
+                    'multiple': true,
+                    'class': 'form-control',
+                    'accept': 'image/*'
+                }
+            }) }}
+            {{ form_errors(form.uploadedImages) }}
+        </div>
+
+        <div class="form-check d-flex align-items-center gap-2 mb-3">
             {{ form_widget(form.public, {'attr': {'class': 'form-check-input'}}) }}
             {{ form_label(form.public, null, {'label_attr': {'class': 'form-check-label mb-0'}}) }}
-            <button class="btn btn-success w-100">💾 Zapisz</button>
         </div>
-        <a href="{{ path( 'topic_show', {'_locale': app.request.locale, 'slug': slug}) }}" class="btn btn-secondary mt-3">Powrót</a>
+
+        <button class="btn btn-success w-100">💾 Zapisz</button>
+        <a href="{{ path('topic_show', {'_locale': app.request.locale, 'slug': slug}) }}" class="btn btn-secondary mt-3">Powrót</a>
 
     {{ form_end(form) }}
- 
+
+    <hr>
+    <h4>📸 Załadowane zdjęcia:</h4>
+
+    {% if blog.images|length > 0 %}
+        <div class="row">
+            {% for image in blog.images %}
+                <div class="col-4 mb-3 text-center">
+                    <img src="{{ asset('uploads/' ~ image.filePath) }}" class="img-fluid rounded" alt="Zdjęcie {{ image.position }}">
+                    <p class="mt-2">Pozycja: {{ image.position }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>Brak zdjęć.</p>
+    {% endif %}
 </div>
 {% endblock %}
