@@ -106,6 +106,8 @@ class StatsController extends AbstractController
             $uniqueVisits[$date] = count($ips);
         }
 
+        $rawLogLines = array_reverse($rawLogLines);
+
         return $this->render('stats/index.html.twig', [
             'dates'          => array_keys($visitsPerDay),
             'humans'         => array_column($visitsPerDay, 'HUMAN'),
