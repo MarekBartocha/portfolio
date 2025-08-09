@@ -1,19 +1,37 @@
 <?php
-// src/Controller/StatsController.php
+
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use DateTime;
-use DateInterval;
-
+use Symfony\Component\Routing\RouterInterface;
+use Doctrine\ORM\EntityManagerInterface;
+use App\Entity\BotIp;
 
 class StatsController extends AbstractController
 {
+    private RouterInterface $router;
+    private EntityManagerInterface $em;
+
+    public function __construct(RouterInterface $router, EntityManagerInterface $em)
+    {
+        $this->router = $router;
+        $this->em = $em;
+    }
+
     #[Route('/{_locale}/admin/stats', name: 'stats')]
     public function index(string $_locale): Response
     {
+        // Pobierz wszystkie bot IP do tablicy dla szybkiego sprawdzania
+        $botIps = $this->em->getRepository(BotIp::class)->createQueryBuilder('b')
+            ->select('b.ip')
+            ->getQuery()
+            ->getArrayResult();
+
+        // Zamień na prostą tablicę stringów IP
+        $botIpsList = array_map(fn($item) => $item['ip'], $botIps);
+
         $logFile = __DIR__ . '/../../var/log/visit_log.log';
         $visitsPerDay = [];
         $uniqueIpsPerDay = [];
@@ -22,33 +40,35 @@ class StatsController extends AbstractController
 
         if (file_exists($logFile)) {
             $lines = file($logFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-
             $last30Days = new \DateTime('-30 days');
 
             foreach ($lines as $line) {
-                [$datetime, $ip, $type, $path] = explode('|', $line, 5);
+                $parts = explode('|', $line, 4);
+                if (count($parts) < 4) {
+                    continue; // pomijamy niepoprawne wpisy
+                }
+
+                [$datetime, $ip, $type, $path] = $parts;
 
                 // Pomijamy wewnętrzne żądania Symfony i favicon
                 if (preg_match('#^/_wdt|^/_profiler|^/favicon\.ico#', $path)) {
                     continue;
                 }
 
-                
-                $date = substr($datetime, 0, 10); // yyyy-mm-dd
+                $date = substr($datetime, 0, 10);
                 $logDate = new \DateTime($date);
-                
-                // ⛔ Pomijaj wpisy starsze niż 30 dni
+
+                // Pomijamy starsze niż 30 dni
                 if ($logDate < $last30Days) {
                     continue;
                 }
-                
-                $rawLogLines[] = [
-                    'datetime' => $datetime,
-                    'ip' => $ip,
-                    'type' => $type,
-                    'path' => $path,
-                ];
 
+                // Jeśli IP jest na liście botów, ustaw typ jako BOT
+                if (in_array($ip, $botIpsList, true)) {
+                    $type = 'BOT';
+                }
+
+                // Inicjalizacja
                 if (!isset($visitsPerDay[$date])) {
                     $visitsPerDay[$date] = ['BOT' => 0, 'HUMAN' => 0];
                     $uniqueIpsPerDay[$date] = [];
@@ -59,39 +79,42 @@ class StatsController extends AbstractController
 
                 // Zlicz unikalne IP tylko dla ludzi
                 if ($type === 'HUMAN') {
-                    $uniqueIpsPerDay[$date][$ip] = true; // hash IP per dzień
+                    $uniqueIpsPerDay[$date][$ip] = true;
                 }
 
-                // Zliczaj wejścia na strony admina
+                // Zlicz wejścia na admin
                 if (preg_match('#^/(pl|en)?/admin#', $path)) {
                     $adminVisitsPerDay[$date]++;
                 }
-            }
 
+                // Dodajemy wszystkie wpisy do listy szczegółowej
+                $rawLogLines[] = [
+                    'datetime' => $datetime,
+                    'ip'       => $ip,
+                    'type'     => $type,
+                    'path'     => $path,
+                ];
+            }
         }
 
-        // Sortowanie po dacie
         ksort($visitsPerDay);
         ksort($uniqueIpsPerDay);
         ksort($adminVisitsPerDay);
 
-        // Liczba unikalnych IP (wizyt) per dzień
         $uniqueVisits = [];
         foreach ($uniqueIpsPerDay as $date => $ips) {
             $uniqueVisits[$date] = count($ips);
         }
 
-        //$rawLogLines = array_slice($rawLogLines, -100);
-
         return $this->render('stats/index.html.twig', [
-            'dates' => array_keys($visitsPerDay),
-            'humans' => array_column($visitsPerDay, 'HUMAN'),
-            'bots' => array_column($visitsPerDay, 'BOT'),
-            'unique_visits' => array_values($uniqueVisits),
-            'admin_visits' => array_values($adminVisitsPerDay),
-            'raw_logs' => $rawLogLines,
+            'dates'          => array_keys($visitsPerDay),
+            'humans'         => array_column($visitsPerDay, 'HUMAN'),
+            'bots'           => array_column($visitsPerDay, 'BOT'),
+            'unique_visits'  => array_values($uniqueVisits),
+            'admin_visits'   => array_values($adminVisitsPerDay),
+            'raw_logs'       => $rawLogLines,
             'current_locale' => $_locale,
-            'site' => 'admin/stats',
+            'site'           => 'admin/stats',
         ]);
     }
 }

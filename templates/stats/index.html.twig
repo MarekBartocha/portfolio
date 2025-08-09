@@ -28,6 +28,13 @@
                     <td>{{ log.ip }}</td>
                     <td>{{ log.type }}</td>
                     <td>{{ log.path }}</td>
+                    <td>
+                        {% if log.type != 'BOT' %}
+                            <a href="{{ path('admin_mark_bot', {'ip': log.ip}) }}" onclick="return confirm('Dodaj {{ log.ip }} jako bota?')">Dodaj jako bota</a>
+                        {% else %}
+                            <small>(bot)</small>
+                        {% endif %}
+                    </td>
                 </tr>
             {% else %}
                 <tr>

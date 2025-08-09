@@ -99,7 +99,7 @@
                             <ul class="dropdown-menu" aria-labelledby="submenu">
                                 <li><a class="nav-link {% if site == 'admin-blog-topic ' %}active{% endif %}" href="/{{current_locale}}/admin-blog-topic">{{ 'home-page.admin'| trans }}</a></li>
                                 <li><a class="nav-link" href="{{ path('app_logout', {'_locale': app.request.locale}) }}">Logout</a></li>
-                                <li><a class="nav-link" href="admin/stats">Statystyki</a></li>
+                                <li><a class="nav-link" href="/{{current_locale}}/admin/stats">Statystyki</a></li>
                             </ul> 
                         </li>
                         {% endif %}
