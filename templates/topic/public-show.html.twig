@@ -19,7 +19,7 @@
             <div style="background-color:#949b8f; color: black" class="blog-entry border border-1 rounded-2 m-3 p-2">
                <h3 class="text-center">{{ item.blog.title }}</h3>
                <div class="blog-content">
-                  {{ item.renderedContent|raw }}
+                  {{ item.renderedContent|raw |replace({'[code]':'<pre><code>', '[/code]':'</code></pre>'}) |raw}}
                </div>
             </div>
          {% endif %}
