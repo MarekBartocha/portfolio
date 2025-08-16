@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
    <center><h1>{{ topic.name }}</h1></center>
 
    {% for message in app.flashes('success') %}
@@ -12,24 +13,19 @@
 
    <br>
    
-   {% if blogs is not empty %}
-      {% for blog in blogs %}
-         {% if blog.public %}
+   {% if renderedBlogs is not empty %}
+      {% for item in renderedBlogs %}
+         {% if item.blog.public %}
             <div style="background-color:#949b8f; color: black" class="blog-entry border border-1 rounded-2 m-3 p-2">
-               <center>
-                  <h3>{{ blog.title }}</h3>
-               </center>
-               <p>{{ blog.content|raw }}</p>  
+               <h3 class="text-center">{{ item.blog.title }}</h3>
+               <div class="blog-content">
+                  {{ item.renderedContent|raw }}
+               </div>
             </div>
          {% endif %}
       {% endfor %}
    {% else %}
       <p>Brak wpisów dla tego tematu.</p>
    {% endif %}
-
-
-
-
-
 
 {% endblock %}

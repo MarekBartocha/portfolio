@@ -20,12 +20,11 @@
 
    {% if renderedBlogs is not empty %}
       {% for entry in renderedBlogs %}
-         <div class="blog-entry border border-1 rounded-2 m-3 p-2 bg-light text-dark">
-            <h2>{{ entry.blog.title }}</h2>
-            <div class="blog-content mb-3">
+         <div style="background-color:#949b8f; color: black" class="blog-entry border border-1 rounded-2 m-3 p-2">
+            <h3 class="text-center">{{ entry.blog.title }}</h3>
+            <div class="blog-content">
                {{ entry.renderedContent|raw }}
             </div>
-
             <div class="d-flex align-items-center gap-2">
                <a href="{{ path('blog_edit', {'_locale': app.request.locale, id: entry.blog.id, 'slug_topic': topic.slug}) }}" class="btn btn-sm btn-outline-primary me-2">Edytuj</a>
 

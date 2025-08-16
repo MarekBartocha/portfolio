@@ -39,7 +39,6 @@ final class AdminController extends AbstractController
             }
 
             $topic->setSlug($slug);
-            $topic->setPublic(false);
             $entityManager->persist($topic);   
             $entityManager->flush();           
 
@@ -101,7 +100,7 @@ final class AdminController extends AbstractController
 
             $slug = $slugger->slug($blog->getTitle())->lower();
             $blog->setSlug($slug);
-            $blog->setPublic(false);
+
 
             $em->persist($blog);
             $em->flush();
@@ -150,7 +149,6 @@ final class AdminController extends AbstractController
             'current_locale' => $_locale,
             'site' => 'admin-blog/' . $slug,
             'slug' => $slug,
-            'blogs' => $blogs,
             'renderedBlogs' => $renderedBlogs,
         ]);
     }
@@ -263,10 +261,18 @@ final class AdminController extends AbstractController
     public function deleteBlog(Request $request, string $slug, Blog $blog, EntityManagerInterface $entityManager): Response
     { 
         if ($this->isCsrfTokenValid('delete' . $blog->getId(), $request->request->get('_token'))) {
+
+            foreach ($blog->getImages() as $image) {
+                $filePath = $this->getParameter('uploads_directory') . '/' . $image->getFilePath();
+                if (file_exists($filePath)) {
+                    unlink($filePath);
+                }
+            }
+
             $entityManager->remove($blog);
             $entityManager->flush();
 
-            $this->addFlash('success', 'Blog został usunięty.');
+            $this->addFlash('success', 'Blog oraz zdjęcia zostały usunięte.');
         }
 
         return $this->redirectToRoute('topic_show', [
