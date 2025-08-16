@@ -69,35 +69,6 @@ final class AdminController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            // obsługa uploadu wielu plików
-            $uploadedFiles = $form->get('uploadedImages')->getData();
-
-            if ($uploadedFiles) {
-                $position = 1;
-
-                foreach ($uploadedFiles as $uploadedFile) {
-                    if ($uploadedFile) {
-                        $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
-                        $safeFilename = $slugger->slug($originalFilename);
-                        $newFilename = $safeFilename.'-'.uniqid().'.'.$uploadedFile->guessExtension();
-
-                        try {
-                            $uploadedFile->move(
-                                $this->getParameter('uploads_directory'),
-                                $newFilename
-                            );
-
-                            $image = new Image();
-                            $image->setFilePath($newFilename);
-                            $image->setPosition($position++);
-                            $blog->addImage($image);
-                        } catch (FileException $e) {
-                            $this->addFlash('danger', '❌ Wystąpił błąd podczas przesyłania pliku: '.$e->getMessage());
-                        }
-                    }
-                }
-            }
-
             $slug = $slugger->slug($blog->getTitle())->lower();
             $blog->setSlug($slug);
 
@@ -187,36 +158,7 @@ final class AdminController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // obsługa uploadu wielu plików
-            $uploadedFiles = $form->get('uploadedImages')->getData();
 
-            if ($uploadedFiles) {
-                $position = 1;
-
-                foreach ($uploadedFiles as $uploadedFile) {
-                    if ($uploadedFile) {
-                        $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
-                        $safeFilename = $slugger->slug($originalFilename);
-                        $newFilename = $safeFilename.'-'.uniqid().'.'.$uploadedFile->guessExtension();
-
-                        try {
-                            $uploadedFile->move(
-                                $this->getParameter('uploads_directory'),
-                                $newFilename
-                            );
-
-                            $image = new Image();
-                            $image->setFilePath($newFilename);
-                            $image->setPosition($position++);
-                            $blog->addImage($image);
-                        } catch (FileException $e) {
-                            $this->addFlash('danger', '❌ Wystąpił błąd podczas przesyłania pliku: '.$e->getMessage());
-                        }
-                    }
-                }
-            }
-
-            
             // Generujemy slug z tytułu
             $slug = $slugger->slug($blog->getTitle())->lower();
             $blog->setSlug($slug);
@@ -278,6 +220,94 @@ final class AdminController extends AbstractController
         return $this->redirectToRoute('topic_show', [
             '_locale' => $request->getLocale(),
             'slug' => $slug,
+        ]);
+    }
+
+    #[Route('/{_locale}/{slug_topic}/image/{id}/delete', name: 'image_delete', methods: ['POST'])]
+    public function delete(Request $request, Image $image, EntityManagerInterface $em): Response
+    { 
+        if ($this->isCsrfTokenValid('delete'.$image->getId(), $request->request->get('_token'))) {
+
+            // Usuń plik z dysku
+            $filePath = $this->getParameter('uploads_directory') . '/' . $image->getFilePath();
+            if (file_exists($filePath)) {
+                unlink($filePath);
+            }
+
+            $em->remove($image);
+            $em->flush();
+            $this->addFlash('success', 'Zdjęcie zostało usunięte.');
+        }
+
+        $blog = $image->getBlog();
+
+        return $this->redirectToRoute('blog_edit', [
+            '_locale' => $request->getLocale(),
+            'slug_topic' => $blog->getTopic()->getSlug(),
+            'id' => $blog->getId()
+        ]);
+    }
+
+
+    #[Route('/{_locale}/blog/{slug_topic}/upload', name: 'blog_image_upload', methods: ['POST'])]
+    public function upload(
+        Request $request,
+        BlogRepository $blogRepository,
+        SluggerInterface $slugger,
+        EntityManagerInterface $entityManager,
+        string $_locale,
+        string $slug_topic
+    ): Response {
+        $blog = $blogRepository->findOneBy(['slug' => $slug_topic]);
+
+        if (!$blog) {
+            throw $this->createNotFoundException('Blog nie istnieje.');
+        }
+
+        $uploadedFiles = $request->files->get('uploadedImages'); // nazwa pola w formularzu
+        if ($uploadedFiles) {
+            // Pobierz maksymalną pozycję istniejących zdjęć
+            $images = $blog->getImages()->toArray(); // kolekcja → tablica
+
+            if (!empty($images)) {
+                $maxPosition = max(array_map(fn($img) => $img->getPosition(), $images));
+            } else {
+                $maxPosition = 0;
+            }
+
+            $position = $maxPosition + 1;
+
+            foreach ($uploadedFiles as $uploadedFile) {
+                if ($uploadedFile) {
+                    $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
+                    $safeFilename = $slugger->slug($originalFilename);
+                    $newFilename = $safeFilename.'-'.uniqid().'.'.$uploadedFile->guessExtension();
+
+                    try {
+                        $uploadedFile->move(
+                            $this->getParameter('uploads_directory'),
+                            $newFilename
+                        );
+
+                        $image = new Image();
+                        $image->setFilePath($newFilename);
+                        $image->setPosition($position++);
+                        $blog->addImage($image);
+                        $entityManager->persist($image);
+                    } catch (FileException $e) {
+                        $this->addFlash('danger', 'Błąd przy przesyłaniu pliku: '.$e->getMessage());
+                    }
+                }
+            }
+
+            $entityManager->flush();
+            $this->addFlash('success', 'Zdjęcie dodano!');
+        }
+
+        return $this->redirectToRoute('blog_edit', [
+            '_locale' => $_locale,
+            'slug_topic' => $slug_topic,
+            'id' => $blog->getId(),
         ]);
     }
 

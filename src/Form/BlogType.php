@@ -17,24 +17,7 @@ class BlogType extends AbstractType
         $builder
             ->add('content')
             ->add('title')
-            ->add('public')
-            ->add('uploadedImages', FileType::class, [
-                'label' => 'Zdjęcia',
-                'mapped' => false,
-                'multiple' => true,
-                'required' => false,
-                'constraints' => [
-                    new All([
-                        'constraints' => [
-                            new File([
-                                'maxSize' => '2M',
-                                'mimeTypes' => ['image/jpeg', 'image/png', 'image/webp'],
-                                'mimeTypesMessage' => 'Dozwolone formaty: JPG, PNG, WEBP',
-                            ])
-                        ]
-                    ])
-                ],
-            ]);
+            ->add('public');
     }
 
     public function configureOptions(OptionsResolver $resolver): void
