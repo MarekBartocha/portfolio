@@ -38,3 +38,6 @@ services:
             $router: '@router'
 
     App\Service\BlogHelper: ~
+
+framework:
+    error_controller: 'App\Controller\ErrorController'
