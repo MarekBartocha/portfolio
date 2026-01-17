@@ -12,18 +12,25 @@
 <center>
     <h2 class="mt-5">Podgląd surowego loga</h2>
 
-    <table border="1" cellpadding="5" cellspacing="0">
+    <!-- Checkbox do ukrywania botów -->
+    <label>
+        <input type="checkbox" id="hideBotsCheckbox" />
+        Ukryj boty
+    </label>
+
+    <table border="1" cellpadding="5" cellspacing="0" id="logsTable">
         <thead>
             <tr>
                 <th>Data i czas</th>
                 <th>IP</th>
                 <th>Typ</th>
                 <th>Ścieżka</th>
+                <th>Akcje</th>
             </tr>
         </thead>
         <tbody>
             {% for log in raw_logs %}
-                <tr>
+                <tr data-type="{{ log.type }}">
                     <td>{{ log.datetime }}</td>
                     <td>{{ log.ip }}</td>
                     <td>{{ log.type }}</td>
@@ -38,7 +45,7 @@
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="4">Brak danych logów.</td>
+                    <td colspan="5">Brak danych logów.</td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -47,6 +54,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
+    // Tworzenie wykresu
     const ctx = document.getElementById('visitsChart').getContext('2d');
     const chart = new Chart(ctx, {
         type: 'line',
@@ -105,6 +113,22 @@
                 }
             }
         }
+    });
+
+    // Filtracja wierszy tabeli po typie BOT
+    const checkbox = document.getElementById('hideBotsCheckbox');
+    const table = document.getElementById('logsTable');
+
+    checkbox.addEventListener('change', function() {
+        const hideBots = checkbox.checked;
+        const rows = table.querySelectorAll('tbody tr');
+
+        rows.forEach(row => {
+            const type = row.getAttribute('data-type');
+            if (type === 'BOT') {
+                row.style.display = hideBots ? 'none' : '';
+            }
+        });
     });
 </script>
 {% endblock %}
