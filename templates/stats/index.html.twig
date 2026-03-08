@@ -12,12 +12,6 @@
 <center>
     <h2 class="mt-5">Podgląd surowego loga</h2>
 
-    <!-- Checkbox do ukrywania botów -->
-    <label>
-        <input type="checkbox" id="hideBotsCheckbox" />
-        Ukryj boty
-    </label>
-
     <table border="1" cellpadding="5" cellspacing="0" id="logsTable">
         <thead>
             <tr>
@@ -25,27 +19,19 @@
                 <th>IP</th>
                 <th>Typ</th>
                 <th>Ścieżka</th>
-                <th>Akcje</th>
             </tr>
         </thead>
         <tbody>
             {% for log in raw_logs %}
-                <tr data-type="{{ log.type }}">
+                <tr>
                     <td>{{ log.datetime }}</td>
                     <td>{{ log.ip }}</td>
                     <td>{{ log.type }}</td>
                     <td>{{ log.path }}</td>
-                    <td>
-                        {% if log.type != 'BOT' %}
-                            <a href="{{ path('admin_mark_bot', {'ip': log.ip}) }}" onclick="return confirm('Dodaj {{ log.ip }} jako bota?')">Dodaj jako bota</a>
-                        {% else %}
-                            <small>(bot)</small>
-                        {% endif %}
-                    </td>
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="5">Brak danych logów.</td>
+                    <td colspan="4">Brak danych logów.</td>
                 </tr>
             {% endfor %}
         </tbody>
@@ -54,81 +40,54 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    // Tworzenie wykresu
     const ctx = document.getElementById('visitsChart').getContext('2d');
+
     const chart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: {{ dates|json_encode|raw }},
             datasets: [
                 {
-                    label: 'Ludzie (odsłony)',
+                    label: 'Ludzie (HUMAN)',
                     backgroundColor: 'rgba(54, 162, 235, 0.2)',
                     borderColor: 'rgba(54, 162, 235, 1)',
                     data: {{ humans|json_encode|raw }},
                     fill: false
                 },
                 {
-                    label: 'Admin (odsłony)',
+                    label: 'Administratorzy (ADMIN)',
                     backgroundColor: 'rgba(255, 206, 86, 0.2)',
                     borderColor: 'rgba(255, 206, 86, 1)',
-                    data: {{ admin_visits|json_encode|raw }},
+                    data: {{ admins|json_encode|raw }},
                     fill: false
                 },
                 {
-                    label: 'Boty (odsłony)',
+                    label: 'Boty (BOT)',
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     borderColor: 'rgba(255, 99, 132, 1)',
                     data: {{ bots|json_encode|raw }},
                     fill: false
                 },
                 {
-                    label: 'Unikalnych odwiedzających',
+                    label: 'Unikalni odwiedzający',
                     backgroundColor: 'rgba(75, 192, 192, 0.2)',
                     borderColor: 'rgba(75, 192, 192, 1)',
                     data: {{ unique_visits|json_encode|raw }},
                     fill: false,
                     borderDash: [5, 5]
-                },
+                }
             ]
         },
         options: {
             responsive: true,
             scales: {
-                y: {
-                    beginAtZero: true
-                }
+                y: { beginAtZero: true }
             },
             plugins: {
-                legend: {
-                    labels: {
-                        font: {
-                            size: 14
-                        }
-                    }
-                },
-                tooltip: {
-                    mode: 'index',
-                    intersect: false,
-                }
+                legend: { labels: { font: { size: 14 } } },
+                tooltip: { mode: 'index', intersect: false }
             }
         }
-    });
-
-    // Filtracja wierszy tabeli po typie BOT
-    const checkbox = document.getElementById('hideBotsCheckbox');
-    const table = document.getElementById('logsTable');
-
-    checkbox.addEventListener('change', function() {
-        const hideBots = checkbox.checked;
-        const rows = table.querySelectorAll('tbody tr');
-
-        rows.forEach(row => {
-            const type = row.getAttribute('data-type');
-            if (type === 'BOT') {
-                row.style.display = hideBots ? 'none' : '';
-            }
-        });
     });
 </script>
 {% endblock %}

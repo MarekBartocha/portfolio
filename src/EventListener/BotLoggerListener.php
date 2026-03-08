@@ -1,12 +1,19 @@
 <?php
 
-// src/EventListener/BotLoggerListener.php
 namespace App\EventListener;
 
 use Symfony\Component\HttpKernel\Event\RequestEvent;
+use Symfony\Component\Routing\RouterInterface;
 
 class BotLoggerListener
 {
+    private RouterInterface $router;
+
+    public function __construct(RouterInterface $router)
+    {
+        $this->router = $router;
+    }
+
     public function onKernelRequest(RequestEvent $event): void
     {
         if (!$event->isMainRequest()) {
@@ -14,42 +21,28 @@ class BotLoggerListener
         }
 
         $request = $event->getRequest();
-        $ip = $this->anonymizeIp($request->getClientIp());
         $path = $request->getPathInfo();
 
-        // Ignoruj ścieżki do narzędzi debugowych itp.
-        if (preg_match('#^/(_(wdt|profiler)|favicon\.ico)#', $path)) {
+        // 1️⃣ Ignorujemy narzędzia debugowe i favicon
+        if (preg_match('#^/(_wdt|_profiler|favicon\.ico)#', $path)) {
             return;
         }
 
+        $ip = $this->anonymizeIp($request->getClientIp());
         $datetime = (new \DateTime())->format('Y-m-d H:i:s');
-        $userAgent = $request->headers->get('User-Agent', '');
 
-        $type = $this->isBot($userAgent) ? 'BOT' : 'HUMAN';
+        // 2️⃣ Sprawdzamy czy istnieje route – jeśli nie, oznaczamy BOT
+        $type = $request->attributes->get('_route') ? 'HUMAN' : 'BOT';
 
+        // 3️⃣ Tworzymy wpis logu
         $logEntry = "$datetime|$ip|$type|$path\n";
 
-        file_put_contents(__DIR__ . '/../../var/log/visit_log.log', $logEntry, FILE_APPEND);
-    }
-
-    private function isBot(string $userAgent): bool
-    {
-        $userAgent = strtolower($userAgent);
-
-        $botKeywords = [
-            'bot', 'crawl', 'slurp', 'spider', 'fetch', 'monitor', 'pingdom', 'facebookexternalhit',
-            'headless', 'phantomjs', 'python', 'curl', 'wget', 'java', 'libwww-perl',
-            'scrapy', 'axios', 'go-http-client', 'httpclient', 'mj12bot', 'ahrefsbot', 'semrushbot',
-            'bingpreview', 'slackbot', 'discordbot', 'embedly', 'quora link preview', 'whatsapp'
-        ];
-
-        foreach ($botKeywords as $keyword) {
-            if (str_contains($userAgent, $keyword)) {
-                return true;
-            }
-        }
-
-        return false;
+        // 4️⃣ Zapis do pliku z LOCK_EX
+        file_put_contents(
+            __DIR__ . '/../../var/log/visit_log.log',
+            $logEntry,
+            FILE_APPEND | LOCK_EX
+        );
     }
 
     private function anonymizeIp(?string $ip): string
@@ -58,10 +51,12 @@ class BotLoggerListener
             return '0.0.0.0';
         }
 
+        // IPv4 → ostatnia liczba 0
         if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
             return preg_replace('/\.\d+$/', '.0', $ip);
         }
 
+        // IPv6 → ostatnia część ::
         if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
             return preg_replace('/(:[a-f0-9]+){1,4}$/i', '::', $ip);
         }
@@ -69,5 +64,3 @@ class BotLoggerListener
         return $ip;
     }
 }
-
-
