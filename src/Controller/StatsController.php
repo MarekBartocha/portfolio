@@ -38,42 +38,48 @@ class StatsController extends AbstractController
 
                 [$datetime, $ip, $type, $path] = $parts;
 
-                // Pomijamy nieistotne ścieżki debug
-                if (preg_match('#^/_wdt|^/_profiler|^/favicon\.ico#', $path)) {
-                    continue;
-                }
+                // Pomijamy nieistotne ścieżki
+                if (preg_match('#^/_wdt|^/_profiler|^/favicon\.ico#', $path)) continue;
 
                 $date = substr($datetime, 0, 10);
                 $logDate = new \DateTime($date);
-
                 if ($logDate < $last30Days) continue;
 
-                // Sprawdzenie czy zalogowany użytkownik jest adminem
-                $isAdmin = $this->getUser() && in_array('ROLE_ADMIN', $this->getUser()->getRoles(), true);
-
-                // Nadpisanie typu
-                if ($isAdmin) {
-                    $type = 'ADMIN';
-                } elseif (isset($knownBots[$ip])) {
+                // Typ BOT jeśli kiedykolwiek było w logu jako bot
+                if (isset($knownBots[$ip])) {
                     $type = 'BOT';
-                } else {
-                    $type = 'HUMAN';
                 }
+
+                // Sprawdzenie roli admina
+                $isAdminUser = $this->getUser() && in_array('ROLE_ADMIN', $this->getUser()->getRoles(), true);
+
+                // Sprawdzenie URL /admin
+                $isAdminPath = preg_match('#^/(pl|en)?/admin#', $path);
 
                 // Inicjalizacja tablic
                 if (!isset($visitsPerDay[$date])) {
                     $visitsPerDay[$date] = ['BOT' => 0, 'HUMAN' => 0, 'ADMIN' => 0];
                     $uniqueIpsPerDay[$date] = [];
+                    $adminVisitsPerDay[$date] = 0;
                 }
 
-                // Zliczamy odwiedziny
-                $visitsPerDay[$date][$type]++;
+                // Typ do wykresu
+                if ($type === 'BOT') {
+                    $visitsPerDay[$date]['BOT']++;
+                } elseif ($isAdminUser || $isAdminPath) {
+                    $visitsPerDay[$date]['ADMIN']++;
+                    $adminVisitsPerDay[$date]++;
+                } else {
+                    $visitsPerDay[$date]['HUMAN']++;
+                }
 
-                // Zliczamy unikalnych HUMAN i ADMIN
-                if ($type === 'HUMAN' || $type === 'ADMIN') {
+                // Liczymy unikalne IP (teraz również admin)
+                if ($type === 'HUMAN' || $isAdminUser) {
                     $uniqueIpsPerDay[$date][$ip] = true;
+                }
 
-                    // Dodajemy do tabeli logów
+                // Tabela logów – tylko zwykli ludzie
+                if ($type === 'HUMAN' && !$isAdminUser && !$isAdminPath) {
                     $rawLogLines[] = [
                         'datetime' => $datetime,
                         'ip'       => $ip,
