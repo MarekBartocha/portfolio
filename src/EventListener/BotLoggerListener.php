@@ -1,66 +1,80 @@
 <?php
-
 namespace App\EventListener;
 
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\Routing\RouterInterface;
+use Symfony\Component\HttpKernel\HttpKernelInterface;
+use Symfony\Component\Security\Core\Security;
 
 class BotLoggerListener
 {
+    private bool $logged = false;
     private RouterInterface $router;
+    private Security $security;
 
-    public function __construct(RouterInterface $router)
+    public function __construct(RouterInterface $router, Security $security)
     {
         $this->router = $router;
+        $this->security = $security;
     }
 
-    public function onKernelRequest(RequestEvent $event): void
+    public function onKernelRequest(RequestEvent $event)
     {
-        if (!$event->isMainRequest()) {
-            return;
-        }
-
         $request = $event->getRequest();
+        $ip = $request->getClientIp();
         $path = $request->getPathInfo();
 
-        // 1️⃣ Ignorujemy narzędzia debugowe i favicon
+        $locale = 'pl';
+        if (preg_match('#^/(en|pl|de)(/|$)#', $path, $m)) {
+            $locale = $m[1];
+        }
+
+        // Ignorujemy narzędzia debugowe i favicon
         if (preg_match('#^/(_wdt|_profiler|favicon\.ico)#', $path)) {
             return;
         }
 
-        $ip = $this->anonymizeIp($request->getClientIp());
-        $datetime = (new \DateTime())->format('Y-m-d H:i:s');
+        if ($path === '/' || $path === '/'.$locale.'/') {
+            return;
+        }
 
-        // 2️⃣ Sprawdzamy czy istnieje route – jeśli nie, oznaczamy BOT
-        $type = $request->attributes->get('_route') ? 'HUMAN' : 'BOT';
+        $routes = $this->router->getRouteCollection()->all();
+        $validPaths = [];
+        foreach ($routes as $name => $route) {
+            $routePath = $route->getPath();
+            if (str_starts_with($routePath, '/_')) {
+                continue;
+            }
+            $validPaths[] = str_replace('{_locale}', $locale, $routePath);
+        }
 
-        // 3️⃣ Tworzymy wpis logu
-        $logEntry = "$datetime|$ip|$type|$path\n";
+        $user = $this->security->getUser();
+        $roles = [];
+        if ($user !== null && method_exists($user, 'getRoles')) {
+            $roles = $user->getRoles();
+        }
 
-        // 4️⃣ Zapis do pliku z LOCK_EX
+        if ($user !== null && $this->security->isGranted('ROLE_ADMIN')) {
+            $type = 'ADMIN';
+        } elseif ($user !== null) {
+            $type = 'HUMAN';
+        } else {
+            $matchedPath = false;
+            foreach ($validPaths as $validPath) {
+                $regex = preg_replace('/\{[^\}]+\}/', '[^/]+', $validPath);
+                if (preg_match('#^'.$regex.'$#', $path)) {
+                    $matchedPath = true;
+                    break;
+                }
+            }
+            $type = $matchedPath ? 'HUMAN' : 'BOT';
+        }
+
+        $data = [date('Y-m-d H:i:s'), $ip, $type, $path];
         file_put_contents(
-            __DIR__ . '/../../var/log/visit_log.log',
-            $logEntry,
-            FILE_APPEND | LOCK_EX
+            __DIR__.'/../../var/log/ip.log',
+            implode(' ', $data) . PHP_EOL,
+            FILE_APPEND
         );
-    }
-
-    private function anonymizeIp(?string $ip): string
-    {
-        if (!$ip) {
-            return '0.0.0.0';
-        }
-
-        // IPv4 → ostatnia liczba 0
-        if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
-            return preg_replace('/\.\d+$/', '.0', $ip);
-        }
-
-        // IPv6 → ostatnia część ::
-        if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
-            return preg_replace('/(:[a-f0-9]+){1,4}$/i', '::', $ip);
-        }
-
-        return $ip;
     }
 }
