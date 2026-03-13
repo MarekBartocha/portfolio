@@ -24,6 +24,15 @@ class BotLoggerListener
         $ip = $request->getClientIp();
         $path = $request->getPathInfo();
 
+        // Anonimizujemy IP: ostatni oktet zawsze 0
+        if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
+            $ipParts = explode('.', $ip);
+            if (count($ipParts) === 4) {
+                $ipParts[3] = '0';
+                $ip = implode('.', $ipParts);
+            }
+        }
+
         $locale = 'pl';
         if (preg_match('#^/(en|pl|de)(/|$)#', $path, $m)) {
             $locale = $m[1];
@@ -49,15 +58,19 @@ class BotLoggerListener
         }
 
         $user = $this->security->getUser();
-        $roles = [];
-        if ($user !== null && method_exists($user, 'getRoles')) {
-            $roles = $user->getRoles();
+
+        $knownBotIpsFile = __DIR__.'/../../var/log/bot_ips.txt';
+        $knownBotIps = [];
+        if (file_exists($knownBotIpsFile)) {
+            $knownBotIps = array_filter(array_map('trim', file($knownBotIpsFile)));
         }
 
         if ($user !== null && $this->security->isGranted('ROLE_ADMIN')) {
             $type = 'ADMIN';
         } elseif ($user !== null) {
             $type = 'HUMAN';
+        } elseif (in_array($ip, $knownBotIps, true)) {
+            $type = 'BOT';
         } else {
             $matchedPath = false;
             foreach ($validPaths as $validPath) {
@@ -68,6 +81,9 @@ class BotLoggerListener
                 }
             }
             $type = $matchedPath ? 'HUMAN' : 'BOT';
+            if ($type === 'BOT' && !in_array($ip, $knownBotIps, true)) {
+                file_put_contents($knownBotIpsFile, $ip.PHP_EOL, FILE_APPEND | LOCK_EX);
+            }
         }
 
         // Anonimizujemy IP: ostatni oktet zawsze 0
