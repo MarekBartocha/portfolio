@@ -70,6 +70,15 @@ class BotLoggerListener
             $type = $matchedPath ? 'HUMAN' : 'BOT';
         }
 
+        // Anonimizujemy IP: ostatni oktet zawsze 0
+        if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
+            $ipParts = explode('.', $ip);
+            if (count($ipParts) === 4) {
+                $ipParts[3] = '0';
+                $ip = implode('.', $ipParts);
+            }
+        }
+
         $data = [date('Y-m-d H:i:s'), $ip, $type, $path];
         file_put_contents(
             __DIR__.'/../../var/log/ip.log',
