@@ -11,7 +11,7 @@ class StatsController extends AbstractController
     #[Route('/{_locale}/admin/stats', name: 'stats')]
     public function index(string $_locale): Response
     {
-        $logFile = __DIR__ . '/../../var/log/visit_log.log';
+        $logFile = __DIR__ . '/../../var/log/ip.log';
         $visitsPerDay = [];
         $uniqueIpsPerDay = [];
         $rawLogLines = [];
@@ -23,9 +23,9 @@ class StatsController extends AbstractController
 
             // 1️⃣ Zbieramy wszystkie IP, które kiedykolwiek były BOT
             foreach ($lines as $line) {
-                $parts = explode('|', $line, 4);
+                $parts = preg_split('/\s+/', $line, 5);
                 if (count($parts) < 4) continue;
-                [, $logIp, $logType, ] = $parts;
+                [$date, $time, $logIp, $logType] = array_slice($parts, 0, 4);
                 if ($logType === 'BOT') {
                     $knownBots[$logIp] = true;
                 }
@@ -33,10 +33,13 @@ class StatsController extends AbstractController
 
             // 2️⃣ Przetwarzamy log
             foreach ($lines as $line) {
-                $parts = explode('|', $line, 4);
+                $parts = preg_split('/\s+/', $line, 5);
                 if (count($parts) < 4) continue;
 
-                [$datetime, $ip, $type, $path] = $parts;
+                $datetime = $parts[0] . ' ' . $parts[1];
+                $ip = $parts[2];
+                $type = $parts[3];
+                $path = $parts[4] ?? '';
 
                 // Pomijamy nieistotne ścieżki
                 if (preg_match('#^/_wdt|^/_profiler|^/favicon\.ico#', $path)) continue;
@@ -50,12 +53,6 @@ class StatsController extends AbstractController
                     $type = 'BOT';
                 }
 
-                // Sprawdzenie roli admina
-                $isAdminUser = $this->getUser() && in_array('ROLE_ADMIN', $this->getUser()->getRoles(), true);
-
-                // Sprawdzenie URL /admin
-                $isAdminPath = preg_match('#^/(pl|en)?/admin#', $path);
-
                 // Inicjalizacja tablic
                 if (!isset($visitsPerDay[$date])) {
                     $visitsPerDay[$date] = ['BOT' => 0, 'HUMAN' => 0, 'ADMIN' => 0];
@@ -66,20 +63,20 @@ class StatsController extends AbstractController
                 // Typ do wykresu
                 if ($type === 'BOT') {
                     $visitsPerDay[$date]['BOT']++;
-                } elseif ($isAdminUser || $isAdminPath) {
+                } elseif ($type === 'ADMIN') {
                     $visitsPerDay[$date]['ADMIN']++;
                     $adminVisitsPerDay[$date]++;
                 } else {
                     $visitsPerDay[$date]['HUMAN']++;
                 }
 
-                // Liczymy unikalne IP (teraz również admin)
-                if ($type === 'HUMAN' || $isAdminUser) {
+                // Liczymy unikalne IP tylko dla HUMAN
+                if ($type === 'HUMAN') {
                     $uniqueIpsPerDay[$date][$ip] = true;
                 }
 
-                // Tabela logów – tylko zwykli ludzie
-                if ($type === 'HUMAN' && !$isAdminUser && !$isAdminPath) {
+                // Tabela logów – tylko HUMAN
+                if ($type === 'HUMAN') {
                     $rawLogLines[] = [
                         'datetime' => $datetime,
                         'ip'       => $ip,
