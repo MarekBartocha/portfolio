@@ -59,13 +59,28 @@ class BotLoggerListener
 
         $user = $this->security->getUser();
 
-        $knownBotIpsFile = __DIR__.'/../../var/log/bot_ips.txt';
-        $knownBotIps = [];
-        if (file_exists($knownBotIpsFile)) {
-            $knownBotIps = array_filter(array_map('trim', file($knownBotIpsFile)));
+        $logDir = __DIR__.'/../../var/log';
+        if (!is_dir($logDir)) {
+            mkdir($logDir, 0777, true);
         }
 
-        if ($user !== null && $this->security->isGranted('ROLE_ADMIN')) {
+        $knownBotIpsFile = $logDir.'/bot_ips.txt';
+        if (!file_exists($knownBotIpsFile)) {
+            touch($knownBotIpsFile);
+            chmod($knownBotIpsFile, 0666);
+        }
+        $knownBotIps = array_filter(array_map('trim', file($knownBotIpsFile)));
+
+        $knownAdminIpsFile = $logDir.'/admin_ips.txt';
+        if (!file_exists($knownAdminIpsFile)) {
+            touch($knownAdminIpsFile);
+            chmod($knownAdminIpsFile, 0666);
+        }
+        $knownAdminIps = array_filter(array_map('trim', file($knownAdminIpsFile)));
+
+        if (in_array($ip, $knownAdminIps, true)) {
+            $type = 'ADMIN';
+        } elseif ($user !== null && $this->security->isGranted('ROLE_ADMIN')) {
             $type = 'ADMIN';
         } elseif ($user !== null) {
             $type = 'HUMAN';
@@ -81,18 +96,15 @@ class BotLoggerListener
                 }
             }
             $type = $matchedPath ? 'HUMAN' : 'BOT';
-            if ($type === 'BOT' && !in_array($ip, $knownBotIps, true)) {
-                file_put_contents($knownBotIpsFile, $ip.PHP_EOL, FILE_APPEND | LOCK_EX);
-            }
         }
 
-        // Anonimizujemy IP: ostatni oktet zawsze 0
-        if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
-            $ipParts = explode('.', $ip);
-            if (count($ipParts) === 4) {
-                $ipParts[3] = '0';
-                $ip = implode('.', $ipParts);
-            }
+        if ($type === 'ADMIN' && !in_array($ip, $knownAdminIps, true)) {
+            file_put_contents($knownAdminIpsFile, $ip.PHP_EOL, FILE_APPEND | LOCK_EX);
+            $knownAdminIps[] = $ip;
+        }
+        if ($type === 'BOT' && !in_array($ip, $knownBotIps, true)) {
+            file_put_contents($knownBotIpsFile, $ip.PHP_EOL, FILE_APPEND | LOCK_EX);
+            $knownBotIps[] = $ip;
         }
 
         $data = [date('Y-m-d H:i:s'), $ip, $type, $path];
