@@ -24,6 +24,11 @@ class BotLoggerListener
         $ip = $request->getClientIp();
         $path = $request->getPathInfo();
 
+        $userAgent = strtolower($request->headers->get('User-Agent', ''));
+
+        $isBotAgent = preg_match('/bot|crawl|spider|slurp|curl|wget|python|scrapy|httpclient/i', $userAgent);
+
+
         // Anonimizujemy IP: ostatni oktet zawsze 0
         if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
             $ipParts = explode('.', $ip);
@@ -78,25 +83,27 @@ class BotLoggerListener
         }
         $knownAdminIps = array_filter(array_map('trim', file($knownAdminIpsFile)));
 
-        if (in_array($ip, $knownAdminIps, true)) {
+        if (in_array($ip, $knownAdminIps, true) || ($user !== null && $this->security->isGranted('ROLE_ADMIN'))) {
             $type = 'ADMIN';
-        } elseif ($user !== null && $this->security->isGranted('ROLE_ADMIN')) {
-            $type = 'ADMIN';
-        } elseif ($user !== null) {
-            $type = 'HUMAN';
-        } elseif (in_array($ip, $knownBotIps, true)) {
+        }
+        elseif (in_array($ip, $knownBotIps, true) || $isBotAgent) {
             $type = 'BOT';
-        } else {
+        }
+        else {
             $matchedPath = false;
+
             foreach ($validPaths as $validPath) {
                 $regex = preg_replace('/\{[^\}]+\}/', '[^/]+', $validPath);
+
                 if (preg_match('#^'.$regex.'$#', $path)) {
                     $matchedPath = true;
                     break;
                 }
             }
+
             $type = $matchedPath ? 'HUMAN' : 'BOT';
         }
+
 
         if ($type === 'ADMIN' && !in_array($ip, $knownAdminIps, true)) {
             file_put_contents($knownAdminIpsFile, $ip.PHP_EOL, FILE_APPEND | LOCK_EX);
