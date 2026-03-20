@@ -17,6 +17,8 @@ class StatsController extends AbstractController
         $rawLogLines = [];
         $knownBots = [];
         $knownAdmins = [];
+        $adminVisitsPerDay = [];
+
 
         if (file_exists($logFile)) {
             $lines = file($logFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
