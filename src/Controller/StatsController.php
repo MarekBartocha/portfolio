@@ -16,18 +16,25 @@ class StatsController extends AbstractController
         $uniqueIpsPerDay = [];
         $rawLogLines = [];
         $knownBots = [];
+        $knownAdmins = [];
 
         if (file_exists($logFile)) {
             $lines = file($logFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
             $last30Days = new \DateTime('-30 days');
 
-            // 1️⃣ Zbieramy wszystkie IP, które kiedykolwiek były BOT
+            // 1️⃣ Zbieramy wszystkie IP, które kiedykolwiek były BOT lub ADMIN, aby później poprawnie klasyfikować logi
             foreach ($lines as $line) {
                 $parts = preg_split('/\s+/', $line, 5);
                 if (count($parts) < 4) continue;
+
                 [$date, $time, $logIp, $logType] = array_slice($parts, 0, 4);
+
                 if ($logType === 'BOT') {
                     $knownBots[$logIp] = true;
+                }
+
+                if ($logType === 'ADMIN') {
+                    $knownAdmins[$logIp] = true;
                 }
             }
 
@@ -47,11 +54,17 @@ class StatsController extends AbstractController
                 $date = substr($datetime, 0, 10);
                 $logDate = new \DateTime($date);
                 if ($logDate < $last30Days) continue;
-
+                
+                // ADMIN jeśli kiedykolwiek był adminem
+                if (isset($knownAdmins[$ip])) {
+                    $type = 'ADMIN';
+                }
+                
                 // Typ BOT jeśli kiedykolwiek było w logu jako bot
                 if (isset($knownBots[$ip])) {
                     $type = 'BOT';
                 }
+
 
                 // Inicjalizacja tablic
                 if (!isset($visitsPerDay[$date])) {
