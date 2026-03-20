@@ -55,16 +55,15 @@ class StatsController extends AbstractController
                 $logDate = new \DateTime($date);
                 if ($logDate < $last30Days) continue;
                 
-                // ADMIN jeśli kiedykolwiek był adminem
-                if (isset($knownAdmins[$ip])) {
-                    $type = 'ADMIN';
-                }
-                
                 // Typ BOT jeśli kiedykolwiek było w logu jako bot
                 if (isset($knownBots[$ip])) {
                     $type = 'BOT';
                 }
 
+                // ADMIN jeśli kiedykolwiek był adminem
+                if (isset($knownAdmins[$ip])) {
+                    $type = 'ADMIN';
+                }
 
                 // Inicjalizacja tablic
                 if (!isset($visitsPerDay[$date])) {
