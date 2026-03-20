@@ -83,11 +83,12 @@ class BotLoggerListener
         }
         $knownAdminIps = array_filter(array_map('trim', file($knownAdminIpsFile)));
 
-        if (in_array($ip, $knownAdminIps, true) || ($user !== null && $this->security->isGranted('ROLE_ADMIN'))) {
-            $type = 'ADMIN';
-        }
-        elseif (in_array($ip, $knownBotIps, true) || $isBotAgent) {
+
+        if (in_array($ip, $knownBotIps, true) || $isBotAgent) {
             $type = 'BOT';
+        }
+        elseif (in_array($ip, $knownAdminIps, true) || ($user !== null && $this->security->isGranted('ROLE_ADMIN'))) {
+            $type = 'ADMIN';
         }
         else {
             $matchedPath = false;
