@@ -4,9 +4,24 @@
 
 <center><h1>Marek Bartocha</h1></center>
 
-<div class="container intro mt-4">
-    <p>{{'home-page.intro'|trans}}</p>
+<div class="container mt-4">
+    <div class="row align-items-center">
+        
+        <!-- Zdjęcie -->
+        <div class="col-12 col-md-3 text-center">
+            <img src="{{ asset('img/Marek.jpg') }}" 
+                 class="img-fluid rounded-circle profile-img" 
+                 alt="Marek Bartocha">
+        </div>
+
+        <!-- Tekst -->
+        <div class="col-12 col-md-9">
+            <p>{{'home-page.intro'|trans}}</p>
+        </div>
+
+    </div>
 </div>
+
     <div class="row">
         <div class="col-12   text-center ">
             <a href="{{ path('quiz_index')}}">

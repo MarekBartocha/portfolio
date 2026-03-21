@@ -176,6 +176,14 @@ img {
     margin-right: auto;
 }
 
+.profile-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 3px solid #ddd;
+}
+
+
 @media screen and (max-width: 768px) {
 .intro {
     padding: 0;
