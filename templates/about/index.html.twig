@@ -1,43 +1,108 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-{% set number_of_images  = 3 %}
-<center><h1>{{'about-page.title' |trans}}</h1></center>
+<div class="container my-5">
 
-<div class="row">
-    <p>{{'about-page.description-05'|trans}}</br>
-    
-    <p>{{'about-page.description-01'|trans}}<br>
-    <a href="{{ path('home-heating_index')}}">🔗 {{'home-heating-page.title' |trans}}</a></p>
+    <!-- Tytuł strony -->
+    <div class="text-center mb-5">
+        <h1>{{ 'about-page.title'|trans }}</h1>
+    </div>
 
-    <p>{{'about-page.description-02'|trans}}</br>
-    <a href="{{ path('organizer-of-the-work_index')}}">🔗 {{'organizer-of-the-work-page.title' |trans}}</a></p>
-    
-    <p>{{'about-page.description-03'|trans}}</br>
-    <a href="{{ path('volunteer-association_index')}}">🔗 {{'volunteer-association-page.title' |trans}}</a>
-    <a href="{{ path('qrz_oscarsierra_index')}}">🔗 {{'qrz-page.title' |trans}}</a></p>
+    <!-- 🔹 Who I am -->
+    <div class="row align-items-center mb-5">
+        <div class="col-12 col-md-4 text-center mb-3 mb-md-0">
+            <img src="{{ asset('img/Marek.jpg') }}" 
+                 class="img-fluid rounded-circle profile-img" 
+                 alt="Marek Bartocha">
+        </div>
+        <div class="col-12 col-md-8">
+            <h2>{{ 'about-page.section-who-i-am'|trans }}</h2>
+            <p>{{ 'about-page.description-05'|trans }}</p>
+        </div>
+    </div>
 
-    <p>{{'about-page.description-04'|trans}}</br>
-    <a href="{{ path('monitoring-whe-watchmans-work_index')}}">🔗 {{'monitoring-whe-watchmans-work-page.title' |trans}}</a></p>
+    <!-- 🔹 My Journey -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <h2>{{ 'about-page.section-my-journey'|trans }}</h2>
+            <p>{{ 'about-page.description-01'|trans }}<br>
+                <a href="{{ path('home-heating_index') }}">🔗 {{ 'home-heating-page.title'|trans }}</a>
+            </p>
+            <p>{{ 'about-page.description-02'|trans }}<br>
+                <a href="{{ path('organizer-of-the-work_index') }}">🔗 {{ 'organizer-of-the-work-page.title'|trans }}</a>
+            </p>
+            <p>{{ 'about-page.description-03'|trans }}<br>
+                <a href="{{ path('volunteer-association_index') }}">🔗 {{ 'volunteer-association-page.title'|trans }}</a>
+                <a href="{{ path('qrz_oscarsierra_index') }}">🔗 {{ 'qrz-page.title'|trans }}</a>
+            </p>
+            <p>{{ 'about-page.description-04'|trans }}<br>
+                <a href="{{ path('monitoring-whe-watchmans-work_index') }}">🔗 {{ 'monitoring-whe-watchmans-work-page.title'|trans }}</a>
+            </p>
+        </div>
+    </div>
 
-   
+    <!-- 🔹 Skills -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <h2>{{ 'about-page.section-skills'|trans }}</h2>
+            <ul>
+                <li>{{ 'about-page.skill-php'|trans }}</li>
+                <li>{{ 'about-page.skill-symfony'|trans }}</li>
+                <li>{{ 'about-page.skill-laravel'|trans }}</li>
+                <li>{{ 'about-page.skill-html-css-bootstrap'|trans }}</li>
+                <li>{{ 'about-page.skill-javascript'|trans }}</li>
+                <li>{{ 'about-page.skill-sql'|trans }}</li>
+            </ul>
+        </div>
+    </div>
 
-    <p>🔗 {{'about-page.links'|trans}}</br>
-    <a href="https://github.com/MarekBartocha" target="blank">GitHub: https://github.com/MarekBartocha</a><br>
-    <a href="https://www.linkedin.com/in/marek-bartocha-b1a82229b/" target="blank">LinkedIn: Marek Bartocha</a></p>
+    <!-- 🔹 Projects -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <h2>{{ 'about-page.section-projects'|trans }}</h2>
+            <ul>
+                <li><a href="{{ path('home-heating_index') }}">🔗 {{ 'home-heating-page.title'|trans }}</a></li>
+                <li><a href="{{ path('organizer-of-the-work_index') }}">🔗 {{ 'organizer-of-the-work-page.title'|trans }}</a></li>
+                <li><a href="{{ path('volunteer-association_index') }}">🔗 {{ 'volunteer-association-page.title'|trans }}</a></li>
+                <li><a href="{{ path('qrz_oscarsierra_index') }}">🔗 {{ 'qrz-page.title'|trans }}</a></li>
+                <li><a href="{{ path('monitoring-whe-watchmans-work_index') }}">🔗 {{ 'monitoring-whe-watchmans-work-page.title'|trans }}</a></li>
+            </ul>
+        </div>
+    </div>
 
-    <p>{{'about-page.hobby'|trans}}</br>
+    <!-- 🔹 Hobbies & Interests -->
+    <div class="row text-center">
+        <div class="col-12 mb-4">
+            <h2>{{ 'about-page.section-hobbies'|trans }}</h2>
+        </div>
 
-    <div class="col-12 col-md-6 col-xl-4 m-auto text-center">
-        <center>{{'about-page.hobby-1'|trans}}</center>
-    </div>  
-    <div class="col-12 col-md-6 col-xl-4 m-auto text-center">
-        <center>{{'about-page.hobby-2'|trans}}</center>
-    </div>  
-    <div class="col-12 col-md-6 col-xl-4 m-auto text-center">
-        <center>{{'about-page.hobby-3'|trans}}</center>
-    </div>  
+        <div class="col-12 col-md-4 mb-4 d-flex">
+            <div class="hobby-box p-3 flex-fill d-flex flex-column justify-content-center">
+                <i class="bi bi-music-note-beamed fs-1"></i>
+                <p class="mt-2">{{ 'about-page.hobby-1'|trans }}</p>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-4 mb-4 d-flex">
+            <div class="hobby-box p-3 flex-fill d-flex flex-column justify-content-center">
+                <i class="fa-solid fa-motorcycle fs-1"></i>
+                <p class="mt-2">{{ 'about-page.hobby-2'|trans }}</p>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-4 mb-4 d-flex">
+            <a href="blog-topics" target="_blank" class="flex-fill d-flex text-decoration-none">
+                <div class="hobby-box p-3 flex-fill d-flex flex-column justify-content-center">
+                    <i class="fa-solid fa-radio fs-1"></i>
+                    <p class="mt-2">{{ 'about-page.hobby-3'|trans }}</p>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+
+
+
 </div>
-
-
 {% endblock %}

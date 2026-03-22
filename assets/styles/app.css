@@ -170,6 +170,27 @@ img {
     border-radius: 8px;
 }
 
+.hobby-box {
+    background: rgb(90, 95, 88);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+.hobby-box i {
+    color: #a0a0a0; /* niebieski akcent */
+}
+
+.hobby-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    background: rgb(80, 85, 78);
+}
+
+
+
+
 .blog-content img {
     display: block;
     margin-left: auto;
@@ -177,11 +198,25 @@ img {
 }
 
 .profile-img {
-    width: 150px;
+    width: 150px;       /* bazowy rozmiar */
     height: 150px;
     object-fit: cover;
     border: 3px solid #ddd;
+    border-radius: 50%;
 }
+
+@media (min-width: 768px) {
+    .profile-img {
+        width: 220px;   /* większe na desktopie */
+        height: 220px;
+    }
+}
+
+
+.profile-img:hover {
+    transform: scale(1.05);
+}
+
 
 
 @media screen and (max-width: 768px) {

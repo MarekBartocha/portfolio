@@ -58,6 +58,18 @@ about-page:
   hobby-2: Motorräder
   hobby-3: Amateurfunk
 
+  section-who-i-am: "Wer ich bin"
+  section-my-journey: "Mein Weg"
+  section-skills: "Fähigkeiten"
+  section-projects: "Projekte"
+  section-hobbies: "Hobbys & Interessen"
+
+  skill-php: "PHP"
+  skill-symfony: "Symfony"
+  skill-laravel: "Laravel"
+  skill-html-css-bootstrap: "HTML / CSS / Bootstrap"
+  skill-javascript: "JavaScript"
+  skill-sql: "SQL / Datenbanken"
 
 home-heating-page:
   title: Heizungssteuerung.

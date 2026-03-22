@@ -60,6 +60,19 @@ about-page:
   hobby-2: Motorcycles
   hobby-3: Ham radio
 
+  section-who-i-am: "Who I am"
+  section-my-journey: "My Journey"
+  section-skills: "Skills"
+  section-projects: "Projects"
+  section-hobbies: "Hobbies & Interests"
+
+  skill-php: "PHP"
+  skill-symfony: "Symfony"
+  skill-laravel: "Laravel"
+  skill-html-css-bootstrap: "HTML / CSS / Bootstrap"
+  skill-javascript: "JavaScript"
+  skill-sql: "SQL / Databases"
+
 home-heating-page:
   title: Home heating control.
   title-nav: Home heating
