@@ -284,7 +284,13 @@ volunteer-association-page:
   volunteer-association-10:  Formularz clustera aplikacji
   volunteer-association-11:  Ustawienia aplikacji
   link-description: Link do video prezentacji aplikacji.
-  
+  end-of-appstore: |
+    W lipcu 2026 aplikacja została usunięta ze sklepu Google Play z powodu braku kompatybilności z nowymi wersjami Androida.
+    Aplikacja nie jest już rozwijana i nie jest dostępna w sklepie Google Play. Aktualnie pracuję nad aplikacją typu WPA (Web Progressive Application), 
+    która będzie dostępna w przeglądarce internetowej i będzie działać na wszystkich urządzeniach mobilnych, w tym na smartfonach i tabletach.
+    A kwestię lokalizacji stacji mobilnych rozwiąże poprzez wykorzystanie już dostępnej aplikacji na Androida i iOS,
+    która będzie wysyłać lokalizację do serwera w tle, a następnie będzie wyświetlana na mapie w aplikacji webowej.
+
 monitoring-whe-watchmans-work-page:
   title: Monitorowanie pracy stróża w firmie
   title-nav: Monitorowanie pracy stróża

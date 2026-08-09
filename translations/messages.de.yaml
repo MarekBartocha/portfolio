@@ -283,6 +283,12 @@ volunteer-association-page:
   volunteer-association-10:  Formular für Bewerbungscluster
   volunteer-association-11:  Einstellungen der Anwendung
   link-description: Link zur Videopräsentation der Anwendung.
+  end-of-appstore: |
+    Im Juli 2026 wurde die Anwendung aus dem Google Play Store entfernt, da sie nicht mit den neuen Android-Versionen kompatibel war.
+    Die Anwendung wird nicht mehr weiterentwickelt und ist nicht mehr im Google Play Store erhältlich. Derzeit arbeite ich an einer WPA (Web Progressive Application)-Anwendung, 
+    die im Webbrowser verfügbar sein wird und auf allen mobilen Geräten, einschließlich Smartphones und Tablets, funktionieren wird.
+    Und das Problem der Standortbestimmung von mobilen Stationen werde ich durch die Nutzung einer bereits verfügbaren Anwendung für Android und iOS lösen,
+    die den Standort im Hintergrund an den Server sendet und dann in der Webanwendung auf der Karte angezeigt wird.
   
 monitoring-whe-watchmans-work-page:
   title: Überwachung der Arbeit des Wachpersonals im Unternehmen
