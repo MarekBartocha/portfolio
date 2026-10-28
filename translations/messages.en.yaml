@@ -6,10 +6,10 @@ home-page:
   projects: Projects
   contact: Contact
   intro: |
-    I would like to develop my career in the IT industry. I am interested in the position of Junior Programmer, with a focus on developing secure web applications.
-    On this page you will find my projects that I created as part of my programming education - many of them incorporate good security practices,
-    such as data validation, access control, authorization (JWT), SQL Injection and XSS protection.
-    I invite you to take a look at my projects - they provide a solid technical foundation for further development in the area of cyber security.
+    I want to advance my career in the IT industry by focusing on developing secure web applications. I develop my programming skills through self-study, volunteer work, and working on my own projects, in which I apply best security practices such as data validation, access control, authentication and authorization using JWT, and protection against SQL injection and XSS.
+    In the software development process, I also use AI tools that help me speed up my work on projects, analyze technical solutions, and plan application architecture. I combine the capabilities of artificial intelligence with my own analysis and verification of proposed solutions, paying particular attention to code quality and the security of the applications I build.
+    I invite you to explore my projects, which showcase the knowledge I’ve acquired, my practical skills, and my commitment to professional growth in the fields of programming and cybersecurity.
+
 
   licenses-title: licenses and sources
   privacy-policy: Privacy policy

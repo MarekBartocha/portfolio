@@ -6,10 +6,9 @@ home-page:
   projects: Projekty
   contact: Kontakt
   intro: |
-    Chciałbym rozwijać swoją karierę w branży IT. Interesuje mnie stanowisko Młodszego Programisty, z naciskiem na tworzenie bezpiecznych aplikacji webowych.
-    Na tej stronie znajdziesz moje projekty, które stworzyłem w ramach nauki programowania – wiele z nich uwzględnia dobre praktyki bezpieczeństwa,
-    takie jak walidacja danych, kontrola dostępu, autoryzacja (JWT), ochrona przed SQL Injection i XSS.
-    Zapraszam do zapoznania się z moimi projektami – stanowią one solidną podstawę techniczną do dalszego rozwoju w obszarze cyberbezpieczeństwa.
+    Chcę rozwijać swoją karierę w branży IT, koncentrując się na tworzeniu bezpiecznych aplikacji webowych. Swoje umiejętności programistyczne rozwijam poprzez samodzielną naukę, działalność wolontariacką i realizację własnych projektów, w których stosuję dobre praktyki bezpieczeństwa, takie jak walidacja danych, kontrola dostępu, uwierzytelnianie i autoryzacja z wykorzystaniem JWT oraz ochrona przed SQL Injection i XSS.
+    W procesie tworzenia oprogramowania wykorzystuję również narzędzia AI, które pomagają mi przyspieszać pracę nad projektami, analizować rozwiązania techniczne oraz planować architekturę aplikacji. Łączę możliwości sztucznej inteligencji z własną analizą i weryfikacją proponowanych rozwiązań, zwracając szczególną uwagę na jakość kodu i bezpieczeństwo tworzonych aplikacji.
+    Zapraszam do zapoznania się z moimi projektami, które pokazują zdobywaną przeze mnie wiedzę, praktyczne umiejętności oraz zaangażowanie w rozwój w kierunku programowania i cyberbezpieczeństwa.
 
   licenses-title: Licencje i źródła
   privacy-policy: Polityka prywatności 

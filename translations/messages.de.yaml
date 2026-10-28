@@ -6,10 +6,9 @@ home-page:
   projects: Projekte
   contact: Kontakt
   intro: |
-    Ich möchte meine Karriere im IT-Bereich ausbauen. Ich interessiere mich für eine Stelle als Junior-Entwickler mit dem Schwerpunkt auf der Erstellung sicherer Webanwendungen.
-    Auf dieser Seite finden Sie meine Projekte, die ich im Rahmen meiner Programmierausbildung erstellt habe - viele von ihnen beinhalten gute Sicherheitspraktiken,
-    wie Datenvalidierung, Zugriffskontrolle, Authentifizierung (JWT), SQL Injection und XSS-Schutz.
-    Ich lade Sie ein, einen Blick auf meine Projekte zu werfen - sie bieten eine solide technische Grundlage für die weitere Entwicklung im Bereich der Cybersicherheit.
+    Ich möchte meine Karriere in der IT-Branche vorantreiben und mich dabei auf die Entwicklung sicherer Webanwendungen konzentrieren. Meine Programmierkenntnisse baue ich durch Selbststudium, ehrenamtliches Engagement und die Umsetzung eigener Projekte aus, bei denen ich bewährte Sicherheitspraktiken anwende, wie beispielsweise Datenvalidierung, Zugriffskontrolle, Authentifizierung und Autorisierung unter Verwendung von JWT sowie Schutz vor SQL-Injection und XSS.
+    Bei der Softwareentwicklung setze ich zudem KI-Tools ein, die mir helfen, die Arbeit an Projekten zu beschleunigen, technische Lösungen zu analysieren und die Anwendungsarchitektur zu planen. Ich verbinde die Möglichkeiten der künstlichen Intelligenz mit meiner eigenen Analyse und Überprüfung der vorgeschlagenen Lösungen und lege dabei besonderen Wert auf die Codequalität und die Sicherheit der entwickelten Anwendungen.
+    Ich lade Sie herzlich ein, sich meine Projekte anzusehen, die mein erworbenes Wissen, meine praktischen Fähigkeiten und mein Engagement für die Weiterentwicklung in den Bereichen Programmierung und Cybersicherheit verdeutlichen.
 
   licenses-title: Lizenzen und Quellen
   privacy-policy: Datenschutzbestimmungen
