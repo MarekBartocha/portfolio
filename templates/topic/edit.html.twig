@@ -11,38 +11,38 @@
     {% endfor %}
 
     <div class="container mt-4">
-        <h2>Edytuj temat</h2>
+        <h2>{{ 'topic.edit.title'|trans }}</h2>
 
         {{ form_start(form, {'attr': {'class': 'd-flex flex-column gap-3'}}) }}
 
             <div>
-                {{ form_label(form.name_pl, 'Nazwa (polski)') }}
+                {{ form_label(form.name_pl, 'topic.form.name_pl'|trans) }}
                 {{ form_widget(form.name_pl, {
                     'attr': {
                         'class': 'form-control',
-                        'placeholder': 'Nazwa po polsku'
+                        'placeholder': 'topic.form.placeholder_pl'|trans
                     }
                 }) }}
                 {{ form_errors(form.name_pl) }}
             </div>
 
             <div>
-                {{ form_label(form.name_en, 'Name (English)') }}
+                {{ form_label(form.name_en, 'topic.form.name_en'|trans) }}
                 {{ form_widget(form.name_en, {
                     'attr': {
                         'class': 'form-control',
-                        'placeholder': 'Name in English'
+                        'placeholder': 'topic.form.placeholder_en'|trans
                     }
                 }) }}
                 {{ form_errors(form.name_en) }}
             </div>
 
             <div>
-                {{ form_label(form.name_de, 'Name (Deutsch)') }}
+                {{ form_label(form.name_de, 'topic.form.name_de'|trans) }}
                 {{ form_widget(form.name_de, {
                     'attr': {
                         'class': 'form-control',
-                        'placeholder': 'Name auf Deutsch'
+                        'placeholder': 'topic.form.placeholder_de'|trans
                     }
                 }) }}
                 {{ form_errors(form.name_de) }}
@@ -59,7 +59,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary">
-                Zapisz
+                {{ 'button.save'|trans }}
             </button>
 
         {{ form_end(form) }}
@@ -67,7 +67,7 @@
         <a href="{{ path('admin_index', {
             '_locale': app.request.locale
         }) }}" class="btn btn-secondary mt-3">
-            Powrót
+            {{ 'button.back'|trans }}
         </a>
     </div>
 

@@ -434,6 +434,20 @@ topic:
     page_title: 'Blog - Topics'
     no_topics: 'No topics available.'
     back: 'Back'
+    list:
+      title: 'Topics list'
+      empty: 'No topics.'
+    delete:
+      confirm: 'Are you sure you want to delete this topic?'
+    edit:
+        title: 'Edit topic'
+    form:
+        name_pl: 'Name (Polish)'
+        name_en: 'Name (English)'
+        name_de: 'Name (German)'
+        placeholder_pl: 'Name in Polish'
+        placeholder_en: 'Name in English'
+        placeholder_de: 'Name in German'
 
 blog:
     title_pl: 'Title (Polish)'
@@ -443,3 +457,15 @@ blog:
     title_de: 'Title (German)'
     content_de: 'Content (German)'
     public: 'Public'
+    add: 'Add blog'
+    delete:
+      confirm: 'Are you sure you want to delete this blog?'
+
+button:
+    save: 'Save'
+    edit: 'Edit'
+    delete: 'Delete'
+    back: 'Back'
+
+Public: "Public"
+Private: "Private"

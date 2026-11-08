@@ -22,7 +22,7 @@
             '_locale': locale,
             'slug': topic.slug
          }) }}">
-            Dodaj bloga
+            {{ 'blog.add'|trans }}
          </a>
       </div>
    </div>
@@ -64,7 +64,7 @@
                   'slug_topic': topic.slug
                }) }}"
                   class="btn btn-sm btn-outline-primary me-2">
-                  Edytuj
+                  {{ 'button.edit'|trans }}
                </a>
 
                <form method="post"
@@ -74,21 +74,21 @@
                         'slug': topic.slug
                      }) }}"
                      style="display:inline;"
-                     onsubmit="return confirm('Na pewno chcesz usunąć ten blog?');">
+                     onsubmit="return confirm('{{ 'blog.delete.confirm'|trans|e('js') }}');">
 
                   <input type="hidden"
-                         name="_token"
-                         value="{{ csrf_token('delete' ~ entry.blog.id) }}">
+                        name="_token"
+                        value="{{ csrf_token('delete' ~ entry.blog.id) }}">
 
                   <button class="btn btn-sm btn-outline-danger">
-                     Usuń
+                     {{ 'button.delete'|trans }}
                   </button>
                </form>
 
                {% if entry.blog.public %}
-                  <p class="mb-0 text-success">Public</p>
+                  <p class="mb-0 text-success">{{ 'Public'|trans }}</p>
                {% else %}
-                  <p class="mb-0 text-muted">Private</p>
+                  <p class="mb-0 text-muted">{{ 'Private'|trans }}</p>
                {% endif %}
 
             </div>

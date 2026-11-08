@@ -446,6 +446,20 @@ topic:
     page_title: 'Blog - Tematy'
     no_topics: 'Brak tematów.'
     back: 'Powrót'
+    list:
+      title: 'Lista tematów'
+      empty: 'Brak tematów.'
+    delete:
+      confirm: 'Na pewno chcesz usunąć ten temat?'
+    edit:
+      title: 'Edytuj temat'
+    form:
+        name_pl: 'Nazwa (polski)'
+        name_en: 'Nazwa (angielski)'
+        name_de: 'Nazwa (niemiecki)'
+        placeholder_pl: 'Nazwa po polsku'
+        placeholder_en: 'Nazwa po angielsku'
+        placeholder_de: 'Nazwa po niemiecku'
 
 blog:
     title_pl: 'Tytuł (polski)'
@@ -455,3 +469,15 @@ blog:
     title_de: 'Tytuł (niemiecki)'
     content_de: 'Treść (niemiecki)'
     public: 'Publiczny'
+    add: 'Dodaj bloga'
+    delete:
+      confirm: 'Na pewno chcesz usunąć ten blog?'
+
+button:
+    save: 'Zapisz'
+    edit: 'Edytuj'
+    delete: 'Usuń'
+    back: 'Powrót'
+
+Public: "Publiczny"
+Private: "Prywatny"

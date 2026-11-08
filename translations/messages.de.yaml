@@ -445,6 +445,20 @@ topic:
     page_title: 'Blog - Themen'
     no_topics: 'Keine Themen vorhanden.'
     back: 'Zurück'
+    list:
+      title: 'Themenliste'
+      empty: 'Keine Themen vorhanden.'
+    delete:
+        confirm: 'Möchtest du dieses Thema wirklich löschen?'
+    edit:
+        title: 'Thema bearbeiten'
+    form:
+        name_pl: 'Name (Polnisch)'
+        name_en: 'Name (Englisch)'
+        name_de: 'Name (Deutsch)'
+        placeholder_pl: 'Name auf Polnisch'
+        placeholder_en: 'Name auf Englisch'
+        placeholder_de: 'Name auf Deutsch'
 
 blog:
     title_pl: 'Titel (Polnisch)'
@@ -454,3 +468,15 @@ blog:
     title_de: 'Titel (Deutsch)'
     content_de: 'Inhalt (Deutsch)'
     public: 'Öffentlich'
+    add: 'Blog hinzufügen'
+    delete:
+      confirm: 'Möchtest du diesen Blog wirklich löschen?'
+
+button:
+    save: 'Speichern'
+    edit: 'Bearbeiten'
+    delete: 'Löschen'
+    back: 'Zurück'
+
+Public: "Öffentlich"
+Private: "Privat"
