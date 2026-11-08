@@ -1,32 +1,74 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-   
-        {% for message in app.flashes('success') %}
-            <div class="alert alert-success">{{ message }}</div>
-        {% endfor %}
 
-        {% for message in app.flashes('error') %}
-            <div class="alert alert-danger">{{ message }}</div>
-        {% endfor %}
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
 
-        <div class="container mt-4">
-            <h2>Edytuj temat</h2>
+    {% for message in app.flashes('error') %}
+        <div class="alert alert-danger">{{ message }}</div>
+    {% endfor %}
 
-        {{ form_start(form, {'attr': {'class': 'd-flex gap-2 align-items-center'}}) }}
-            {{ form_widget(form.name, {'attr': {'class': 'form-control', 'placeholder': 'Nowa nazwa'}}) }}
+    <div class="container mt-4">
+        <h2>Edytuj temat</h2>
 
-            <div class="form-check d-flex align-items-center gap-2 mb-0">
-                {{ form_widget(form.public, {'attr': {'class': 'form-check-input'}}) }}
-                {{ form_label(form.public, null, {'label_attr': {'class': 'form-check-label mb-0'}}) }}
+        {{ form_start(form, {'attr': {'class': 'd-flex flex-column gap-3'}}) }}
+
+            <div>
+                {{ form_label(form.name_pl, 'Nazwa (polski)') }}
+                {{ form_widget(form.name_pl, {
+                    'attr': {
+                        'class': 'form-control',
+                        'placeholder': 'Nazwa po polsku'
+                    }
+                }) }}
+                {{ form_errors(form.name_pl) }}
             </div>
 
-            <button class="btn btn-primary">Zapisz</button>
+            <div>
+                {{ form_label(form.name_en, 'Name (English)') }}
+                {{ form_widget(form.name_en, {
+                    'attr': {
+                        'class': 'form-control',
+                        'placeholder': 'Name in English'
+                    }
+                }) }}
+                {{ form_errors(form.name_en) }}
+            </div>
+
+            <div>
+                {{ form_label(form.name_de, 'Name (Deutsch)') }}
+                {{ form_widget(form.name_de, {
+                    'attr': {
+                        'class': 'form-control',
+                        'placeholder': 'Name auf Deutsch'
+                    }
+                }) }}
+                {{ form_errors(form.name_de) }}
+            </div>
+
+            <div class="form-check d-flex align-items-center gap-2 mb-0">
+                {{ form_widget(form.public, {
+                    'attr': {'class': 'form-check-input'}
+                }) }}
+
+                {{ form_label(form.public, null, {
+                    'label_attr': {'class': 'form-check-label mb-0'}
+                }) }}
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Zapisz
+            </button>
+
         {{ form_end(form) }}
 
-
-            <a href="{{ path('admin_index', {'_locale': app.request.locale}) }}" class="btn btn-secondary mt-3">Powrót</a>
-        </div>
-
+        <a href="{{ path('admin_index', {
+            '_locale': app.request.locale
+        }) }}" class="btn btn-secondary mt-3">
+            Powrót
+        </a>
+    </div>
 
 {% endblock %}

@@ -31,7 +31,7 @@ final class AdminController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $slug = $slugger->slug($topic->getName())->lower();
+            $slug = $slugger->slug($topic->getNameEn())->lower();
 
             if ($topicRepository->findOneBy(['slug' => $slug])) {
                 $this->addFlash('error', 'Temat o takiej nazwie już istnieje.');
@@ -69,7 +69,7 @@ final class AdminController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $slug = $slugger->slug($blog->getTitle())->lower();
+            $slug = $slugger->slug($blog->getTitlePl())->lower();
             $blog->setSlug($slug);
 
 
@@ -95,8 +95,13 @@ final class AdminController extends AbstractController
     }
     
     #[Route('/{_locale}/admin-blog/{slug}', name: 'topic_show')]
-    public function show(string $_locale, string $slug, TopicRepository $topicRepository, BlogRepository $blogRepository, BlogHelper $blogHelper): Response
-    {
+    public function show(
+        string $_locale,
+        string $slug,
+        TopicRepository $topicRepository,
+        BlogRepository $blogRepository,
+        BlogHelper $blogHelper
+    ): Response {
 
         $topic = $topicRepository->findOneBy(['slug' => $slug]);
 
@@ -106,12 +111,23 @@ final class AdminController extends AbstractController
 
         $blogs = $blogRepository->findBy(['topic' => $topic]);
 
-        // Przetwórz treść blogów przez helper
         $renderedBlogs = [];
+
         foreach ($blogs as $blog) {
+
+            $content = match ($_locale) {
+                'pl' => $blog->getContentPl(),
+                'en' => $blog->getContentEn(),
+                'de' => $blog->getContentDe(),
+                default => $blog->getContentPl(),
+            };
+
             $renderedBlogs[] = [
                 'blog' => $blog,
-                'renderedContent' => $blogHelper->renderBlogWithImages($blog->getContent(), $blog->getImages()),
+                'renderedContent' => $blogHelper->renderBlogWithImages(
+                    $content,
+                    $blog->getImages()
+                ),
             ];
         }
 
@@ -152,16 +168,25 @@ final class AdminController extends AbstractController
     }
 
     #[Route('/{_locale}/admin-blog/{slug_topic}/{id}/edit', name: 'blog_edit')]
-    public function editBlog(string $_locale, string $slug_topic, int $id, Request $request, Blog $blog, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
-    {
+    public function editBlog(
+        string $_locale,
+        string $slug_topic,
+        int $id,
+        Request $request,
+        Blog $blog,
+        EntityManagerInterface $entityManager,
+        SluggerInterface $slugger
+    ): Response {
+
         $form = $this->createForm(BlogType::class, $blog);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            // Generujemy slug z tytułu
-            $slug = $slugger->slug($blog->getTitle())->lower();
+            // Generujemy slug z polskiego tytułu
+            $slug = $slugger->slug($blog->getTitlePl())->lower();
             $blog->setSlug($slug);
+
             $entityManager->persist($blog);
             $entityManager->flush();
 

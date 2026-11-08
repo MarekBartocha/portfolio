@@ -16,15 +16,33 @@ class Blog
     #[ORM\Column]
     private ?int $id = null;
 
+    private static ?string $locale = 'pl';
+
     #[ORM\ManyToOne(inversedBy: 'blogs')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Topic $topic = null;
 
-    #[ORM\Column(type: Types::TEXT)]
-    private ?string $content = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $title = null;
+    private ?string $title_pl = null;
+    
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $content_pl = null;
+
+
+    #[ORM\Column(length: 255)]
+    private ?string $title_en = null;
+    
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $content_en = null;
+
+
+    #[ORM\Column(length: 255)]
+    private ?string $title_de = null;
+    
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $content_de = null;
+
 
     #[ORM\Column(type: 'string', length: 255, unique: true)]
     private ?string $slug = null;
@@ -83,29 +101,82 @@ class Blog
         return $this;
     }
 
-    public function getContent(): ?string
-    {
-        return $this->content;
-    }
 
-    public function setContent(string $content): static
+
+    public function setTitlePl(string $title): static
     {
-        $this->content = $content;
+        $this->title_pl = $title;
 
         return $this;
     }
 
-    public function getTitle(): ?string
+    public function getTitlePl(): ?string
     {
-        return $this->title;
+        return $this->title_pl;
     }
 
-    public function setTitle(string $title): static
+    public function setContentPl(string $content): static
     {
-        $this->title = $title;
+        $this->content_pl = $content;
 
         return $this;
     }
+
+    public function getContentPl(): ?string
+    {
+        return $this->content_pl;
+    }
+
+
+    public function setTitleEn(string $title): static
+    {
+        $this->title_en = $title;
+
+        return $this;
+    }
+
+    public function getTitleEn(): ?string
+    {
+        return $this->title_en;
+    }
+
+    public function getContentEn(): ?string
+    {
+        return $this->content_en;
+    }
+
+    public function setContentEn(string $content): static
+    {
+        $this->content_en = $content;
+
+        return $this;
+    }
+
+
+    public function setTitleDe(string $title): static
+    {
+        $this->title_de = $title;
+
+        return $this;
+    }
+
+    public function getTitleDe(): ?string
+    {
+        return $this->title_de;
+    }
+
+    public function getContentDe(): ?string
+    {
+        return $this->content_de;
+    }
+
+    public function setContentDe(string $content): static
+    {
+        $this->content_de = $content;
+
+        return $this;
+    }
+
 
     public function getSlug(): ?string
     {
@@ -128,5 +199,25 @@ class Blog
         $this->public = $public;
 
         return $this;
+    }
+
+    public function getTitle(string $locale = 'pl'): ?string
+    {
+        return match ($locale) {
+            'pl' => $this->title_pl,
+            'en' => $this->title_en,
+            'de' => $this->title_de,
+            default => $this->title_pl,
+        };
+    }
+
+    public function getContent(string $locale = 'pl'): ?string
+    {
+        return match ($locale) {
+            'pl' => $this->content_pl,
+            'en' => $this->content_en,
+            'de' => $this->content_de,
+            default => $this->title_pl,
+        };
     }
 }

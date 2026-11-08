@@ -2,30 +2,63 @@
 
 {% block body %}
 
-   <center><h1>{{ topic.name }}</h1></center>
+    {% set locale = app.request.locale %}
 
-   {% for message in app.flashes('success') %}
-      <div class="alert alert-success">{{ message }}</div>
-   {% endfor %}
+    {% set topicName = {
+        'pl': topic.namePl,
+        'en': topic.nameEn,
+        'de': topic.nameDe
+    }[locale] ?? topic.namePl %}
 
+    <h1 class="text-center">{{ topicName }}</h1>
 
-   <a href="{{ path( 'blog_index', {'_locale': app.request.locale}) }}" class="btn btn-secondary mt-3">Powrót</a>
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
 
-   <br>
-   
-   {% if renderedBlogs is not empty %}
-      {% for item in renderedBlogs %}
-         {% if item.blog.public %}
-            <div style="background-color:#949b8f; color: black" class="blog-entry border border-1 rounded-2 m-3 p-2">
-               <h3 class="text-center">{{ item.blog.title }}</h3>
-               <div class="blog-content">
-                  {{ item.renderedContent|raw |replace({'[code]':'<pre><code>', '[/code]':'</code></pre>'}) |raw}}
-               </div>
-            </div>
-         {% endif %}
-      {% endfor %}
-   {% else %}
-      <p>Brak wpisów dla tego tematu.</p>
-   {% endif %}
+    <a href="{{ path('blog_index', {'_locale': locale}) }}"
+       class="btn btn-secondary mt-3">
+        {{ 'topic.back'|trans }}
+    </a>
+
+    <br>
+
+    {% if renderedBlogs is not empty %}
+        {% for item in renderedBlogs %}
+
+            {% set blog = item.blog %}
+
+            {% set blogTitle = {
+                'pl': blog.titlePl,
+                'en': blog.titleEn,
+                'de': blog.titleDe
+            }[locale] ?? blog.titlePl %}
+
+            {% set blogContent = {
+                'pl': blog.contentPl,
+                'en': blog.contentEn,
+                'de': blog.contentDe
+            }[locale] ?? blog.contentPl %}
+
+            {% if blog.public %}
+                <div style="background-color:#949b8f; color: black"
+                     class="blog-entry border border-1 rounded-2 m-3 p-2">
+
+                    <h3 class="text-center">{{ blogTitle }}</h3>
+
+                    <div class="blog-content">
+                        {{ blogContent|markdown|raw|replace({
+                            '[code]':'<pre><code>',
+                            '[/code]':'</code></pre>'
+                        })|raw }}
+                    </div>
+
+                </div>
+            {% endif %}
+
+        {% endfor %}
+    {% else %}
+        <p class="text-center">{{ 'topic.no_posts'|trans }}</p>
+    {% endif %}
 
 {% endblock %}

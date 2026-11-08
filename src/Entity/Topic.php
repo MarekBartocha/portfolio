@@ -6,6 +6,7 @@ use App\Repository\TopicRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 #[ORM\Entity(repositoryClass: TopicRepository::class)]
 class Topic
@@ -15,8 +16,7 @@ class Topic
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $name = null;
+    private static ?string $locale = 'pl';
 
     /**
      * @var Collection<int, Blog>
@@ -30,6 +30,15 @@ class Topic
     #[ORM\Column]
     private ?bool $public = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $name_pl = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $name_en = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $name_de = null;
+
     public function __construct()
     {
         $this->blogs = new ArrayCollection();
@@ -40,16 +49,50 @@ class Topic
         return $this->id;
     }
 
-    public function getName(): ?string
+    // POLSKI
+    public function getNamePl(): ?string
     {
-        return $this->name;
+        return $this->name_pl;
     }
 
-    public function setName(string $name): static
+    public function setNamePl(?string $name_pl): static
     {
-        $this->name = $name;
-
+        $this->name_pl = $name_pl;
         return $this;
+    }
+
+    // ANGIELSKI
+    public function getNameEn(): ?string
+    {
+        return $this->name_en;
+    }
+
+    public function setNameEn(?string $name_en): static
+    {
+        $this->name_en = $name_en;
+        return $this;
+    }
+
+    // NIEMIECKI
+    public function getNameDe(): ?string
+    {
+        return $this->name_de;
+    }
+
+    public function setNameDe(?string $name_de): static
+    {
+        $this->name_de = $name_de;
+        return $this;
+    }
+
+    public function getName(string $locale = 'pl'): ?string
+    {
+        return match ($locale) {
+            'pl' => $this->name_pl,
+            'en' => $this->name_en,
+            'de' => $this->name_de,
+            default => $this->name_pl,
+        };
     }
 
     /**

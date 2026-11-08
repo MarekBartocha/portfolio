@@ -2,92 +2,174 @@
 
 {% block body %}
 <div class="container mt-5" style="max-width: 700px;">
+
    {% for message in app.flashes('success') %}
       <div class="alert alert-success">{{ message }}</div>
    {% endfor %}
 
-    <h1 class="mb-4 text-center">📝 Nowy wpis / Edycja</h1>
+   {% for message in app.flashes('error') %}
+      <div class="alert alert-danger">{{ message }}</div>
+   {% endfor %}
 
-    {{ form_start(form) }}
+   <h1 class="mb-4 text-center">📝 Nowy wpis / Edycja</h1>
 
-        <div class="mb-3">
-            {{ form_label(form.title, null, {'label_attr': {'class': 'form-label'}}) }}
-            {{ form_widget(form.title, {'attr': {'class': 'form-control',  'style': 'background-color: #868680;'}}) }}
-            {{ form_errors(form.title) }}
-        </div>
+   {{ form_start(form) }}
 
-        <div class="mb-3">
-            {{ form_label(form.content, null, {'label_attr': {'class': 'form-label'}}) }}
-            {{ form_widget(form.content, {'attr': {'class': 'form-control', 'rows': 10,  'style': 'background-color: #868680;'}}) }}
-            {{ form_errors(form.content) }}
-        </div>
+      <h5 class="mb-3">🇵🇱 Polski</h5>
 
-        <div class="d-flex align-items-center justify-content-between mt-3 gap-2">
-            <div class="form-check mb-0">
-                {{ form_widget(form.public, {'attr': {'class': 'form-check-input'}}) }}
-                {{ form_label(form.public, null, {'label_attr': {'class': 'form-check-label mb-0'}}) }}
+      <div class="mb-3">
+         {{ form_label(form.title_pl, 'Tytuł (polski)', {'label_attr': {'class': 'form-label'}}) }}
+         {{ form_widget(form.title_pl, {'attr': {'class': 'form-control', 'style': 'background-color: #868680;'}}) }}
+         {{ form_errors(form.title_pl) }}
+      </div>
+
+      <div class="mb-3">
+         {{ form_label(form.content_pl, 'Treść (polski)', {'label_attr': {'class': 'form-label'}}) }}
+         {{ form_widget(form.content_pl, {'attr': {'class': 'form-control', 'rows': 10, 'style': 'background-color: #868680;'}}) }}
+         {{ form_errors(form.content_pl) }}
+      </div>
+
+      <hr>
+
+      <h5 class="mb-3">🇬🇧 English</h5>
+
+      <div class="mb-3">
+         {{ form_label(form.title_en, 'Title (English)', {'label_attr': {'class': 'form-label'}}) }}
+         {{ form_widget(form.title_en, {'attr': {'class': 'form-control', 'style': 'background-color: #868680;'}}) }}
+         {{ form_errors(form.title_en) }}
+      </div>
+
+      <div class="mb-3">
+         {{ form_label(form.content_en, 'Content (English)', {'label_attr': {'class': 'form-label'}}) }}
+         {{ form_widget(form.content_en, {'attr': {'class': 'form-control', 'rows': 10, 'style': 'background-color: #868680;'}}) }}
+         {{ form_errors(form.content_en) }}
+      </div>
+
+      <hr>
+
+      <h5 class="mb-3">🇩🇪 Deutsch</h5>
+
+      <div class="mb-3">
+         {{ form_label(form.title_de, 'Titel (Deutsch)', {'label_attr': {'class': 'form-label'}}) }}
+         {{ form_widget(form.title_de, {'attr': {'class': 'form-control', 'style': 'background-color: #868680;'}}) }}
+         {{ form_errors(form.title_de) }}
+      </div>
+
+      <div class="mb-3">
+         {{ form_label(form.content_de, 'Inhalt (Deutsch)', {'label_attr': {'class': 'form-label'}}) }}
+         {{ form_widget(form.content_de, {'attr': {'class': 'form-control', 'rows': 10, 'style': 'background-color: #868680;'}}) }}
+         {{ form_errors(form.content_de) }}
+      </div>
+
+      <hr>
+
+      <div class="d-flex align-items-center justify-content-between mt-3 gap-2">
+
+         <div class="form-check mb-0">
+            {{ form_widget(form.public, {'attr': {'class': 'form-check-input'}}) }}
+            {{ form_label(form.public, null, {'label_attr': {'class': 'form-check-label mb-0'}}) }}
+         </div>
+
+         <div class="ms-auto d-flex gap-2">
+            <a href="{{ path('topic_show', {
+               '_locale': app.request.locale,
+               'slug': slug
+            }) }}" class="btn btn-secondary">
+               Powrót
+            </a>
+
+            <button type="submit" class="btn btn-success">
+               💾 Zapisz
+            </button>
+         </div>
+
+      </div>
+
+   {{ form_end(form) }}
+
+   <hr>
+
+   <h4>📸 Załaduj nowe zdjęcia</h4>
+
+   <form action="{{ path('blog_image_upload', {
+      '_locale': app.request.locale,
+      'slug_topic': slug
+   }) }}"
+      method="post" enctype="multipart/form-data"
+      class="d-flex gap-2 align-items-center">
+
+      <input type="file" name="uploadedImages[]" multiple
+             class="form-control" accept="image/*">
+
+      <button type="submit" class="btn btn-primary">Dodaj</button>
+   </form>
+
+   <hr>
+
+   <h4>📸 Załadowane zdjęcia:</h4>
+
+   {% if blog.images|length > 0 %}
+
+      <div class="row g-3">
+
+         {% for image in blog.images %}
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 text-center">
+
+               <div class="card shadow-sm border-0">
+
+                  <div class="card-img-top overflow-hidden"
+                       style="height:200px; background: gray;">
+
+                     <img src="{{ asset('uploads/' ~ image.filePath) }}"
+                          class="img-fluid rounded hover-scale"
+                          alt="Zdjęcie {{ image.position }}"
+                          style="object-fit: cover; width: 100%; height: 100%;">
+
+                  </div>
+
+                  <div class="card-body p-2" style="background: #f8f9fa;">
+
+                     <div class="d-flex justify-content-between align-items-center">
+
+                        <small class="text-muted">
+                           Pozycja: {{ image.position }}
+                        </small>
+
+                        <form method="post"
+                              action="{{ path('image_delete', {
+                                 '_locale': app.request.locale,
+                                 'slug_topic': slug,
+                                 'id': image.id
+                              }) }}"
+                              onsubmit="return confirm('Czy na pewno chcesz usunąć to zdjęcie?');">
+
+                           <input type="hidden" name="_token"
+                                  value="{{ csrf_token('delete' ~ image.id) }}">
+
+                           <button class="btn btn-sm btn-danger" type="submit">
+                              <i class="bi bi-trash"></i> Usuń
+                           </button>
+
+                        </form>
+
+                     </div>
+
+                  </div>
+
+               </div>
+
             </div>
 
-            <div class="ms-auto d-flex gap-2">
-                <a href="{{ path('topic_show', {'_locale': app.request.locale, 'slug': slug}) }}" class="btn btn-secondary">
-                    Powrót
-                </a>
-                <button class="btn btn-success">
-                    💾 Zapisz
-                </button>
-            </div>
-        </div>
+         {% endfor %}
 
+      </div>
 
-        <hr>
+   {% else %}
 
-    {{ form_end(form) }}
-    <h4>📸 Załaduj nowe zdjęcia</h4>
-    <form action="{{ path('blog_image_upload', {'_locale': app.request.locale, 'slug_topic': blog.slug}) }}" 
-        method="post" enctype="multipart/form-data" class="d-flex gap-2 align-items-center">
-        <input type="file" name="uploadedImages[]" multiple class="form-control" accept="image/*">
-        <button type="submit" class="btn btn-primary">Dodaj</button>
-    </form>
+      <p class="text-muted">Brak zdjęć.</p>
 
-    <hr>
-    <h4>📸 Załadowane zdjęcia:</h4>
-
-    {% if blog.images|length > 0 %}
-        <div class="row g-3">
-            {% for image in blog.images %}
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3 text-center">
-                    <div class="card shadow-sm border-0">
-                        <div class="card-img-top overflow-hidden" style="height:200px; background: gray;">
-                            <img src="{{ asset('uploads/' ~ image.filePath) }}" 
-                                class="img-fluid rounded hover-scale" 
-                                alt="Zdjęcie {{ image.position }}" 
-                                style="object-fit: cover; width: 100%; height: 100%;">
-                        </div>
-                        <div class="card-body p-2" style="background: #f8f9fa;">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <small class="text-muted">Pozycja: {{ image.position }}</small>
-                            <form method="post" 
-                                action="{{ path('image_delete', {
-                                    '_locale': app.request.locale,
-                                    'slug_topic': blog.slug,
-                                    'id': image.id
-                                }) }}" 
-                                onsubmit="return confirm('Czy na pewno chcesz usunąć to zdjęcie?');">
-                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ image.id) }}">
-                                <button class="btn btn-sm btn-danger" type="submit">
-                                    <i class="bi bi-trash"></i> Usuń
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-    {% else %}
-        <p class="text-muted">Brak zdjęć.</p>
-    {% endif %}
+   {% endif %}
 
 </div>
 {% endblock %}

@@ -423,3 +423,23 @@ quiz-page:
 
 repo: Link to repository
 not-redy: A description of the project will be available soon.
+
+topic:
+    no_posts: 'No posts found for this topic.'
+    new: 'New topic'
+    name_pl: 'Name (Polish)'
+    name_en: 'Name (English)'
+    name_de: 'Name (German)'
+    public: 'Public'
+    page_title: 'Blog - Topics'
+    no_topics: 'No topics available.'
+    back: 'Back'
+
+blog:
+    title_pl: 'Title (Polish)'
+    content_pl: 'Content (Polish)'
+    title_en: 'Title (English)'
+    content_en: 'Content (English)'
+    title_de: 'Title (German)'
+    content_de: 'Content (German)'
+    public: 'Public'

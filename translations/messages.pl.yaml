@@ -436,4 +436,22 @@ quiz-page:
 repo: Link do repozytorium
 not-redy: Niebawem opis projektu będzie dostępny.
 
+topic:
+    no_posts: 'Brak wpisów dla tego tematu.'
+    new: 'Nowy temat'
+    name_pl: 'Nazwa (polski)'
+    name_en: 'Nazwa (angielski)'
+    name_de: 'Nazwa (niemiecki)'
+    public: 'Publiczny'
+    page_title: 'Blog - Tematy'
+    no_topics: 'Brak tematów.'
+    back: 'Powrót'
 
+blog:
+    title_pl: 'Tytuł (polski)'
+    content_pl: 'Treść (polski)'
+    title_en: 'Tytuł (angielski)'
+    content_en: 'Treść (angielski)'
+    title_de: 'Tytuł (niemiecki)'
+    content_de: 'Treść (niemiecki)'
+    public: 'Publiczny'

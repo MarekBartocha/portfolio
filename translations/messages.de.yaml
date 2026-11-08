@@ -435,4 +435,22 @@ quiz-page:
 repo: Link zum Repository
 not-redy: Eine Beschreibung des Projekts wird in Kürze verfügbar sein.
 
+topic:
+    no_posts: 'Keine Beiträge zu diesem Thema gefunden.'
+    new: 'Neues Thema'
+    name_pl: 'Name (Polnisch)'
+    name_en: 'Name (Englisch)'
+    name_de: 'Name (Deutsch)'
+    public: 'Öffentlich'
+    page_title: 'Blog - Themen'
+    no_topics: 'Keine Themen vorhanden.'
+    back: 'Zurück'
 
+blog:
+    title_pl: 'Titel (Polnisch)'
+    content_pl: 'Inhalt (Polnisch)'
+    title_en: 'Titel (Englisch)'
+    content_en: 'Inhalt (Englisch)'
+    title_de: 'Titel (Deutsch)'
+    content_de: 'Inhalt (Deutsch)'
+    public: 'Öffentlich'
