@@ -2,6 +2,14 @@
 
 {% block body %}
 
+   {% set locale = app.request.locale %}
+
+   {% set topicName = {
+      'pl': topic.namePl,
+      'en': topic.nameEn,
+      'de': topic.nameDe
+   }[locale] ?? topic.namePl %}
+
    <center><h1>{{ topicName }}</h1></center>
 
    {% for message in app.flashes('success') %}
