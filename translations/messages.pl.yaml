@@ -472,6 +472,27 @@ blog:
     add: 'Dodaj bloga'
     delete:
       confirm: 'Na pewno chcesz usunąć ten blog?'
+    images:
+        upload_title: "Załaduj nowe zdjęcia"
+        loaded_title: "Załadowane zdjęcia"
+        position: "Pozycja"
+        confirm_delete: "Czy na pewno chcesz usunąć to zdjęcie?"
+        delete: "Usuń"
+        add: "Dodaj"
+    language:
+        polish: "Polski"
+        english: "Angielski"
+        german: "Niemiecki"
+
+    field:
+        title_pl: "Tytuł (polski)"
+        content_pl: "Treść (polska)"
+        title_en: "Tytuł (angielski)"
+        content_en: "Treść (angielska)"
+        title_de: "Tytuł (niemiecki)"
+        content_de: "Treść (niemiecka)"
+    form:
+        title: "Nowy wpis / Edycja"
 
 button:
     save: 'Zapisz'

@@ -471,6 +471,27 @@ blog:
     add: 'Blog hinzufügen'
     delete:
       confirm: 'Möchtest du diesen Blog wirklich löschen?'
+    images:
+      upload_title: "Neue Bilder hochladen"
+      loaded_title: "Hochgeladene Bilder"
+      position: "Position"
+      confirm_delete: "Möchten Sie dieses Bild wirklich löschen?"
+      delete: "Löschen"
+      add: "Hinzufügen"
+    language:
+        polish: "Polnisch"
+        english: "Englisch"
+        german: "Deutsch"
+
+    field:
+        title_pl: "Titel (Polnisch)"
+        content_pl: "Inhalt (Polnisch)"
+        title_en: "Titel (Englisch)"
+        content_en: "Inhalt (Englisch)"
+        title_de: "Titel (Deutsch)"
+        content_de: "Inhalt (Deutsch)"
+    form:
+        title: "Neuer Beitrag / Bearbeiten"
 
 button:
     save: 'Speichern'

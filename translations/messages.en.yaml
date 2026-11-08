@@ -460,6 +460,27 @@ blog:
     add: 'Add blog'
     delete:
       confirm: 'Are you sure you want to delete this blog?'
+    images:
+      upload_title: "Upload new images"
+      loaded_title: "Uploaded images"
+      position: "Position"
+      confirm_delete: "Are you sure you want to delete this image?"
+      delete: "Delete"
+      add: "Add"
+    language:
+        polish: "Polish"
+        english: "English"
+        german: "German"
+
+    field:
+        title_pl: "Title (Polish)"
+        content_pl: "Content (Polish)"
+        title_en: "Title (English)"
+        content_en: "Content (English)"
+        title_de: "Title (German)"
+        content_de: "Content (German)"
+    form:
+        title: "New post / Edit"
 
 button:
     save: 'Save'

@@ -274,28 +274,35 @@ final class AdminController extends AbstractController
     }
 
 
-    #[Route('/{_locale}/blog/{slug_topic}/upload', name: 'blog_image_upload', methods: ['POST'])]
+    #[Route('/{_locale}/blog/{slug_topic}/{id}/upload', name: 'blog_image_upload', methods: ['POST'])]
     public function upload(
         Request $request,
         BlogRepository $blogRepository,
         SluggerInterface $slugger,
         EntityManagerInterface $entityManager,
         string $_locale,
-        string $slug_topic
+        string $slug_topic,
+        int $id
     ): Response {
-        $blog = $blogRepository->findOneBy(['slug' => $slug_topic]);
+
+        // Pobieranie bloga po ID
+        $blog = $blogRepository->find($id);
 
         if (!$blog) {
             throw $this->createNotFoundException('Blog nie istnieje.');
         }
 
-        $uploadedFiles = $request->files->get('uploadedImages'); // nazwa pola w formularzu
+        $uploadedFiles = $request->files->get('uploadedImages');
+
         if ($uploadedFiles) {
-            // Pobierz maksymalną pozycję istniejących zdjęć
-            $images = $blog->getImages()->toArray(); // kolekcja → tablica
+
+            $images = $blog->getImages()->toArray();
 
             if (!empty($images)) {
-                $maxPosition = max(array_map(fn($img) => $img->getPosition(), $images));
+                $maxPosition = max(array_map(
+                    fn($img) => $img->getPosition(),
+                    $images
+                ));
             } else {
                 $maxPosition = 0;
             }
@@ -304,8 +311,14 @@ final class AdminController extends AbstractController
 
             foreach ($uploadedFiles as $uploadedFile) {
                 if ($uploadedFile) {
-                    $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
+
+                    $originalFilename = pathinfo(
+                        $uploadedFile->getClientOriginalName(),
+                        PATHINFO_FILENAME
+                    );
+
                     $safeFilename = $slugger->slug($originalFilename);
+
                     $newFilename = $safeFilename.'-'.uniqid().'.'.$uploadedFile->guessExtension();
 
                     try {
@@ -317,15 +330,23 @@ final class AdminController extends AbstractController
                         $image = new Image();
                         $image->setFilePath($newFilename);
                         $image->setPosition($position++);
+
+                        // Powiązanie zdjęcia z blogiem
                         $blog->addImage($image);
+
                         $entityManager->persist($image);
+
                     } catch (FileException $e) {
-                        $this->addFlash('danger', 'Błąd przy przesyłaniu pliku: '.$e->getMessage());
+                        $this->addFlash(
+                            'danger',
+                            'Błąd przy przesyłaniu pliku: '.$e->getMessage()
+                        );
                     }
                 }
             }
 
             $entityManager->flush();
+
             $this->addFlash('success', 'Zdjęcie dodano!');
         }
 

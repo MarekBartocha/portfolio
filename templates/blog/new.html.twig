@@ -11,89 +11,93 @@
       <div class="alert alert-danger">{{ message }}</div>
    {% endfor %}
 
-   <h1 class="mb-4 text-center">📝 Nowy wpis / Edycja</h1>
-
+   <h1 class="mb-4 text-center">
+      📝 {{ 'blog.form.title'|trans }}
+   </h1>
    {{ form_start(form) }}
 
-      <h5 class="mb-3">🇵🇱 Polski</h5>
+   <h5 class="mb-3">🇵🇱 {{ 'blog.language.polish'|trans }}</h5>
 
-      <div class="mb-3">
-         {{ form_label(form.title_pl, 'Tytuł (polski)', {'label_attr': {'class': 'form-label'}}) }}
-         {{ form_widget(form.title_pl, {'attr': {'class': 'form-control', 'style': 'background-color: #868680;'}}) }}
-         {{ form_errors(form.title_pl) }}
+   <div class="mb-3">
+      {{ form_label(form.title_pl, 'blog.field.title_pl'|trans, {'label_attr': {'class': 'form-label'}}) }}
+      {{ form_widget(form.title_pl, {'attr': {'class': 'form-control', 'style': 'background-color: #868680;'}}) }}
+      {{ form_errors(form.title_pl) }}
+   </div>
+
+   <div class="mb-3">
+      {{ form_label(form.content_pl, 'blog.field.content_pl'|trans, {'label_attr': {'class': 'form-label'}}) }}
+      {{ form_widget(form.content_pl, {'attr': {'class': 'form-control', 'rows': 10, 'style': 'background-color: #868680;'}}) }}
+      {{ form_errors(form.content_pl) }}
+   </div>
+
+   <hr>
+
+   <h5 class="mb-3">🇬🇧 {{ 'blog.language.english'|trans }}</h5>
+
+   <div class="mb-3">
+      {{ form_label(form.title_en, 'blog.field.title_en'|trans, {'label_attr': {'class': 'form-label'}}) }}
+      {{ form_widget(form.title_en, {'attr': {'class': 'form-control', 'style': 'background-color: #868680;'}}) }}
+      {{ form_errors(form.title_en) }}
+   </div>
+
+   <div class="mb-3">
+      {{ form_label(form.content_en, 'blog.field.content_en'|trans, {'label_attr': {'class': 'form-label'}}) }}
+      {{ form_widget(form.content_en, {'attr': {'class': 'form-control', 'rows': 10, 'style': 'background-color: #868680;'}}) }}
+      {{ form_errors(form.content_en) }}
+   </div>
+
+   <hr>
+
+   <h5 class="mb-3">🇩🇪 {{ 'blog.language.german'|trans }}</h5>
+
+   <div class="mb-3">
+      {{ form_label(form.title_de, 'blog.field.title_de'|trans, {'label_attr': {'class': 'form-label'}}) }}
+      {{ form_widget(form.title_de, {'attr': {'class': 'form-control', 'style': 'background-color: #868680;'}}) }}
+      {{ form_errors(form.title_de) }}
+   </div>
+
+   <div class="mb-3">
+      {{ form_label(form.content_de, 'blog.field.content_de'|trans, {'label_attr': {'class': 'form-label'}}) }}
+      {{ form_widget(form.content_de, {'attr': {'class': 'form-control', 'rows': 10, 'style': 'background-color: #868680;'}}) }}
+      {{ form_errors(form.content_de) }}
+   </div>
+
+   <hr>
+
+   <div class="d-flex align-items-center justify-content-between mt-3 gap-2">
+
+      <div class="form-check mb-0">
+         {{ form_widget(form.public, {'attr': {'class': 'form-check-input'}}) }}
+         {{ form_label(form.public, null, {'label_attr': {'class': 'form-check-label mb-0'}}) }}
       </div>
 
-      <div class="mb-3">
-         {{ form_label(form.content_pl, 'Treść (polski)', {'label_attr': {'class': 'form-label'}}) }}
-         {{ form_widget(form.content_pl, {'attr': {'class': 'form-control', 'rows': 10, 'style': 'background-color: #868680;'}}) }}
-         {{ form_errors(form.content_pl) }}
-      </div>
+      <div class="ms-auto d-flex gap-2">
 
-      <hr>
-
-      <h5 class="mb-3">🇬🇧 English</h5>
-
-      <div class="mb-3">
-         {{ form_label(form.title_en, 'Title (English)', {'label_attr': {'class': 'form-label'}}) }}
-         {{ form_widget(form.title_en, {'attr': {'class': 'form-control', 'style': 'background-color: #868680;'}}) }}
-         {{ form_errors(form.title_en) }}
-      </div>
-
-      <div class="mb-3">
-         {{ form_label(form.content_en, 'Content (English)', {'label_attr': {'class': 'form-label'}}) }}
-         {{ form_widget(form.content_en, {'attr': {'class': 'form-control', 'rows': 10, 'style': 'background-color: #868680;'}}) }}
-         {{ form_errors(form.content_en) }}
-      </div>
-
-      <hr>
-
-      <h5 class="mb-3">🇩🇪 Deutsch</h5>
-
-      <div class="mb-3">
-         {{ form_label(form.title_de, 'Titel (Deutsch)', {'label_attr': {'class': 'form-label'}}) }}
-         {{ form_widget(form.title_de, {'attr': {'class': 'form-control', 'style': 'background-color: #868680;'}}) }}
-         {{ form_errors(form.title_de) }}
-      </div>
-
-      <div class="mb-3">
-         {{ form_label(form.content_de, 'Inhalt (Deutsch)', {'label_attr': {'class': 'form-label'}}) }}
-         {{ form_widget(form.content_de, {'attr': {'class': 'form-control', 'rows': 10, 'style': 'background-color: #868680;'}}) }}
-         {{ form_errors(form.content_de) }}
-      </div>
-
-      <hr>
-
-      <div class="d-flex align-items-center justify-content-between mt-3 gap-2">
-
-         <div class="form-check mb-0">
-            {{ form_widget(form.public, {'attr': {'class': 'form-check-input'}}) }}
-            {{ form_label(form.public, null, {'label_attr': {'class': 'form-check-label mb-0'}}) }}
-         </div>
-
-         <div class="ms-auto d-flex gap-2">
-            <a href="{{ path('topic_show', {
+         <a href="{{ path('topic_show', {
                '_locale': app.request.locale,
                'slug': slug
-            }) }}" class="btn btn-secondary">
-               Powrót
-            </a>
+         }) }}" class="btn btn-secondary">
+               {{ 'button.back'|trans }}
+         </a>
 
-            <button type="submit" class="btn btn-success">
-               💾 Zapisz
-            </button>
-         </div>
+         <button type="submit" class="btn btn-success">
+               💾 {{ 'button.save'|trans }}
+         </button>
 
       </div>
+
+   </div>
 
    {{ form_end(form) }}
 
    <hr>
 
-   <h4>📸 Załaduj nowe zdjęcia</h4>
+   <h4>📸 {{ 'blog.images.upload_title'|trans }}</h4>
 
    <form action="{{ path('blog_image_upload', {
       '_locale': app.request.locale,
-      'slug_topic': slug
+      'slug_topic': slug,
+      'id': blog.id
    }) }}"
       method="post" enctype="multipart/form-data"
       class="d-flex gap-2 align-items-center">
@@ -101,12 +105,14 @@
       <input type="file" name="uploadedImages[]" multiple
              class="form-control" accept="image/*">
 
-      <button type="submit" class="btn btn-primary">Dodaj</button>
+      <button type="submit" class="btn btn-primary">
+         {{ 'blog.images.add'|trans }}
+      </button>
    </form>
 
    <hr>
 
-   <h4>📸 Załadowane zdjęcia:</h4>
+   <h4>📸 {{ 'blog.images.loaded_title'|trans }}</h4>
 
    {% if blog.images|length > 0 %}
 
@@ -132,9 +138,9 @@
 
                      <div class="d-flex justify-content-between align-items-center">
 
-                        <small class="text-muted">
-                           Pozycja: {{ image.position }}
-                        </small>
+                           <small class="text-muted">
+                              {{ 'blog.images.position'|trans }}: {{ image.position }}
+                           </small>
 
                         <form method="post"
                               action="{{ path('image_delete', {
@@ -142,13 +148,14 @@
                                  'slug_topic': slug,
                                  'id': image.id
                               }) }}"
-                              onsubmit="return confirm('Czy na pewno chcesz usunąć to zdjęcie?');">
+                              onsubmit="return confirm('{{ 'blog.images.confirm_delete'|trans|e('js') }}');">
 
                            <input type="hidden" name="_token"
-                                  value="{{ csrf_token('delete' ~ image.id) }}">
+                                 value="{{ csrf_token('delete' ~ image.id) }}">
 
                            <button class="btn btn-sm btn-danger" type="submit">
-                              <i class="bi bi-trash"></i> Usuń
+                              <i class="bi bi-trash"></i>
+                              {{ 'blog.images.delete'|trans }}
                            </button>
 
                         </form>
