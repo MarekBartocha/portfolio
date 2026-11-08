@@ -47,9 +47,9 @@
                     <h3 class="text-center">{{ blogTitle }}</h3>
 
                     <div class="blog-content">
-                        {{ blogContent|markdown|raw|replace({
-                            '[code]':'<pre><code>',
-                            '[/code]':'</code></pre>'
+                        {{ item.renderedContent|raw|replace({
+                            '[code]': '<pre><code>',
+                            '[/code]': '</code></pre>'
                         })|raw }}
                     </div>
 

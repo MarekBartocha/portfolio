@@ -25,8 +25,13 @@ final class BlogController extends AbstractController
     }
 
     #[Route('/{_locale}/blog/{slug}', name: 'public_topic_show')]
-    public function show(string $_locale, string $slug, TopicRepository $topicRepository, BlogRepository $blogRepository, BlogHelper $blogHelper): Response
-    {
+    public function show(
+        string $_locale,
+        string $slug,
+        TopicRepository $topicRepository,
+        BlogRepository $blogRepository,
+        BlogHelper $blogHelper
+    ): Response {
 
         $topic = $topicRepository->findOneBy(['slug' => $slug]);
 
@@ -34,14 +39,30 @@ final class BlogController extends AbstractController
             throw $this->createNotFoundException('Temat nie istnieje.');
         }
 
-        $blogs = $blogRepository->findBy(['topic' => $topic]);
+        // Pobierz tylko publiczne wpisy
+        $blogs = $blogRepository->findBy([
+            'topic' => $topic,
+            'public' => true
+        ]);
 
-        // Przetwórz treść blogów przez helper
         $renderedBlogs = [];
+
         foreach ($blogs as $blog) {
+
+            // Wybór treści według języka
+            $content = match ($_locale) {
+                'pl' => $blog->getContentPl(),
+                'en' => $blog->getContentEn(),
+                'de' => $blog->getContentDe(),
+                default => $blog->getContentPl(),
+            };
+
             $renderedBlogs[] = [
                 'blog' => $blog,
-                'renderedContent' => $blogHelper->renderBlogWithImages($blog->getContent(), $blog->getImages()),
+                'renderedContent' => $blogHelper->renderBlogWithImages(
+                    $content,
+                    $blog->getImages()
+                ),
             ];
         }
 
