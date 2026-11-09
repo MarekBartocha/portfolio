@@ -59,9 +59,10 @@ final class BlogController extends AbstractController
 
             $renderedBlogs[] = [
                 'blog' => $blog,
-                'renderedContent' => $blogHelper->renderBlogWithImages(
+               'renderedContent' => $blogHelper->renderBlogWithImages(
                     $content,
-                    $blog->getImages()
+                    $blog->getImages(),
+                    'blog-gallery-' . $blog->getId()
                 ),
             ];
         }

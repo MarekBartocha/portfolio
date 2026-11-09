@@ -188,9 +188,6 @@ img {
     background: rgb(80, 85, 78);
 }
 
-
-
-
 .blog-content img {
     display: block;
     margin-left: auto;
@@ -203,6 +200,15 @@ img {
     object-fit: cover;
     border: 3px solid #ddd;
     border-radius: 50%;
+}
+
+.blog-content .blog-image {
+    cursor: zoom-in;
+    transition: opacity 0.2s ease;
+}
+
+.blog-content .blog-image:hover {
+    opacity: 0.85;
 }
 
 @media (min-width: 768px) {

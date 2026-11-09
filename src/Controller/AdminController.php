@@ -126,7 +126,8 @@ final class AdminController extends AbstractController
                 'blog' => $blog,
                 'renderedContent' => $blogHelper->renderBlogWithImages(
                     $content,
-                    $blog->getImages()
+                    $blog->getImages(),
+                    'blog-gallery-' . $blog->getId()
                 ),
             ];
         }
